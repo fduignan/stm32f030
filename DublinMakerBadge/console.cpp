@@ -6,6 +6,7 @@ void console::begin()
     Timer.begin();
     Display.begin(Timer);    
     Controller.begin();
+    Sound.begin();
 // need to attach a timer callback for the sound system so that it can manage playback    
     random_seed();
     
@@ -227,7 +228,7 @@ void console::print(const char *Text, uint16_t len, uint16_t x, uint16_t y, uint
             Col++;
         }
         Display.putImage(x, y, FONT_WIDTH, FONT_HEIGHT, (const uint16_t *)TextBox);
-        x = x + FONT_HEIGHT + 2;
+        x = x + FONT_WIDTH + 2;
     }
 }
 void console::print(uint16_t Number, uint16_t x, uint16_t y, uint16_t ForeColour, uint16_t BackColour)

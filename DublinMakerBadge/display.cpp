@@ -33,11 +33,11 @@ void display::begin(timer &t)
     t.sleep(25); // wait   
     
     writeCommand(0x3A); // Set colour mode        
-    writeData8(0x55); // 16bits / pixel @ 64k colors
+    writeData8(0x55); // 16bits / pixel @ 64k colors 5-6-5 format 
     t.sleep(25); // wait   
     
     writeCommand(0x36);
-    writeData8(0x00);  // RGB Format
+    writeData8(0x08);  // RGB Format
     t.sleep(25); // wait   
     
     

@@ -21,6 +21,9 @@ extern void (*__init_array_end []) (void) __attribute__((weak));
 typedef void (*fptr)(void);
 // the section "vectors" is placed at the beginning of flash 
 // by the linker script
+#pragma GCC push_options
+#pragma GCC optimize ("O0")
+
 const fptr Vectors[] __attribute__((section(".vectors"))) ={
 	(fptr)0x20001000, 	/* Top of stack (4k) */ 
 	init,   		/* Reset Handler */
@@ -141,3 +144,4 @@ void Default_Handler()
 {
 	while(1);
 }
+#pragma GCC pop_options

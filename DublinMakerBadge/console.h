@@ -4,6 +4,7 @@
 #include "timer.h"
 #include "display.h"
 #include "controller.h"
+#include "sound.h"
 #define COLOUR(R,G,B) RGBToWord(R,G,B)
 
 class console
@@ -24,6 +25,7 @@ public:
     uint32_t random(uint32_t lower,uint32_t upper);
 // public member objects
     timer Timer;
+    sound Sound;
     controller Controller;
     
 // various functions that need to be declared but are handled internally (don't call them)    
@@ -32,7 +34,7 @@ public:
     display Display; // public but really should be used only internally (isolates the console from hardware dependencies)
 private:
     
-    int iabs(int x) // simple integer version of abs for use by grapchics functions
+    int iabs(int x) // simple integer version of abs for use by graphics functions
     {
         if (x < 0)
             return -x;

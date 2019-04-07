@@ -1,0 +1,417 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_udivsi3.o)
+                              /tmp/cceKWOdd.o (__aeabi_uidiv)
+/usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_dvmd_tls.o)
+                              /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+flash            0x0000000008000000 0x0000000000004000
+ram              0x0000000020000000 0x0000000000001000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /tmp/ccGIqamy.o
+LOAD /tmp/cceKWOdd.o
+LOAD /tmp/ccbn3UfS.o
+LOAD /tmp/ccxNQWBx.o
+LOAD /tmp/ccZIosgd.o
+LOAD /tmp/ccFqCf2S.o
+LOAD /tmp/ccS1Pzrz.o
+LOAD /tmp/ccASQPug.o
+LOAD /tmp/ccdZPUJX.o
+LOAD /tmp/ccQAXX7E.o
+LOAD /tmp/ccIfHYIm.o
+LOAD /tmp/ccvJStu4.o
+START GROUP
+LOAD /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a
+LOAD /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/libg.a
+LOAD /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc.a
+END GROUP
+                0x0000000008000000                . = ORIGIN (flash)
+
+.text           0x0000000008000000     0x2c7c
+ *(.vectors)
+ .vectors       0x0000000008000000       0xb4 /tmp/ccFqCf2S.o
+ *(.text)
+ .text          0x00000000080000b4       0xc0 /tmp/ccGIqamy.o
+                0x00000000080000b4                brick::show()
+                0x00000000080000d8                brick::hide()
+                0x0000000008000100                brick::brick(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000100                brick::brick(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x000000000800013c                brick::brick()
+                0x000000000800013c                brick::brick()
+                0x0000000008000158                brick::define(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+ .text          0x0000000008000174      0x594 /tmp/cceKWOdd.o
+                0x0000000008000174                console::fillRectangle(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x000000000800018a                console::drawCircle(unsigned short, unsigned short, unsigned short, unsigned short)
+                0x00000000080002cc                console::drawLineLowSlope(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000328                console::drawLineHighSlope(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000382                console::drawLine(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x00000000080003d6                console::drawRectangle(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x000000000800043a                console::fillCircle(unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000528                console::putPixel(unsigned short, unsigned short, unsigned short)
+                0x0000000008000532                console::putImage(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short const*)
+                0x0000000008000546                console::print(char const*, unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x00000000080005e0                console::print(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000670                console::prbs()
+                0x0000000008000698                console::random(unsigned long, unsigned long)
+                0x00000000080006ac                console::random_seed()
+                0x00000000080006de                console::begin()
+ .text          0x0000000008000708      0x12c /tmp/ccbn3UfS.o
+                0x0000000008000708                controller::begin()
+                0x00000000080007ac                controller::stopADC()
+                0x00000000080007d0                controller::getButtonState()
+                0x0000000008000810                controller::readTemperature()
+ .text          0x0000000008000834      0x2ac /tmp/ccxNQWBx.o
+                0x0000000008000834                display::RSLow()
+                0x0000000008000844                display::RSHigh()
+                0x0000000008000854                display::RSTLow()
+                0x0000000008000862                display::RSTHigh()
+                0x0000000008000870                display::writeCommand(unsigned char)
+                0x0000000008000880                display::writeData8(unsigned char)
+                0x0000000008000890                display::openAperture(unsigned short, unsigned short, unsigned short, unsigned short)
+                0x00000000080008fc                display::writeData16(unsigned short)
+                0x000000000800090c                display::putPixel(unsigned short, unsigned short, unsigned short)
+                0x000000000800092c                display::putImage(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short const*)
+                0x000000000800097c                display::fillRectangle(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x00000000080009cc                display::begin(timer&)
+ .text          0x0000000008000ae0      0x200 /tmp/ccZIosgd.o
+                0x0000000008000ae0                ibc::sendPacket(unsigned char, unsigned char, unsigned char, unsigned char*)
+                0x0000000008000b1c                ibc::packetAvailable()
+                0x0000000008000b1e                ibc::getPacket(unsigned char, unsigned char*)
+                0x0000000008000b20                ibc::getCHK(unsigned char, unsigned char*)
+                0x0000000008000b24                ibc::validatePacket(unsigned char, unsigned char*)
+                0x0000000008000b34                ibc::assertLineBusy()
+                0x0000000008000b48                ibc::deassertLineBusy()
+                0x0000000008000b58                ibc::OnLineBecomesBusy()
+                0x0000000008000b76                ibc::sendNAK()
+                0x0000000008000bb8                ibc::OnLineBecomesFree()
+                0x0000000008000c40                ibc::announce()
+                0x0000000008000c48                ibc::begin()
+ .text          0x0000000008000ce0      0x1a4 /tmp/ccFqCf2S.o
+                0x0000000008000ce0                initClock()
+                0x0000000008000d84                init_array()
+                0x0000000008000df4                init()
+                0x0000000008000e7c                Default_Handler()
+ .text          0x0000000008000e84      0x7f8 /tmp/ccS1Pzrz.o
+                0x0000000008000e84                FirePressed()
+                0x0000000008000eac                Explode(unsigned short, unsigned short)
+                0x0000000008000f10                playInvaders()
+ .text          0x000000000800167c      0x5cc /tmp/ccASQPug.o
+                0x000000000800167c                setup()
+                0x00000000080016b4                initADC()
+                0x00000000080016f8                readTemperature()
+                0x0000000008001708                debugScreen()
+                0x000000000800179c                DrawLogo(unsigned short)
+ .text          0x0000000008001c48      0x128 /tmp/ccdZPUJX.o
+                0x0000000008001c48                sound::begin()
+                0x0000000008001c84                sound::playTone(unsigned short, unsigned short)
+                0x0000000008001cfc                sound::stopTone()
+                0x0000000008001d1c                sound::SoundPlaying()
+                0x0000000008001d24                sound::playMelody(unsigned short const*, unsigned short const*, int)
+                0x0000000008001d4e                sound::ms_callback()
+ .text          0x0000000008001d70       0xe4 /tmp/ccQAXX7E.o
+                0x0000000008001d70                transferSPI8(unsigned char)
+                0x0000000008001da8                initSPI()
+                0x0000000008001e1c                transferSPI16(unsigned short)
+ .text          0x0000000008001e54      0x14c /tmp/ccIfHYIm.o
+                0x0000000008001e54                sprite::show()
+                0x0000000008001e7c                sprite::hide()
+                0x0000000008001ea4                sprite::sprite(unsigned short const*, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008001ea4                sprite::sprite(unsigned short const*, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008001ec8                sprite::sprite()
+                0x0000000008001ec8                sprite::sprite()
+                0x0000000008001ed8                sprite::redraw()
+                0x0000000008001ee8                sprite::move(unsigned short, unsigned short)
+                0x0000000008001f10                sprite::within(unsigned short, unsigned short)
+                0x0000000008001f40                sprite::touching(unsigned short, unsigned short)
+ .text          0x0000000008001fa0       0xb0 /tmp/ccvJStu4.o
+                0x0000000008001fa0                timer::begin()
+                0x0000000008001fd4                timer::attach(void (*)())
+                0x0000000008001ff4                timer::detach(void (*)())
+                0x0000000008002014                timer::sleep(unsigned long)
+                0x0000000008002028                Systick_Handler()
+ .text          0x0000000008002050      0x114 /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_udivsi3.o)
+                0x0000000008002050                __udivsi3
+                0x0000000008002050                __aeabi_uidiv
+                0x000000000800215c                __aeabi_uidivmod
+ .text          0x0000000008002164        0x4 /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_dvmd_tls.o)
+                0x0000000008002164                __aeabi_ldiv0
+                0x0000000008002164                __aeabi_idiv0
+                0x0000000008002168                . = ALIGN (0x4)
+                0x0000000008002168                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                0x0000000008002168                PROVIDE (__preinit_array_end, .)
+                0x0000000008002168                . = ALIGN (0x4)
+                0x0000000008002168                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*))
+ *(.init_array)
+                0x0000000008002168                PROVIDE (__init_array_end, .)
+                0x0000000008002168                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*))
+ *(.fini_array)
+                [!provide]                        PROVIDE (__fini_array_end, .)
+ *(.rodata)
+ .rodata        0x0000000008002168       0x10 /tmp/ccGIqamy.o
+                0x0000000008002168                vtable for brick
+ .rodata        0x0000000008002178      0x1e0 /tmp/cceKWOdd.o
+ .rodata        0x0000000008002358      0x2f8 /tmp/ccS1Pzrz.o
+ .rodata        0x0000000008002650      0x311 /tmp/ccASQPug.o
+ *fill*         0x0000000008002961        0x3 
+ .rodata        0x0000000008002964       0x10 /tmp/ccIfHYIm.o
+                0x0000000008002964                vtable for sprite
+ *(.comment)
+ .comment       0x0000000008002974       0x7f /tmp/ccGIqamy.o
+                                         0x80 (size before relaxing)
+ .comment       0x00000000080029f3       0x80 /tmp/cceKWOdd.o
+ .comment       0x00000000080029f3       0x80 /tmp/ccbn3UfS.o
+ .comment       0x00000000080029f3       0x80 /tmp/ccxNQWBx.o
+ .comment       0x00000000080029f3       0x80 /tmp/ccZIosgd.o
+ .comment       0x00000000080029f3       0x80 /tmp/ccFqCf2S.o
+ .comment       0x00000000080029f3       0x80 /tmp/ccS1Pzrz.o
+ .comment       0x00000000080029f3       0x80 /tmp/ccASQPug.o
+ .comment       0x00000000080029f3       0x80 /tmp/ccdZPUJX.o
+ .comment       0x00000000080029f3       0x80 /tmp/ccQAXX7E.o
+ .comment       0x00000000080029f3       0x80 /tmp/ccIfHYIm.o
+ .comment       0x00000000080029f3       0x80 /tmp/ccvJStu4.o
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000080029f3       0x31 /tmp/ccGIqamy.o
+ .ARM.attributes
+                0x0000000008002a24       0x31 /tmp/cceKWOdd.o
+ .ARM.attributes
+                0x0000000008002a55       0x31 /tmp/ccbn3UfS.o
+ .ARM.attributes
+                0x0000000008002a86       0x31 /tmp/ccxNQWBx.o
+ .ARM.attributes
+                0x0000000008002ab7       0x31 /tmp/ccZIosgd.o
+ .ARM.attributes
+                0x0000000008002ae8       0x31 /tmp/ccFqCf2S.o
+ .ARM.attributes
+                0x0000000008002b19       0x31 /tmp/ccS1Pzrz.o
+ .ARM.attributes
+                0x0000000008002b4a       0x31 /tmp/ccASQPug.o
+ .ARM.attributes
+                0x0000000008002b7b       0x31 /tmp/ccdZPUJX.o
+ .ARM.attributes
+                0x0000000008002bac       0x31 /tmp/ccQAXX7E.o
+ .ARM.attributes
+                0x0000000008002bdd       0x31 /tmp/ccIfHYIm.o
+ .ARM.attributes
+                0x0000000008002c0e       0x31 /tmp/ccvJStu4.o
+ .ARM.attributes
+                0x0000000008002c3f       0x1e /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000000008002c5d       0x1e /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_dvmd_tls.o)
+                0x0000000008002c7c                . = ALIGN (0x4)
+ *fill*         0x0000000008002c7b        0x1 
+
+.rodata.str1.1  0x0000000008002c7c       0x89
+ .rodata.str1.1
+                0x0000000008002c7c       0x61 /tmp/ccS1Pzrz.o
+ .rodata.str1.1
+                0x0000000008002cdd       0x28 /tmp/ccASQPug.o
+                                         0x48 (size before relaxing)
+
+.glue_7         0x0000000008002d08        0x0
+ .glue_7        0x0000000008002d08        0x0 linker stubs
+
+.glue_7t        0x0000000008002d08        0x0
+ .glue_7t       0x0000000008002d08        0x0 linker stubs
+
+.vfp11_veneer   0x0000000008002d08        0x0
+ .vfp11_veneer  0x0000000008002d08        0x0 linker stubs
+
+.v4_bx          0x0000000008002d08        0x0
+ .v4_bx         0x0000000008002d08        0x0 linker stubs
+
+.iplt           0x0000000008002d08        0x0
+ .iplt          0x0000000008002d08        0x0 /tmp/ccGIqamy.o
+
+.text.startup   0x0000000008002d08      0x2e4
+ .text.startup  0x0000000008002d08      0x2e4 /tmp/ccASQPug.o
+                0x0000000008002d08                main
+
+.rel.dyn        0x0000000008002fec        0x0
+ .rel.iplt      0x0000000008002fec        0x0 /tmp/ccGIqamy.o
+                0x0000000020000000                . = ORIGIN (ram)
+
+.data           0x0000000020000000        0x0 load address 0x0000000008002fec
+                0x0000000008002fec                INIT_DATA_VALUES = LOADADDR (.data)
+                0x0000000020000000                INIT_DATA_START = .
+ *(.data)
+ .data          0x0000000020000000        0x0 /tmp/ccGIqamy.o
+ .data          0x0000000020000000        0x0 /tmp/cceKWOdd.o
+ .data          0x0000000020000000        0x0 /tmp/ccbn3UfS.o
+ .data          0x0000000020000000        0x0 /tmp/ccxNQWBx.o
+ .data          0x0000000020000000        0x0 /tmp/ccZIosgd.o
+ .data          0x0000000020000000        0x0 /tmp/ccFqCf2S.o
+ .data          0x0000000020000000        0x0 /tmp/ccS1Pzrz.o
+ .data          0x0000000020000000        0x0 /tmp/ccASQPug.o
+ .data          0x0000000020000000        0x0 /tmp/ccdZPUJX.o
+ .data          0x0000000020000000        0x0 /tmp/ccQAXX7E.o
+ .data          0x0000000020000000        0x0 /tmp/ccIfHYIm.o
+ .data          0x0000000020000000        0x0 /tmp/ccvJStu4.o
+ .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_udivsi3.o)
+ .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_dvmd_tls.o)
+                0x0000000020000000                INIT_DATA_END = .
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                BSS_START = .
+
+.igot.plt       0x0000000020000000        0x0 load address 0x0000000008002fec
+ .igot.plt      0x0000000020000000        0x0 /tmp/ccGIqamy.o
+
+.bss            0x0000000020000000       0x40 load address 0x0000000008002fec
+ *(.bss)
+ .bss           0x0000000020000000        0x0 /tmp/ccGIqamy.o
+ .bss           0x0000000020000000       0x34 /tmp/cceKWOdd.o
+                0x0000000020000004                Console
+ .bss           0x0000000020000034        0x0 /tmp/ccbn3UfS.o
+ .bss           0x0000000020000034        0x0 /tmp/ccxNQWBx.o
+ .bss           0x0000000020000034        0x0 /tmp/ccZIosgd.o
+ .bss           0x0000000020000034        0x0 /tmp/ccFqCf2S.o
+ .bss           0x0000000020000034        0x4 /tmp/ccS1Pzrz.o
+ .bss           0x0000000020000038        0x0 /tmp/ccASQPug.o
+ .bss           0x0000000020000038        0x4 /tmp/ccdZPUJX.o
+ .bss           0x000000002000003c        0x0 /tmp/ccQAXX7E.o
+ .bss           0x000000002000003c        0x0 /tmp/ccIfHYIm.o
+ .bss           0x000000002000003c        0x4 /tmp/ccvJStu4.o
+ .bss           0x0000000020000040        0x0 /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_udivsi3.o)
+ .bss           0x0000000020000040        0x0 /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_dvmd_tls.o)
+                0x0000000020000040                . = ALIGN (0x4)
+                0x0000000020000040                BSS_END = .
+OUTPUT(main.elf elf32-littlearm)
+
+.debug_info     0x0000000000000000     0x983e
+ .debug_info    0x0000000000000000      0xc39 /tmp/ccGIqamy.o
+ .debug_info    0x0000000000000c39     0x167e /tmp/cceKWOdd.o
+ .debug_info    0x00000000000022b7      0x510 /tmp/ccbn3UfS.o
+ .debug_info    0x00000000000027c7      0xd6a /tmp/ccxNQWBx.o
+ .debug_info    0x0000000000003531      0x945 /tmp/ccZIosgd.o
+ .debug_info    0x0000000000003e76      0x367 /tmp/ccFqCf2S.o
+ .debug_info    0x00000000000041dd     0x1a54 /tmp/ccS1Pzrz.o
+ .debug_info    0x0000000000005c31     0x2093 /tmp/ccASQPug.o
+ .debug_info    0x0000000000007cc4      0x752 /tmp/ccdZPUJX.o
+ .debug_info    0x0000000000008416      0x38b /tmp/ccQAXX7E.o
+ .debug_info    0x00000000000087a1      0xd94 /tmp/ccIfHYIm.o
+ .debug_info    0x0000000000009535      0x309 /tmp/ccvJStu4.o
+
+.debug_abbrev   0x0000000000000000     0x1bf6
+ .debug_abbrev  0x0000000000000000      0x2d4 /tmp/ccGIqamy.o
+ .debug_abbrev  0x00000000000002d4      0x31b /tmp/cceKWOdd.o
+ .debug_abbrev  0x00000000000005ef      0x19d /tmp/ccbn3UfS.o
+ .debug_abbrev  0x000000000000078c      0x1f9 /tmp/ccxNQWBx.o
+ .debug_abbrev  0x0000000000000985      0x2ba /tmp/ccZIosgd.o
+ .debug_abbrev  0x0000000000000c3f      0x14a /tmp/ccFqCf2S.o
+ .debug_abbrev  0x0000000000000d89      0x2cb /tmp/ccS1Pzrz.o
+ .debug_abbrev  0x0000000000001054      0x335 /tmp/ccASQPug.o
+ .debug_abbrev  0x0000000000001389      0x27d /tmp/ccdZPUJX.o
+ .debug_abbrev  0x0000000000001606      0x151 /tmp/ccQAXX7E.o
+ .debug_abbrev  0x0000000000001757      0x2f3 /tmp/ccIfHYIm.o
+ .debug_abbrev  0x0000000000001a4a      0x1ac /tmp/ccvJStu4.o
+
+.debug_loc      0x0000000000000000     0x2ae2
+ .debug_loc     0x0000000000000000      0x255 /tmp/ccGIqamy.o
+ .debug_loc     0x0000000000000255     0x109f /tmp/cceKWOdd.o
+ .debug_loc     0x00000000000012f4       0x82 /tmp/ccbn3UfS.o
+ .debug_loc     0x0000000000001376      0x4f4 /tmp/ccxNQWBx.o
+ .debug_loc     0x000000000000186a      0x391 /tmp/ccZIosgd.o
+ .debug_loc     0x0000000000001bfb      0x1b2 /tmp/ccFqCf2S.o
+ .debug_loc     0x0000000000001dad      0x37f /tmp/ccS1Pzrz.o
+ .debug_loc     0x000000000000212c      0x42d /tmp/ccASQPug.o
+ .debug_loc     0x0000000000002559      0x164 /tmp/ccdZPUJX.o
+ .debug_loc     0x00000000000026bd      0x124 /tmp/ccQAXX7E.o
+ .debug_loc     0x00000000000027e1      0x1f9 /tmp/ccIfHYIm.o
+ .debug_loc     0x00000000000029da      0x108 /tmp/ccvJStu4.o
+
+.debug_aranges  0x0000000000000000      0x188
+ .debug_aranges
+                0x0000000000000000       0x20 /tmp/ccGIqamy.o
+ .debug_aranges
+                0x0000000000000020       0x20 /tmp/cceKWOdd.o
+ .debug_aranges
+                0x0000000000000040       0x20 /tmp/ccbn3UfS.o
+ .debug_aranges
+                0x0000000000000060       0x20 /tmp/ccxNQWBx.o
+ .debug_aranges
+                0x0000000000000080       0x20 /tmp/ccZIosgd.o
+ .debug_aranges
+                0x00000000000000a0       0x20 /tmp/ccFqCf2S.o
+ .debug_aranges
+                0x00000000000000c0       0x20 /tmp/ccS1Pzrz.o
+ .debug_aranges
+                0x00000000000000e0       0x28 /tmp/ccASQPug.o
+ .debug_aranges
+                0x0000000000000108       0x20 /tmp/ccdZPUJX.o
+ .debug_aranges
+                0x0000000000000128       0x20 /tmp/ccQAXX7E.o
+ .debug_aranges
+                0x0000000000000148       0x20 /tmp/ccIfHYIm.o
+ .debug_aranges
+                0x0000000000000168       0x20 /tmp/ccvJStu4.o
+
+.debug_ranges   0x0000000000000000       0xc0
+ .debug_ranges  0x0000000000000000       0x20 /tmp/ccGIqamy.o
+ .debug_ranges  0x0000000000000020       0x18 /tmp/ccS1Pzrz.o
+ .debug_ranges  0x0000000000000038       0x18 /tmp/ccASQPug.o
+ .debug_ranges  0x0000000000000050       0x70 /tmp/ccvJStu4.o
+
+.debug_line     0x0000000000000000     0x16e8
+ .debug_line    0x0000000000000000      0x176 /tmp/ccGIqamy.o
+ .debug_line    0x0000000000000176      0x2be /tmp/cceKWOdd.o
+ .debug_line    0x0000000000000434      0x15b /tmp/ccbn3UfS.o
+ .debug_line    0x000000000000058f      0x1f4 /tmp/ccxNQWBx.o
+ .debug_line    0x0000000000000783      0x1ac /tmp/ccZIosgd.o
+ .debug_line    0x000000000000092f      0x153 /tmp/ccFqCf2S.o
+ .debug_line    0x0000000000000a82      0x2c1 /tmp/ccS1Pzrz.o
+ .debug_line    0x0000000000000d43      0x3a4 /tmp/ccASQPug.o
+ .debug_line    0x00000000000010e7      0x16a /tmp/ccdZPUJX.o
+ .debug_line    0x0000000000001251      0x159 /tmp/ccQAXX7E.o
+ .debug_line    0x00000000000013aa      0x1e7 /tmp/ccIfHYIm.o
+ .debug_line    0x0000000000001591      0x157 /tmp/ccvJStu4.o
+
+.debug_str      0x0000000000000000     0x1424
+ .debug_str     0x0000000000000000      0x8b5 /tmp/ccGIqamy.o
+                                        0x931 (size before relaxing)
+ .debug_str     0x00000000000008b5      0x117 /tmp/cceKWOdd.o
+                                        0x98f (size before relaxing)
+ .debug_str     0x00000000000009cc       0xf3 /tmp/ccbn3UfS.o
+                                        0x365 (size before relaxing)
+ .debug_str     0x0000000000000abf       0x5e /tmp/ccxNQWBx.o
+                                        0x542 (size before relaxing)
+ .debug_str     0x0000000000000b1d      0x267 /tmp/ccZIosgd.o
+                                        0x4b6 (size before relaxing)
+ .debug_str     0x0000000000000d84      0x12a /tmp/ccFqCf2S.o
+                                        0x311 (size before relaxing)
+ .debug_str     0x0000000000000eae      0x2b0 /tmp/ccS1Pzrz.o
+                                        0xb45 (size before relaxing)
+ .debug_str     0x000000000000115e       0xff /tmp/ccASQPug.o
+                                        0xc17 (size before relaxing)
+ .debug_str     0x000000000000125d       0x8d /tmp/ccdZPUJX.o
+                                        0x41a (size before relaxing)
+ .debug_str     0x00000000000012ea       0x59 /tmp/ccQAXX7E.o
+                                        0x2f3 (size before relaxing)
+ .debug_str     0x0000000000001343       0x9b /tmp/ccIfHYIm.o
+                                        0xa2e (size before relaxing)
+ .debug_str     0x00000000000013de       0x46 /tmp/ccvJStu4.o
+                                        0x25d (size before relaxing)
+
+.debug_frame    0x0000000000000000      0x930
+ .debug_frame   0x0000000000000000       0xa0 /tmp/ccGIqamy.o
+ .debug_frame   0x00000000000000a0      0x1dc /tmp/cceKWOdd.o
+ .debug_frame   0x000000000000027c       0x58 /tmp/ccbn3UfS.o
+ .debug_frame   0x00000000000002d4      0x13c /tmp/ccxNQWBx.o
+ .debug_frame   0x0000000000000410       0xfc /tmp/ccZIosgd.o
+ .debug_frame   0x000000000000050c       0x88 /tmp/ccFqCf2S.o
+ .debug_frame   0x0000000000000594       0x68 /tmp/ccS1Pzrz.o
+ .debug_frame   0x00000000000005fc       0xb4 /tmp/ccASQPug.o
+ .debug_frame   0x00000000000006b0       0xa0 /tmp/ccdZPUJX.o
+ .debug_frame   0x0000000000000750       0x60 /tmp/ccQAXX7E.o
+ .debug_frame   0x00000000000007b0       0xe4 /tmp/ccIfHYIm.o
+ .debug_frame   0x0000000000000894       0x7c /tmp/ccvJStu4.o
+ .debug_frame   0x0000000000000910       0x20 /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/libgcc.a(_udivsi3.o)

@@ -1,0 +1,177 @@
+#define BLOCKCOUNT 80
+void DrawLogo(uint16_t Colour)
+{
+    // Draw the logo out of bricks
+    brick LogoBlocks[BLOCKCOUNT];
+    int Count=0;
+    int index;
+// Begin construction of image.  First the array of blocks that frames the text
+    for (index = 0; index < 10; index++)
+    {
+        LogoBlocks[Count].define(index*24,42,24,10,0xffff,0xffff);
+        LogoBlocks[Count].show();
+        Count++;
+    }
+    for (index = 0; index < 10; index++)
+    {
+        LogoBlocks[Count].define(index*24,74,24,10,0xffff,0xffff);
+        LogoBlocks[Count].show();
+        Count++;
+    }
+    LogoBlocks[Count].define(0,42,10,42,0xffff,0xffff);
+    LogoBlocks[Count].show();
+    Count++;
+    LogoBlocks[Count].define(230,42,10,42,0xffff,0xffff);
+    LogoBlocks[Count].show();
+    Count++;
+// Now construct the text
+    // The letter D
+    LogoBlocks[Count].define(10,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;        
+    LogoBlocks[Count].define(10,53,13,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    LogoBlocks[Count].define(10,68,13,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    LogoBlocks[Count].define(22,55,5,15,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    // The letter U
+    LogoBlocks[Count].define(29,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    LogoBlocks[Count].define(34,68,13,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(42,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+
+    // The letter B
+    LogoBlocks[Count].define(50,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    LogoBlocks[Count].define(55,53,12,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    LogoBlocks[Count].define(55,60,12,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    LogoBlocks[Count].define(55,68,12,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;        
+    LogoBlocks[Count].define(61,54,5,8,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(61,63,5,8,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    
+    
+    // The letter L
+    LogoBlocks[Count].define(70,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    LogoBlocks[Count].define(75,68,9,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+
+    // The letter I
+    LogoBlocks[Count].define(86,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+
+    // The letter N 
+    LogoBlocks[Count].define(95,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++; 
+    LogoBlocks[Count].define(100,53,8,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(107,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    
+
+    // The letter M
+    LogoBlocks[Count].define(120,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++; 
+    LogoBlocks[Count].define(125,53,8,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(133,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();    
+    LogoBlocks[Count].define(138,53,8,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(146,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();            
+    Count++;
+    
+    // The letter A
+    LogoBlocks[Count].define(154,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();            
+    Count++;
+    LogoBlocks[Count].define(159,53,8,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    LogoBlocks[Count].define(159,62,8,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(167,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();            
+    Count++;    
+    
+    // The letter k
+    LogoBlocks[Count].define(174,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();            
+    Count++;    
+    LogoBlocks[Count].define(179,62,6,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(184,56,5,6,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();            
+    Count++;
+    LogoBlocks[Count].define(184,62,5,10,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();            
+    Count++;  
+    
+    // The letter E
+    LogoBlocks[Count].define(191,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();            
+    Count++;    
+    LogoBlocks[Count].define(196,53,8,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(196,61,6,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(196,68,8,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+
+
+    // The letter R
+    LogoBlocks[Count].define(206,53,5,19,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();            
+    Count++;    
+    LogoBlocks[Count].define(211,53,8,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(211,62,8,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    LogoBlocks[Count].define(218,58,4,5,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;
+    LogoBlocks[Count].define(218,67,5,6,RGBToWord(0xff,0xf,0xf),RGBToWord(0,0,0xff));
+    LogoBlocks[Count].show();
+    Count++;    
+    
+
+    
+    
+}

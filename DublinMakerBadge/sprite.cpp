@@ -10,6 +10,10 @@ sprite::sprite(const uint16_t * img, uint16_t x, uint16_t y, uint16_t w, uint16_
     this->img=img;
     Visible = 0;      
 }
+sprite::sprite()
+{
+    Visible = 0;      
+}
 void sprite::show() {
     if (!Visible)
     {
@@ -20,7 +24,7 @@ void sprite::show() {
 void sprite::redraw() 
 {
     if (Visible)
-        Console.putImage(X,Y,w,h,img);    
+        show();
 }
 void sprite::hide() {
     if (Visible)
@@ -35,11 +39,11 @@ void sprite::move(uint16_t x, uint16_t y) {
     if (Visible)
     {
         // Hide the object first
-        Console.fillRectangle(X,Y,w,h,0);    
+        hide();
         X = x;
         Y = y;
         // Now show it
-        Console.putImage(X,Y,w,h,img);
+        show();
     }
     else
     {

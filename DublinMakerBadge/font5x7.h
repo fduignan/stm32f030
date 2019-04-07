@@ -19,6 +19,7 @@
 #include <stdint.h>
 // standard ascii 5x7 font
 // defines ascii characters 0x20-0x7F (32-127)
+#pragma pack(1)
 const uint8_t  Font5x7[] = {
 	0x00, 0x00, 0x00, 0x00, 0x00,// (space)
 	0x00, 0x00, 0x5F, 0x00, 0x00,// !

@@ -16,8 +16,10 @@ void initSPI(void)
 	RCC->AHBENR |= (1 << 18)+(1 << 17); 	// enable ports A and B
     GPIOA->MODER &= ~( (1 << 14)+(1 << 10)); // select Alternative function
     GPIOA->MODER |= ((1 << 15)+(1 << 11));  // for bits 5,7 (not using MISO)
-    GPIOA->AFRL &= 0x000fffff;		     // select Alt. Function 0
+    GPIOA->AFRL &= 0x0f0fffff;		     // select Alt. Function 0
 	
+	// set port bits up as high speed outputs
+	GPIOA->OSPEEDR |= (1 << 15) + (1 << 14) + (1 << 11) + (1 << 10);
 	// Now configure the SPI interface
 	drain = SPI1->SR;				// dummy read of SR to clear MODF	
 	// enable SSM, set SSI, enable SPI, PCLK/2, LSB First Master, Clock = 1 when idle
