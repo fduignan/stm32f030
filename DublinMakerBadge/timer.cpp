@@ -49,7 +49,7 @@ int timer::detach(fptr cb)
         
 }
 void timer::sleep(uint32_t dly)
-{
+{  // Do not call on this in interrupt context
     if (dly)
     {   
         milliseconds = 0;
