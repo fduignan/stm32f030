@@ -9,9 +9,8 @@ public:
     void begin();
     int attach(fptr cb);
     int detach(fptr cb);
-    void sleep(uint32_t dly);
+    void sleep(uint32_t dly); // Do not call on this in interrupt context
 private:
-    volatile uint32_t milliseconds;
     friend void Systick_Handler(void);
    
     fptr CallbackArray[MAX_TIMER_CALLBACKS];

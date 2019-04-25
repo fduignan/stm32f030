@@ -7,6 +7,7 @@ void console::begin()
     Display.begin(Timer);    
     Controller.begin();
     Sound.begin();
+    Ibc.begin(&Timer);
 // need to attach a timer callback for the sound system so that it can manage playback    
     random_seed();
     

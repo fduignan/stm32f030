@@ -62,9 +62,11 @@
  * Hardware 
  * PA9 will be used as TX in half duplex, opencollector mode
  * PA10 will be used as the "Busy" signal (busy = low)
+ * PA10 is wired through EXIT10.  
  *      
  */
 #include <stdint.h>
+#include "timer.h"
 #define MAX_PAYLOAD_SIZE 15
 #define MAX_PACKET_SIZE (MAX_PAYLOAD_SIZE + 5)
 #define BROADCAST_ADDRESS 0xff
@@ -72,30 +74,49 @@
 #define NAK_FLAG 0x80
 #define ACK_FLAG 0x40
 #define ANNOUNCE_FLAG 0x20
-
+#define LINE_IDLE_TIMEOUT 500
+#define LINE_SPEED 9600
+enum States {
+    IdleState,
+    ParsingState,    
+    SendingState,
+    AnnouncingState
+};
 class ibc {
 public: 
         ibc() {};
-        void begin();
-        int sendPacket(uint8_t Destination,uint8_t Flags,uint8_t len,uint8_t *Packet);
-        int packetAvailable();
+        void begin(timer *t);
+        int sendPacket(uint8_t Destination,uint8_t Flags,uint8_t len,uint8_t *Packet);    
         int getPacket(uint8_t len, uint8_t *Packet);
 private:
-        uint8_t getCHK(uint8_t len,uint8_t *Packet);
-        uint8_t validatePacket(uint8_t len, uint8_t *Packet);
+        void handle_rxdata(void);  // called in response to receive interrupt
+        void OnLineBecomesFree();  // called when line is idle
+        void OnLineBecomesBusy();  // called when line is busy
         void assertLineBusy();
         void deassertLineBusy();
-        void OnLineBecomesFree();
-        void OnLineBecomesBusy();
+        int lineIsFree(); // returns line state (1 => free)
+        
+        
+        uint8_t getCHK(uint8_t len,uint8_t *Packet);
+        uint8_t validatePacket(uint8_t len, uint8_t *Packet);
+        
         void sendNAK();
-        void announce();
+
+
+        void announce();        
+            
+        timer * Timer;
+        uint8_t MyAddress;
         uint8_t InputBuffer[MAX_PACKET_SIZE];
         uint8_t OutputBuffer[MAX_PACKET_SIZE];
-        uint8_t InputIndex;
-        uint8_t OutputIndex;
-        uint8_t OutputPacketLength;
-        uint8_t PacketReceived;
-        uint8_t PacketWaiting;
-        uint8_t MyAddress;
-       
+        volatile States State;
+        volatile uint32_t InputIndex;        
+        volatile uint32_t OutputPacketLength;
+        volatile uint32_t TXPacketWaiting;
+        volatile uint32_t RXPacketWaiting;
+        
+        
+// frient functions that are used to handle interrupts        
+        friend void USART1_Handler(void);
+        friend void Line_State_Handler(void);       
 };

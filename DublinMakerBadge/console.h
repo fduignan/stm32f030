@@ -5,6 +5,7 @@
 #include "display.h"
 #include "controller.h"
 #include "sound.h"
+#include "ibc.h"
 #define COLOUR(R,G,B) RGBToWord(R,G,B)
 
 class console
@@ -27,7 +28,7 @@ public:
     timer Timer;
     sound Sound;
     controller Controller;
-    
+    ibc Ibc; // Inter-Badge-Communications
 // various functions that need to be declared but are handled internally (don't call them)    
     console(){}; // Default constructor does nothing.
     void begin(); // initialize console and sub objects (called from init.cpp on boot) 

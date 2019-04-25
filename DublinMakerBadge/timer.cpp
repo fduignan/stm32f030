@@ -1,6 +1,7 @@
 #include "timer.h"
 #include "../include/STM32F0x0.h"
 static timer *pTimer; // need a pointer to the hopefully only instance of Timer for the interrupt service routine
+static volatile uint32_t milliseconds;
 void timer::begin()
 {
     pTimer = this;
@@ -58,7 +59,7 @@ void timer::sleep(uint32_t dly)
 }
 void Systick_Handler(void)
 {
-    pTimer->milliseconds++;
+    milliseconds++;
     for (int i=0;i < MAX_TIMER_CALLBACKS;i++)
     {
         if (pTimer->CallbackArray[i]!=0) 

@@ -4,6 +4,8 @@
 void init(void);
 void Default_Handler(void);
 void Systick_Handler(void);
+void USART1_Handler(void);
+void Line_State_Handler(void);
 int main(void);
 // The following are 'declared' in the linker script
 extern unsigned char  INIT_DATA_VALUES;
@@ -49,7 +51,7 @@ const fptr Vectors[] __attribute__((section(".vectors"))) ={
 	Default_Handler, 	/* 4: RCC */
 	Default_Handler, 	/* 5: EXTI0_1 */
 	Default_Handler, 	/* 6: EXTI2_3 */
-	Default_Handler, 	/* 7: EXTI4_5 */
+	Line_State_Handler, /* 7: EXTI4_15 */
 	Default_Handler, 	/* 8: Reserved */
 	Default_Handler, 	/* 9: DMA_CH1 */
 	Default_Handler, 	/* 10: DMA_CH2_3 */
@@ -69,7 +71,7 @@ const fptr Vectors[] __attribute__((section(".vectors"))) ={
 	Default_Handler, 	/* 24: I2C2 */
 	Default_Handler, 	/* 25: SPI1 */
 	Default_Handler, 	/* 26: SPI2 */
-	Default_Handler, 	/* 27: USART1 */
+	USART1_Handler, 	/* 27: USART1 */
 	Default_Handler 	/* 28: USART2 */
 };
 void initClock()

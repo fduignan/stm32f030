@@ -33,11 +33,7 @@ void initADC()
     ADC->SMPR = 0x07; // longest S+H time
     ADC->CR = 1; // enable the ADC
 }
-uint16_t readTemperature()
-{
-    
-    return Console.Controller.readTemperature();
-}
+
 void DrawLogo(uint16_t Colour)
 {
     brick Logo[LOGO_BRICK_COUNT];
@@ -227,15 +223,24 @@ void debugScreen()
         Console.print(Console.Controller.getButtonState(),130,10,RGBToWord(0xff,0xff,0xff),0);
         Console.print("Rand: ",6,0,20,RGBToWord(0xff,0xff,0xff),0);
         Console.print(Console.random(0,100),130,20,RGBToWord(0xff,0xff,0xff),0);
-        Console.Timer.sleep(1000);
+        uint8_t Pkt[4];
+        Pkt[0]=0xaa;
+        Pkt[1]=0x55;
+        Console.Ibc.sendPacket(0xfe,0,2,Pkt);
+        Console.Ibc.sendPacket(0xfd,0,2,Pkt);
+        Console.Timer.sleep(500);        
     }
 }
 
 int main()
-{
+{        
     int Count=0;
     setup();
     Console.begin();       
+    
+    // Use GPIOA bit 3 for debugging 
+    GPIOA->MODER |= (1 << 6);
+    GPIOA->MODER &= ~(1 << 7);
     int x,y;
     if (Console.Controller.getButtonState()==3)
     {

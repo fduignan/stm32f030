@@ -11,6 +11,7 @@ void display::begin(timer &t)
     // Reset pin is on PA6
     GPIOA->MODER |= (1 << 12);
     GPIOA->MODER &= ~(1 << 13);
+        
     // D/C pin is on PB1
     // Turn on Port B
     RCC->AHBENR |= (1 << 18);     
