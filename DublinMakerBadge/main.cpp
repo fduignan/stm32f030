@@ -80,7 +80,7 @@ void DrawLogo(uint16_t Colour)
         Logo[Count].show();        
     }
 /* Dublin breakout */
-    brick Bat(0, SCREEN_HEIGHT-20, 20, 3,COLOUR(255,255,255));    
+    brick Bat(0, SCREEN_HEIGHT-20, SCREEN_WIDTH, 3,COLOUR(255,255,255));    
     brick Ball(120, SCREEN_HEIGHT/2, 3, 3,COLOUR(255,255,255));
 #define MAX_BRICI_LEVELS 4
     int Level = MAX_BRICI_LEVELS;
@@ -107,7 +107,7 @@ void DrawLogo(uint16_t Colour)
         
         while (!LevelComplete)
         {            
-            if (Console.Controller.getButtonState() & 2)
+            if (Console.Controller.getButtonState() & Console.Controller.Right)
             {
                 // Move right
                 if (Bat.getX() < (SCREEN_WIDTH - Bat.getWidth()))
@@ -116,7 +116,7 @@ void DrawLogo(uint16_t Colour)
                 }
             }
             
-            if (Console.Controller.getButtonState() & 1)
+            if (Console.Controller.getButtonState() & Console.Controller.Left)
             {
                 // Move left
                 if (Bat.getX() > 0)
@@ -156,7 +156,7 @@ void DrawLogo(uint16_t Colour)
                     Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
                     Console.print("GAME OVER", 9, 40, 100, RGBToWord(0xff, 0xff, 0xff), 0);
                     Console.print("Fire to restart", 15, 8, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0));
-                    while (!(Console.Controller.getButtonState() & 4))
+                    while (!(Console.Controller.getButtonState() & Console.Controller.Fire))
                         Console.Timer.sleep(10);
                     return;
                 }
@@ -228,7 +228,8 @@ void debugScreen()
         Pkt[1]=0x55;
         Console.Ibc.sendPacket(0xfe,0,2,Pkt);
         Console.Ibc.sendPacket(0xfd,0,2,Pkt);
-        Console.Timer.sleep(500);        
+        Console.Sound.playTone(1000,200); 
+        Console.Timer.sleep(100);        
     }
 }
 
@@ -242,13 +243,13 @@ int main()
     GPIOA->MODER |= (1 << 6);
     GPIOA->MODER &= ~(1 << 7);
     int x,y;
-    if (Console.Controller.getButtonState()==3)
+    //if (Console.Controller.getButtonState()==(Console.Controller.Left+Console.Controller.Right))
     {
         debugScreen();
     }
+    
     while(1)
     {            
-        
 		for (Count = 0; Count < 20; Count++)
 		{
 			DrawLogo(0xffff);

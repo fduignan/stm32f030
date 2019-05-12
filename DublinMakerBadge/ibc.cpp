@@ -148,6 +148,7 @@ void ibc::OnLineBecomesFree()
             else if (InputBuffer[0]==MyAddress)
             {                
                 // it's a valid packet addressed to me
+                GPIOA->ODR |= (1<<3);   
                 RXPacketWaiting = 1;
             }
         }
@@ -163,7 +164,6 @@ void ibc::OnLineBecomesFree()
         while (OutputIndex < OutputPacketLength)
         {
             USART1->TDR = OutputBuffer[OutputIndex++];
-            //Timer->sleep(1+(10000/LINE_SPEED)); 
             while((USART1->ISR & (1 << 6))==0); // wait for transmission to complete
         }        
         TXPacketWaiting = 0;
@@ -246,7 +246,6 @@ void ibc::announce()
             // Did we get a NAK
             if (InputBuffer[2] & NAK_FLAG)            
                 MyAddress--;              
-            GPIOA->ODR |= (1<<3);   
         }
         else
         {

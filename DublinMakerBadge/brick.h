@@ -1,4 +1,4 @@
-    #include <stdint.h>
+#include <stdint.h>
 #include "console.h"
 #include "sprite.h"
 class brick: public sprite {

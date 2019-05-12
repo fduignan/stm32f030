@@ -4,9 +4,10 @@ console Console;
 void console::begin()
 {
     Timer.begin();
-    Display.begin(Timer);    
+    Display.begin(&Timer);    
     Controller.begin();
     Sound.begin();
+    Timer.attach(Sound.ms_callback);  // attach the callback for the sound system to allow contorl playback
     Ibc.begin(&Timer);
 // need to attach a timer callback for the sound system so that it can manage playback    
     random_seed();

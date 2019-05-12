@@ -109,7 +109,7 @@ void playInvaders()
     {
       // Show the defender
       Defender.redraw();
-      if (Console.Controller.getButtonState()&2)
+      if (Console.Controller.getButtonState() & Console.Controller.Right)
       {
         // Move right
         if (Defender.getX() < (SCREEN_WIDTH - 11))
@@ -118,7 +118,7 @@ void playInvaders()
         }
       }
 
-      if (Console.Controller.getButtonState()&1)
+      if (Console.Controller.getButtonState() & Console.Controller.Left)
       {
         // Move left
         if (Defender.getX() > 1)
@@ -291,7 +291,7 @@ int FirePressed()
     // return 1 if the user pressed 'Fire'
 // Some debouncing of the button is performed    
     static int PreviousState = 0;
-    if (Console.Controller.getButtonState() & 4)
+    if (Console.Controller.getButtonState() & Console.Controller.Fire)
     {
         if (PreviousState == 0)
         {

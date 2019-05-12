@@ -3,7 +3,7 @@
 #include "spi.h"
 #include "../include/STM32F0x0.h"
 
-void display::begin(timer &t)
+void display::begin(timer *t)
 {
     
     // Turn on Port A 
@@ -20,36 +20,36 @@ void display::begin(timer &t)
     
     
     RSTHigh(); // Drive reset high
-    t.sleep(25); // wait   
+    t->sleep(25); // wait   
     RSTLow(); // Drive reset low
-    t.sleep(25); // wait   
+    t->sleep(25); // wait   
     RSTHigh(); // Drive reset high
-    t.sleep(25); // wait    
+    t->sleep(25); // wait    
     
     
     writeCommand(0x1);  // software reset
-    t.sleep(150); // wait   
+    t->sleep(150); // wait   
     
     writeCommand(0x11);  //exit SLEEP mode
-    t.sleep(25); // wait   
+    t->sleep(25); // wait   
     
     writeCommand(0x3A); // Set colour mode        
     writeData8(0x55); // 16bits / pixel @ 64k colors 5-6-5 format 
-    t.sleep(25); // wait   
+    t->sleep(25); // wait   
     
     writeCommand(0x36);
     writeData8(0x08);  // RGB Format
-    t.sleep(25); // wait   
+    t->sleep(25); // wait   
     
     
     writeCommand(0x51); // maximum brightness
-    t.sleep(25); // wait   
+    t->sleep(25); // wait   
     
     writeCommand(0x21);    // display inversion off (datasheet is incorrect on this point)
     writeCommand(0x13);    // partial mode off                 
     writeCommand(0x29);    // display on
-    t.sleep(25); // wait   
-    writeCommand( 0x2c);   // put display in to write mode
+    t->sleep(25); // wait   
+    writeCommand(0x2c);   // put display in to write mode
     fillRectangle(0,0,SCREEN_WIDTH, SCREEN_HEIGHT, 0x00);  // black out the screen
 }
 void display::putPixel(uint16_t x, uint16_t y, uint16_t colour)

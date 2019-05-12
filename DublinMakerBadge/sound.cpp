@@ -12,11 +12,11 @@ void sound::begin()
     RCC->APB1ENR |= (1 << 8); 
     // Ensure that Port A is enabled
     RCC->AHBENR |= (1 << 17);
-    // Set Timer 3 to default values
+    // Set Timer 14 to default values
     TIM14->CR1 = 0; 
     // Enable PWM mode on channel 1
     TIM14->CCMR1_Output = (1 << 6)+(1 << 5); 
-    // Connect up Timer 14 Channel 0 output
+    // Connect up Timer 14 Channel 1 output
     TIM14->CCER |= (1<<0);
 }
 void sound::playTone(uint16_t Frequency, uint16_t ms)
@@ -26,7 +26,7 @@ void sound::playTone(uint16_t Frequency, uint16_t ms)
     GPIOA->MODER |= (1 << 9);
     //
     GPIOA->AFRL &= ~( (1<<19) + (1 << 17) + (1 << 16) ); // Timer is AF4
-    GPIOA->AFRH |= (1 << 18);
+    GPIOA->AFRL |= (1 << 18);
     // Will assume a 48MHz input frequency
     // The auto-reload register has a maximum value of 65536.  
     // This should map to the lowest frequency we would be interested in.
@@ -38,7 +38,7 @@ void sound::playTone(uint16_t Frequency, uint16_t ms)
     TIM14->CCR1 = TIM14->ARR/2; // 50 % Duty cycle
     TIM14->CNT = 0;
     TIM14->CR1 |= (1 << 0); // enable the timer        
-    tone_time = ms;    
+    pSound->tone_time = ms;    
 }
 void sound::stopTone()
 {

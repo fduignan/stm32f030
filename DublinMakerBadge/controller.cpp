@@ -42,23 +42,23 @@ uint16_t controller::getButtonState()
     uint16_t ReturnValue = 0;
     if (( GPIOF->IDR & (1 << 0) )==0)
     {
-        ReturnValue |= 1<<0;
+        ReturnValue |= Right;
     }
     if (( GPIOF->IDR & (1 << 1) )==0)
     {
-        ReturnValue |= 1<<1;
+        ReturnValue |= Down;
     }
     if (( GPIOA->IDR & (1 << 0) )==0)
     {
-        ReturnValue |= 1<<2;
+        ReturnValue |= Fire;
     }
     if (( GPIOA->IDR & (1 << 1) )==0)
     {
-        ReturnValue |= 1<<3;
+        ReturnValue |= Up;
     }
     if (( GPIOA->IDR & (1 << 2) )==0)
     {
-        ReturnValue |= 1<<4;
+        ReturnValue |= Left;
     }
     return ReturnValue;
 }
