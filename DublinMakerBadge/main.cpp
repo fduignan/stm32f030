@@ -228,7 +228,7 @@ void debugScreen()
         Pkt[1]=0x55;
         Console.Ibc.sendPacket(0xfe,0,2,Pkt);
         Console.Ibc.sendPacket(0xfd,0,2,Pkt);
-        Console.Sound.playTone(1000,200); 
+        Console.Sound.playTone(500,200); 
         Console.Timer.sleep(100);        
     }
 }
@@ -243,7 +243,7 @@ int main()
     GPIOA->MODER |= (1 << 6);
     GPIOA->MODER &= ~(1 << 7);
     int x,y;
-    //if (Console.Controller.getButtonState()==(Console.Controller.Left+Console.Controller.Right))
+    if (Console.Controller.getButtonState()==(Console.Controller.Left+Console.Controller.Right))
     {
         debugScreen();
     }
