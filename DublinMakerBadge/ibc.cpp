@@ -31,9 +31,9 @@ void ibc::begin(timer *t)
 // Turn on the pull-up resistors for PA9 and PA10
     GPIOA->PUPDR |= ( (1 << 18) + (1 << 20) );
     GPIOA->PUPDR &= ~( (1 << 19) + (1 << 21) );
-// assign alternate function to PA9 and output to PA10
-    GPIOA->MODER |= (1 << 19)+(1<<20);
-    GPIOA->MODER &= ~((1 << 18) + (1 << 21));
+// assign alternate function to PA9 and input to PA10
+    GPIOA->MODER |= (1 << 19);
+    GPIOA->MODER &= ~((1 << 18) + (1 << 21) +(1<<20) ); 
     GPIOA->AFRH &= ~(0xf0); // PA9 -> Serial TX = Alternate function 1
     GPIOA->AFRH |= (1 << 4);
     deassertLineBusy();
@@ -102,11 +102,15 @@ uint8_t ibc::validatePacket(uint8_t len, uint8_t *Packet)
 }
 void ibc::assertLineBusy()
 {
-     GPIOA->ODR &= ~(1 << 10);
+     GPIOA->ODR &= ~(1 << 10); // make the output state low
+     GPIOA->MODER |= (1 << 20); // make the pin an output
 }
 void ibc::deassertLineBusy()
 {
-    GPIOA->ODR |= (1 << 10);
+    // To deassert the line just put it into input mode 
+    // The pullup resistor should pull it high
+    GPIOA->MODER &= ~(1 << 20); // make the pin an input
+    
 }
 int ibc::lineIsFree()
 {

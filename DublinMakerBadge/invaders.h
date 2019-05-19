@@ -1,6 +1,6 @@
 // invaders.h
 #include "console.h"
-void playInvaders();
+void playInvaders(uint16_t demo_mode);
 //  An invader is shown below
 /*     
     ..........

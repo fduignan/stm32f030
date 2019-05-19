@@ -6,7 +6,7 @@
 brick::brick( uint16_t x, uint16_t y, uint16_t w, uint16_t h,  uint16_t fillcolour)
 {
     
-    this->Visible = 0;    
+    this->Visible = 0;        
     define(x,y,w,h,fillcolour);
 }
 brick::brick()
@@ -15,7 +15,7 @@ brick::brick()
 }
 
 void brick::define( uint16_t x, uint16_t y, uint16_t w, uint16_t h,uint16_t fillcolour)
-{    
+{       
     this->fillcolour = fillcolour;
     this->Visible = 0;    
     this->w = w;
@@ -27,9 +27,8 @@ void brick::define( uint16_t x, uint16_t y, uint16_t w, uint16_t h,uint16_t fill
 void brick::show()
 {
     //if (!Visible)
-    {
-                
-        Console.fillRectangle(X,Y,w,h,fillcolour);    
+    {                
+        Console.fillRectangle(X,Y,w,h,fillcolour);           
     }
     Visible=1;
     

@@ -6,9 +6,11 @@
 #include "timer.h"
 #include "sprite.h"
 #include "brick.h"
+#include "brici.h"
 //#include "imagedata.h"
 #include "invaders.h"
 #include "logo_bricks.h"
+#include "tennis.h"
 void setup()
 {
     // Turn on Port F
@@ -34,18 +36,21 @@ void initADC()
     ADC->CR = 1; // enable the ADC
 }
 
-void DrawLogo(uint16_t Colour)
+
+
+void DrawLogo(uint32_t demo_mode)
 {
     brick Logo[LOGO_BRICK_COUNT];
     int Count;
     volatile int BrickDataIndex = 0;    
     uint16_t x,y,w,h;
     uint16_t r,g,b;
-    Console.fillRectangle(0,0,SCREEN_WIDTH-1,SCREEN_HEIGHT-1,0);
-
-// The logo is defined in the header file  logo_bricks.h
+    uint16_t Colour;
+    uint16_t Brick_Count = LOGO_BRICK_COUNT;
+ // The logo is defined in the header file  logo_bricks.h
 // The colours are defined in this file using just 2 bits for each colour component (r,g,b): total 6 bits of colour
 // The following loop defines all of the bricks in memory and "expands" their colour definition to the 16 bits required by the display
+    Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT,0);
     for (Count = 0; Count < LOGO_BRICK_COUNT; Count++)
     {        
         x = brickattribs[BrickDataIndex];
@@ -77,141 +82,94 @@ void DrawLogo(uint16_t Colour)
         Colour = COLOUR(r,g,b); // convert the 3 x 8 bit values to a single 16 bit value        
         Logo[Count].define(x,y,w,h,Colour);                           
         BrickDataIndex += 5;
-        Logo[Count].show();        
-    }
-/* Dublin breakout */
-    brick Bat(0, SCREEN_HEIGHT-20, SCREEN_WIDTH, 3,COLOUR(255,255,255));    
-    brick Ball(120, SCREEN_HEIGHT/2, 3, 3,COLOUR(255,255,255));
-#define MAX_BRICI_LEVELS 4
-    int Level = MAX_BRICI_LEVELS;
-    int LevelComplete = 0;
-    int8_t BallCount = 5;
-    uint8_t Index;
-    int8_t BallXVelocity = 1;
-    int8_t BallYVelocity = 1;    
-    while (Level > 0)
-    {
-        Ball.move(Console.random(10, SCREEN_WIDTH-10), SCREEN_HEIGHT/2);
-        if (Console.random(0,2) > 0)
-            BallXVelocity = 1;
-        else
-            BallXVelocity = -1;
-        LevelComplete = 0;
-        BallYVelocity = -1;        
-        for (Index = BallCount; Index > 0; Index--)
-            Console.fillRectangle(SCREEN_WIDTH - Index * 15, SCREEN_HEIGHT-10, 10, 10, RGBToWord(0xff, 0xf, 0xf));        
-        Ball.show();
-        Bat.show();
-        Console.print("Level", 5, 5, SCREEN_HEIGHT-10, RGBToWord(0xff, 0xff, 0xff), RGBToWord(0, 0, 0));
-        Console.print(MAX_BRICI_LEVELS - Level + 1, 60, SCREEN_HEIGHT-10, RGBToWord(0xff, 0xff, 0xff), RGBToWord(0, 0, 0));
         
-        while (!LevelComplete)
-        {            
-            if (Console.Controller.getButtonState() & Console.Controller.Right)
+    }   
+    if (demo_mode == 0)
+    {
+        for (Count = 0; Count < LOGO_BRICK_COUNT; Count++)
+        {
+            Logo[Count].show();        
+        }
+
+    }
+    if (demo_mode==1)
+    {
+        for (Count = 0; Count < LOGO_BRICK_COUNT; Count++)
+        {
+            Logo[Count].show();        
+        }
+        Brici(Logo,Brick_Count,SCREEN_WIDTH,1);
+    }
+    if (demo_mode==2)
+    {
+        sprite Invader = { DefaultInvaderImage, 3, 3, 10, 12};
+        sprite AttackerMissile = { AttackerMissileImage, 0, 0, 5, 8  };
+        Invader.show();
+        Invader.move(Invader.getX()+Console.random(0,200),Invader.getY());
+        int XDirectionChange = 0;
+        int YDirectionChange = 0;
+        int x_step = 2;
+        int y_step = 1;
+        for (Count = 0; Count < LOGO_BRICK_COUNT; Count++)
+        {
+            Logo[Count].move(Logo[Count].getX(),Logo[Count].getY()+120);
+            Logo[Count].show();                    
+        }
+       
+        for (Count = 0; Count < 4000; Count++)
+        {
+            if (Console.Controller.getButtonState()) // exit demo if the user presses a button
+                return;
+            XDirectionChange=0;
+            YDirectionChange=0;
+            Invader.move(Invader.getX() + x_step, Invader.getY() + y_step);
+            if (Invader.getX() >= (SCREEN_WIDTH - Invader.getWidth()))
+                XDirectionChange = 1;
+            if (Invader.getX() == 0)
+                XDirectionChange = 1;
+            if (Invader.getY() > SCREEN_HEIGHT - 140)
             {
-                // Move right
-                if (Bat.getX() < (SCREEN_WIDTH - Bat.getWidth()))
+                YDirectionChange = 1;
+                if (Invader.getY() < 3)
                 {
-                    Bat.move(Bat.getX() + 2, Bat.getY()); // Move the bat faster than the ball
+                    YDirectionChange = 1;
                 }
             }
-            
-            if (Console.Controller.getButtonState() & Console.Controller.Left)
+            if (XDirectionChange) // Did an invader hit either edge?
+                x_step = -x_step; // if so, then reverse direction
+            if (YDirectionChange) // Did an invader hit either edge?
+                y_step = -y_step; // if so, then reverse direction
+            if (AttackerMissile.visible())
             {
-                // Move left
-                if (Bat.getX() > 0)
+                int16_t MissileTipX,MissileTipY;
+                MissileTipX = AttackerMissile.getX()+AttackerMissile.getWidth() / 2;
+                MissileTipY = AttackerMissile.getY()+AttackerMissile.getHeight() /2;
+                for (int Index = 0; Index < LOGO_BRICK_COUNT; Index++)
                 {
-                    Bat.move(Bat.getX() - 2, Bat.getY()); // Move the bat faster than the ball
+                    if (Logo[Index].visible())
+                    {
+                        if (Logo[Index].within(MissileTipX,MissileTipY))
+                        {
+                            Logo[Index].hide();
+                            AttackerMissile.hide();
+                           // Console.Sound.playTone(400,20);
+                        }
+                    }                                        
                 }
+                AttackerMissile.move(AttackerMissile.getX(),AttackerMissile.getY()+2);
+                if (AttackerMissile.getY() > SCREEN_HEIGHT)
+                    AttackerMissile.hide();
             }
+            else
+            {
+                AttackerMissile.show();
+                AttackerMissile.move(Invader.getX() + Invader.getWidth() / 2 - AttackerMissile.getWidth() / 2, Invader.getY() + AttackerMissile.getWidth() / 2);
+            }
+            Console.Timer.sleep(10);
             
-            if (Bat.touching(Ball.getX() + Ball.getWidth() / 2, Ball.getY() + Ball.getHeight() / 2))
-            { // Ball bounced off the bat
-                BallYVelocity = -BallYVelocity; 
-                Console.Sound.playTone(200,20);
-            }                        
-            Ball.move(Ball.getX() + BallXVelocity, Ball.getY() + BallYVelocity); // update ball position
-            if (Ball.getX() == 2) // bounced off left side?
-            {
-                BallXVelocity = -BallXVelocity;
-                Console.Sound.playTone(400,20);
-            }
-            if (Ball.getX() == SCREEN_WIDTH - 2) // bounced off right side?
-            {
-                BallXVelocity = -BallXVelocity;
-                Console.Sound.playTone(400,20);
-            }
-            if (Ball.getY() == 2)  // bounced off top? (behind the block)
-            {
-                BallYVelocity = -BallYVelocity;
-                Console.Sound.playTone(400,20);
-            }
-            
-            if (Ball.getY() >= Bat.getY() + Bat.getHeight() + 2)  // Did the ball go behind the bat?
-            {
-                BallCount--;  // Lost a ball!
-                if (BallCount == 0) // Any left?
-                {
-                    // Nope: hard luck, game over
-                    Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
-                    Console.print("GAME OVER", 9, 40, 100, RGBToWord(0xff, 0xff, 0xff), 0);
-                    Console.print("Fire to restart", 15, 8, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0));
-                    while (!(Console.Controller.getButtonState() & Console.Controller.Fire))
-                        Console.Timer.sleep(10);
-                    return;
-                }
-                // start a new ball moving in a random way
-                if (Console.random(0,100) & 1)
-                    BallXVelocity = 1;
-                else
-                    BallXVelocity = -1;
-                BallYVelocity = -1;
-                Ball.move(Console.random(10, SCREEN_WIDTH - 10), Console.random(90, 120));
-                Console.fillRectangle(SCREEN_WIDTH-5*15, SCREEN_HEIGHT-10, 120, 10, 0);  // wipe out the remaining lives area
-                for (Index = BallCount; Index > 0; Index--) //  draw remaining lives
-                    Console.fillRectangle(SCREEN_WIDTH - Index * 15, SCREEN_HEIGHT-10, 10, 10, RGBToWord(0xff, 0xf, 0xf));
-                
-            }
-            LevelComplete = 1;
-            // Check to see if the ball has hit any of the blocks
-            for (Index = 0; Index < LOGO_BRICK_COUNT; Index++)
-            {
-                if (Logo[Index].visible()) // any blocks left?
-                    LevelComplete = 0; // If yes then the level is not complete
-                    
-                int touch = 0;
-                // Check all 4 corners of the ball for touching
-                touch += Logo[Index].touching(Ball.getX(), Ball.getY());
-                if (touch == 0)
-                    touch = Logo[Index].touching(Ball.getX()+2, Ball.getY());
-                if (touch == 0)
-                    touch = Logo[Index].touching(Ball.getX(), Ball.getY()+2);
-                if (touch == 0)
-                    touch = Logo[Index].touching(Ball.getX()+2, Ball.getY()+2);
-                if (touch)
-                { // Block hit so hide it.
-                    Logo[Index].hide();  
-                    if ( (touch == 1) || (touch == 3) )
-                        BallYVelocity = -BallYVelocity;
-                    if ( (touch == 2) || (touch == 4) )
-                        BallXVelocity = -BallXVelocity;
-                    Console.Sound.playTone(1000,20);
-                }
-            }
-            // No Blocks left, Move to next level.
-            if ((LevelComplete == 1) && (Level > 0))
-            {
-                Level--;
-                Ball.hide();
-                Console.print("Level", 5, 5, SCREEN_HEIGHT-10, RGBToWord(0xff, 0xff, 0xff), RGBToWord(0, 0, 0));
-                Console.print(MAX_BRICI_LEVELS - Level + 1, 60, SCREEN_HEIGHT-10, RGBToWord(0xff, 0xff, 0xff), RGBToWord(0, 0, 0));
-                
-            }
-            Console.Timer.sleep(Level+5); // Slow the game to human speed
-            Bat.redraw(); // redraw bat as it might have lost a pixel due to collisions
-          //  Console.Timer.sleep(10); // Slow the game to human speed
         }
     }
+
 }
 void debugScreen()
 {
@@ -243,54 +201,51 @@ int main()
     GPIOA->MODER |= (1 << 6);
     GPIOA->MODER &= ~(1 << 7);
     int x,y;
-    if (Console.Controller.getButtonState()==(Console.Controller.Left+Console.Controller.Right))
+    if (Console.Controller.getButtonState()==(Console.Controller.Fire+Console.Controller.Right))
     {
         debugScreen();
     }
-    
-    while(1)
-    {            
-		for (Count = 0; Count < 20; Count++)
-		{
-			DrawLogo(0xffff);
-		}		
-		Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT-1,0);     
-        for (Count=0;Count < 200; Count++)
-        {
-            Console.fillCircle(Console.random(1,190),Console.random(50,190),Console.random(10,40),Console.random(10,65535));
-            Console.print("Dublin Maker",12,70,10,RGBToWord(0xff,0xff,0xff),0);
-            Console.print("2019",4,110,20,RGBToWord(0xff,0xff,0xff),0);            
-
+    Tennis();
+    while (1) 
+    {
+        // Present a menu to the user
+        DrawLogo(0);        
+        Console.print("Press Fire for Brici",sizeof("Press Fire for Brici")-1,20,140,RGBToWord(0xff,0xff,0xff),0);
+        Console.print("Press Left for Invaders",sizeof("Press Left for Invaders")-1,20,155,RGBToWord(0xff,0xff,0xff),0);
+        Console.print("Press Right for Tennis",sizeof("Press Right for Tennis")-1,20,170,RGBToWord(0xff,0xff,0xff),0);
+        uint32_t choice=0;
+        uint32_t Timeout=200;
+        do {
+            choice = Console.Controller.getButtonState();
+            Console.Timer.sleep(100);
         }
-        Console.fillRectangle(0,0,SCREEN_WIDTH-1,SCREEN_HEIGHT-1,0);
-        for (Count=0;Count < 200; Count++)
+        while ( (choice == 0) && (Timeout--) );
+        switch (choice)
         {
-            Console.fillRectangle(Console.random(1,199),Console.random(40,199),Console.random(10,40),Console.random(10,40),Console.random(10,65535));
-            Console.print("Dublin Maker",12,70,10,RGBToWord(0xff,0xff,0xff),0);
-            Console.print("2019",4,110,20,RGBToWord(0xff,0xff,0xff),0);            
-
-        }              
-        Console.fillRectangle(0,0,SCREEN_WIDTH-1,SCREEN_HEIGHT-1,0);
-        for (Count=0;Count < 200; Count++)
-        {
-            Console.drawCircle(Console.random(1,190),Console.random(50,190),Console.random(10,40),Console.random(10,65535));
-            Console.print("Dublin Maker",12,70,10,RGBToWord(0xff,0xff,0xff),0);            
-            Console.print("2019",4,110,20,RGBToWord(0xff,0xff,0xff),0);            
-
+            case Console.Controller.Fire : {
+                 ClassicBrici();
+                 break;
+            }
+            case Console.Controller.Left : {
+                 playInvaders(0);
+                 break;
+            }
+            case Console.Controller.Right : {
+                 Tennis();
+                 break;
+            }
+            default: {
+                while(Console.Controller.getButtonState()==0)
+                {            
+                    DrawLogo(1);
+                    Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT-1,0);             
+                    DrawLogo(2);
+                    Console.Timer.sleep(1000);                    
+                    Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT-1,0);                                                  
+                }
+                break;
+            }
         }
-        Console.fillRectangle(0,0,SCREEN_WIDTH-1,SCREEN_HEIGHT-1,0);
-        for (Count=0;Count < 200; Count++)
-        {
-            Console.drawRectangle(Console.random(1,199),Console.random(40,199),Console.random(10,40),Console.random(10,40),Console.random(10,65535));
-            Console.print("Dublin Maker",12,70,10,RGBToWord(0xff,0xff,0xff),0);
-            Console.print("2019",4,110,20,RGBToWord(0xff,0xff,0xff),0);            
-
-        }              
-        Console.fillRectangle(0,0,SCREEN_WIDTH-1,SCREEN_HEIGHT-1,0);
-        Console.print("Dublin Maker",12,70,10,RGBToWord(0xff,0xff,0xff),0);
-        Console.print("2019",4,110,20,RGBToWord(0xff,0xff,0xff),0);        
-        
-        Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT-1,0);                        
-        playInvaders();
+                                
     }
 }

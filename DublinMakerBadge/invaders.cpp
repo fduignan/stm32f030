@@ -6,7 +6,7 @@
 
 void Explode(uint16_t X, uint16_t Y);
 int FirePressed();
-void playInvaders()
+void playInvaders(uint16_t demo_mode)
 {
   // Variables for the Invaders game
 #define MAX_INVADERS 10
@@ -59,6 +59,7 @@ void playInvaders()
   uint16_t x_step = 2;
   uint16_t y_step = 1;
   uint8_t ActiveAttackerMissiles = 0;
+  uint32_t demo_count=0;
 
   // Initialization for the Invaders game
   int Index;
@@ -109,6 +110,11 @@ void playInvaders()
     {
       // Show the defender
       Defender.redraw();
+      if (demo_mode )
+      {
+          if (Console.Controller.getButtonState()) // user pushed a button?
+              return; // exit if in demo mode 
+      }
       if (Console.Controller.getButtonState() & Console.Controller.Right)
       {
         // Move right
@@ -179,6 +185,7 @@ void playInvaders()
           // Did any attacker missile hit the defender?
           if (Defender.within(AttackerMissiles[AttackerMissileCounter].getX() + AttackerMissiles[AttackerMissileCounter].getWidth() / 2, AttackerMissiles[AttackerMissileCounter].getY() + AttackerMissiles[AttackerMissileCounter].getHeight() / 2))
           {
+            Defender.hide();
             Explode(Defender.getX(), Defender.getY());
             DefenderCount --;
             AttackerMissiles[AttackerMissileCounter].hide(); // That missile has exploded
@@ -187,11 +194,15 @@ void playInvaders()
                 Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
                 Console.print("GAME OVER", 9, 40, 100, RGBToWord(0xff, 0xff, 0xff), 0);
                 Console.print("Fire to restart", 15, 8, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0));
-                while (!FirePressed())
-                    Console.Timer.sleep(10);
-                while (FirePressed());
+                if (!demo_mode)
+                {
+                    while (!FirePressed())
+                        Console.Timer.sleep(10);
+                    while (FirePressed());
+                }
                 return;
-            }
+            }            
+            Defender.show();
             Console.fillRectangle(SCREEN_WIDTH-5*15, SCREEN_HEIGHT-10, 120, 10, 0);  // wipe out the remaining lives area
             for (Index = DefenderCount; Index > 0; Index--) //  draw remaining lives
                 Console.fillRectangle(SCREEN_WIDTH - Index * 15, SCREEN_HEIGHT-10, 10, 10, RGBToWord(0xff, 0xf, 0xf));
@@ -268,7 +279,7 @@ void playInvaders()
   } // end of while (Level > 0)
   Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, RGBToWord(0, 0, 0xff));
   Console.print("VICTORY!", 8, 40, 100, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0xff));
-  Console.print("Fire to restart", 15, 8, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0xff));
+  Console.print("Fire to restart", 15, 8, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0xff));  
   while (!FirePressed())
       Console.Timer.sleep(10);
   while (FirePressed());
