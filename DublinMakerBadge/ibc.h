@@ -34,10 +34,7 @@
  * for a 15 byte transfer this takes 19.79ms
  * May have to drop the speed down to accommodate longer wire runs
  * 
- * Address assignment: On power up, random wait, send an ANNOUNCE broadcast packet
- * 0xff SRC 0x20 CHK
- * If some other device has this address then a NAK will be sent and a new ANNOUNCE with the next address is sent.
- * NAKS may get lost but not dealing with this - its not that critical a protocol
+ * Address assignment: This is handled by the application (game)
  * 
  * Error detection.  The CHK character will be used to validate packet reception and transmission.  When a sender 
  * sends data it also listens.  CRC checking can be performed on what it receives 
@@ -59,6 +56,9 @@
  * If valid packet not received then retry later.
  * If valid packet received then clear packet queue. 
  * 
+ * Use of the timer : It was necessary to change the line busy code to prevent a situation where a very narrow high or 
+ * low pulse is sent down the busy line.  This was done by managing the state of this line using a timer.  There is a 
+ * now a minimum wide for low and high pulses on this line (LINE_BUSY_MS)
  * Hardware 
  * PA9 will be used as TX in half duplex, opencollector mode
  * PA10 will be used as the "Busy" signal (busy = low)
@@ -76,6 +76,7 @@
 #define ANNOUNCE_FLAG 0x20
 #define LINE_IDLE_TIMEOUT 500
 #define LINE_SPEED 9600
+#define LINE_BUSY_MS 5
 enum States {
     IdleState,
     ParsingState,    
@@ -86,37 +87,45 @@ class ibc {
 public: 
         ibc() {};
         void begin(timer *t);
+        void setAddress(uint8_t newAddress) 
+        {
+            this->MyAddress = newAddress;
+        }
         int sendPacket(uint8_t Destination,uint8_t Flags,uint8_t len,uint8_t *Packet);    
         int getPacket(uint8_t len, uint8_t *Packet);
+        uint8_t getAddress() 
+        {
+            return this->MyAddress;
+        }
 private:
         void handle_rxdata(void);  // called in response to receive interrupt
         void OnLineBecomesFree();  // called when line is idle
         void OnLineBecomesBusy();  // called when line is busy
         void assertLineBusy();
         void deassertLineBusy();
-        int lineIsFree(); // returns line state (1 => free)
-        
-        
+        int lineIsFree(); // returns line state (1 => free)            
         uint8_t getCHK(uint8_t len,uint8_t *Packet);
-        uint8_t validatePacket(uint8_t len, uint8_t *Packet);
-        
-        void sendNAK();
-
-
-        void announce();        
-            
+        uint8_t validatePacket(uint8_t len, uint8_t *Packet);        
+        void sendNAK();            
         timer * Timer;
         uint8_t MyAddress;
         uint8_t InputBuffer[MAX_PACKET_SIZE];
         uint8_t OutputBuffer[MAX_PACKET_SIZE];
         volatile States State;
+        volatile uint32_t LineBusyTimer;
+        volatile uint32_t TxPause;
         volatile uint32_t InputIndex;        
         volatile uint32_t OutputPacketLength;
         volatile uint32_t TXPacketWaiting;
         volatile uint32_t RXPacketWaiting;
         
+        void send(void);
+       
         
 // frient functions that are used to handle interrupts        
         friend void USART1_Handler(void);
         friend void Line_State_Handler(void);       
+        static void LineBusyCallback(void);
+        
+        
 };

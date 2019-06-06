@@ -174,20 +174,13 @@ void DrawLogo(uint32_t demo_mode)
 void debugScreen()
 {
     while(1)
-    {
-        
-        Console.fillRectangle(0,0,SCREEN_WIDTH-1,SCREEN_HEIGHT-1,0);
-        Console.print("Button state :",14,0,10,RGBToWord(0xff,0xff,0xff),0);
-        Console.print(Console.Controller.getButtonState(),130,10,RGBToWord(0xff,0xff,0xff),0);
-        Console.print("Rand: ",6,0,20,RGBToWord(0xff,0xff,0xff),0);
-        Console.print(Console.random(0,100),130,20,RGBToWord(0xff,0xff,0xff),0);
+    {                
         uint8_t Pkt[4];
         Pkt[0]=0xaa;
         Pkt[1]=0x55;
         Console.Ibc.sendPacket(0xfe,0,2,Pkt);
-        Console.Ibc.sendPacket(0xfd,0,2,Pkt);
-        Console.Sound.playTone(500,200); 
-        Console.Timer.sleep(100);        
+        //Console.Ibc.sendPacket(0xfd,0,2,Pkt);        
+        Console.Timer.sleep(20);        
     }
 }
 
@@ -205,7 +198,6 @@ int main()
     {
         debugScreen();
     }
-    Tennis();
     while (1) 
     {
         // Present a menu to the user
@@ -223,29 +215,27 @@ int main()
         switch (choice)
         {
             case Console.Controller.Fire : {
-                 ClassicBrici();
+                 ClassicBrici();                 
                  break;
             }
             case Console.Controller.Left : {
-                 playInvaders(0);
+                 playInvaders(0);                 
                  break;
             }
             case Console.Controller.Right : {
-                 Tennis();
+                 Tennis();                 
                  break;
             }
-            default: {
-                while(Console.Controller.getButtonState()==0)
-                {            
-                    DrawLogo(1);
-                    Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT-1,0);             
-                    DrawLogo(2);
-                    Console.Timer.sleep(1000);                    
-                    Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT-1,0);                                                  
-                }
+            default: {                
+                DrawLogo(1);
+                Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT,0);             
+                DrawLogo(2);
+                Console.Timer.sleep(1000);                    
+                Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT,0);                                                                  
                 break;
             }
         }
-                                
+        while(Console.Controller.getButtonState()) // wait for buttons to be released
+            Console.Timer.sleep(20);
     }
 }

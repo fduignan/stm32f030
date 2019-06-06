@@ -68,12 +68,15 @@ void Brici(brick *Bricks, uint16_t Brick_Count, uint16_t BatWidth,uint16_t demo_
     int8_t BallXVelocity = 1;
     int8_t BallYVelocity = 1;   
     uint32_t BatHits=0;
-    for (Index = 0; Index < Brick_Count; Index++)
-    {
-        Bricks[Index].show();
-    }
+
     while (Level > 0)
     {
+        for (Index = 0; Index < Brick_Count; Index++)
+        {
+            Bricks[Index].show();
+            if (!demo_mode)
+                Console.drawRectangle(Bricks[Index].getX(),Bricks[Index].getY(),Bricks[Index].getWidth(),Bricks[Index].getHeight(),0);
+        }
         Ball.move(Console.random(10, SCREEN_WIDTH-10), SCREEN_HEIGHT/2);
         if (Console.random(0,2) > 0)
             BallXVelocity = 1;
@@ -90,6 +93,8 @@ void Brici(brick *Bricks, uint16_t Brick_Count, uint16_t BatWidth,uint16_t demo_
         
         while (!LevelComplete)
         {            
+            if ( (demo_mode) && Console.Controller.getButtonState() )
+                return;
             if (Console.Controller.getButtonState() & Console.Controller.Right)
             {
                 // Move right
@@ -115,11 +120,6 @@ void Brici(brick *Bricks, uint16_t Brick_Count, uint16_t BatWidth,uint16_t demo_
                     Console.Sound.playTone(200,20);
                 if (demo_mode) 
                 {
-                    if (Console.Controller.getButtonState())
-                    {
-                        // Someone pushed a button - get out of demo mode
-                        return;
-                    }
                     BatHits++;                
                     if (BatHits >= DEMO_HITS)
                     {
@@ -154,8 +154,8 @@ void Brici(brick *Bricks, uint16_t Brick_Count, uint16_t BatWidth,uint16_t demo_
                 {
                     // Nope: hard luck, game over
                     Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
-                    Console.print("GAME OVER", 9, 40, 100, RGBToWord(0xff, 0xff, 0xff), 0);
-                    Console.print("Fire to restart", 15, 8, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0));
+                    Console.print("GAME OVER", 9, 80, 100, RGBToWord(0xff, 0xff, 0xff), 0);
+                    Console.print("Fire to restart", 15, 60, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0));
                     while (!(Console.Controller.getButtonState() & Console.Controller.Fire))
                         Console.Timer.sleep(10);
                     return;

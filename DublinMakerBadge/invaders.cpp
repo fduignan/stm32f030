@@ -192,8 +192,8 @@ void playInvaders(uint16_t demo_mode)
             if (DefenderCount == 0) 
             {   // All defenders are dead :(
                 Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
-                Console.print("GAME OVER", 9, 40, 100, RGBToWord(0xff, 0xff, 0xff), 0);
-                Console.print("Fire to restart", 15, 8, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0));
+                Console.print("GAME OVER", 9, 80, 100, RGBToWord(0xff, 0xff, 0xff), 0);
+                Console.print("Fire to restart", 15, 60, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0));
                 if (!demo_mode)
                 {
                     while (!FirePressed())

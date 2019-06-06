@@ -1,0 +1,34 @@
+controller.cpp:    GPIOA->MODER &= ~(0x3f); // PA0 bits 0,1,2 are inputs    
+controller.cpp:    GPIOA->PUPDR &= ~(0x3f);
+controller.cpp:    GPIOA->PUPDR |= (1 << 4) + (1 << 2) + (1 << 0);
+controller.cpp:    if (( GPIOA->IDR & (1 << 0) )==0)
+controller.cpp:    if (( GPIOA->IDR & (1 << 1) )==0)
+controller.cpp:    if (( GPIOA->IDR & (1 << 2) )==0)
+display.cpp:    GPIOA->MODER |= (1 << 12);
+display.cpp:    GPIOA->MODER &= ~(1 << 13);
+display.cpp:    GPIOA->ODR &= ~(1 << 6); // Drive reset low
+display.cpp:    GPIOA->ODR |= (1 << 6); // Drive reset high
+ibc.cpp:    GPIOA->OTYPER |= ( (1 << 9) + (1 << 10) );
+ibc.cpp:    GPIOA->PUPDR |= ( (1 << 18) + (1 << 20) );
+ibc.cpp:    GPIOA->PUPDR &= ~( (1 << 19) + (1 << 21) );
+ibc.cpp:    GPIOA->MODER |= (1 << 19);
+ibc.cpp:    GPIOA->MODER &= ~((1 << 18) + (1 << 21) +(1<<20) ); 
+ibc.cpp:    GPIOA->AFRH &= ~(0xf0); // PA9 -> Serial TX = Alternate function 1
+ibc.cpp:    GPIOA->AFRH |= (1 << 4);
+ibc.cpp:     GPIOA->ODR &= ~(1 << 10); // make the output state low
+ibc.cpp:     GPIOA->MODER |= (1 << 20); // make the pin an output
+ibc.cpp:    GPIOA->MODER &= ~(1 << 20); // make the pin an input
+ibc.cpp:    if (GPIOA->IDR & (1 << 10))
+ibc.cpp:                GPIOA->ODR |= (1<<3);   
+ibc.cpp:    if (GPIOA->IDR & (1 << 10))
+main.cpp:    GPIOA->MODER |= (1 << 6);
+main.cpp:    GPIOA->MODER &= ~(1 << 7);
+sound.cpp:    GPIOA->MODER &= ~(1 << 8); // Select alternate function
+sound.cpp:    GPIOA->MODER |= (1 << 9);
+sound.cpp:    GPIOA->AFRL &= ~( (1<<19) + (1 << 17) + (1 << 16) ); // Timer is AF4
+sound.cpp:    GPIOA->AFRL |= (1 << 18);
+sound.cpp:    GPIOA->MODER &= ~((1 << 8)+(1 << 9)); // Select high impedance input function	
+spi.cpp:    GPIOA->MODER &= ~( (1 << 14)+(1 << 10)); // select Alternative function
+spi.cpp:    GPIOA->MODER |= ((1 << 15)+(1 << 11));  // for bits 5,7 (not using MISO)
+spi.cpp:    GPIOA->AFRL &= 0x0f0fffff;		     // select Alt. Function 0
+spi.cpp:	GPIOA->OSPEEDR |= (1 << 15) + (1 << 14) + (1 << 11) + (1 << 10);

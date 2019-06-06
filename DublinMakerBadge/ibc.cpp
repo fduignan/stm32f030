@@ -7,6 +7,9 @@ void ibc::begin(timer *t)
 {
     pibc = this;
     Timer = t;  // Don't use timer in interrupt context! i.e. do not use in OnLineBecomesBusy or OnLineBecomesFree or in the handle_rxdata function
+    LineBusyTimer = 0;
+    TxPause = 1;
+    Timer->attach(LineBusyCallback);
     InputIndex = 0;    
     RXPacketWaiting = 0;
     TXPacketWaiting = 0;    
@@ -46,8 +49,7 @@ void ibc::begin(timer *t)
     EXTI->RTSR |= (1 << 10);
     EXTI->FTSR |= (1 << 10);
     NVIC->ISER |= (1 << 7);
-    
-    announce();
+
 }
 int ibc::sendPacket(uint8_t Destination,uint8_t Flags,uint8_t len,uint8_t *Packet)
 {
@@ -75,7 +77,19 @@ int ibc::sendPacket(uint8_t Destination,uint8_t Flags,uint8_t len,uint8_t *Packe
 
 int ibc::getPacket(uint8_t len, uint8_t *Packet)
 {
-    return 0;
+    if (RXPacketWaiting)
+    {     
+        
+        for (int i=0;i < len; i++)
+        {
+            if (i < len)
+                Packet[i]=InputBuffer[i+3]; // skip first 3 bytes of Input buffer (header)
+        }
+        RXPacketWaiting = 0;
+        return len;
+    }
+    else
+        return -1;
 }
 uint8_t ibc::getCHK(uint8_t len,uint8_t *Packet)
 {
@@ -88,7 +102,6 @@ uint8_t ibc::getCHK(uint8_t len,uint8_t *Packet)
 }
 uint8_t ibc::validatePacket(uint8_t len, uint8_t *Packet)
 {
-    return 1;
     // Assumption : last byte in packet is the checksum
     uint8_t crc=getCHK(len-1,Packet);
     if (crc == Packet[len-1])
@@ -104,6 +117,7 @@ void ibc::assertLineBusy()
 {
      GPIOA->ODR &= ~(1 << 10); // make the output state low
      GPIOA->MODER |= (1 << 20); // make the pin an output
+     LineBusyTimer = LINE_BUSY_MS;
 }
 void ibc::deassertLineBusy()
 {
@@ -121,47 +135,16 @@ int ibc::lineIsFree()
 }
 void ibc::OnLineBecomesFree()
 {
-    if (State == AnnouncingState)
-        return;
-    if (InputIndex > 0)
-    {
-        State=ParsingState;
-        // Some data was received.  Try to validate it as a packet
-        if (validatePacket(InputIndex,InputBuffer))
-        {
-             // A valid packet was received
-            if (InputBuffer[0]==BROADCAST_ADDRESS)
-            {                    
-                // Got a broadcast packet, check the flags field
-                if (InputBuffer[2] & ANNOUNCE_FLAG)
-                {
-                    // It's an announce frame
-                    if (InputBuffer[1]==MyAddress)
-                    {
-                        // I have this address                       
-                        sendNAK();
-                        InputIndex = 0;
-                    }
-                }
-                // Got a broadcast packet, check the flags field
-                if (InputBuffer[2] & NAK_FLAG)
-                {
-                    // It's a NAK signal.
-                }
-            }
-            else if (InputBuffer[0]==MyAddress)
-            {                
-                // it's a valid packet addressed to me
-                GPIOA->ODR |= (1<<3);   
-                RXPacketWaiting = 1;
-            }
-        }
-        State=IdleState;
-    }
+    TxPause = 5;
+    return;       
+}
+void ibc::send(void)
+{ 
     if (TXPacketWaiting)
-    {
-        State=SendingState;
+    {        
         // Line is free so send a pending packet
+        if (!lineIsFree()) return;
+        State=SendingState;
         assertLineBusy();
         // Will not do interrupt driven transmission for now - polled is fine
         uint32_t OutputIndex = 0;
@@ -170,8 +153,7 @@ void ibc::OnLineBecomesFree()
             USART1->TDR = OutputBuffer[OutputIndex++];
             while((USART1->ISR & (1 << 6))==0); // wait for transmission to complete
         }        
-        TXPacketWaiting = 0;
-        deassertLineBusy();        
+        TXPacketWaiting = 0;        
         State=IdleState;
     }
 }
@@ -199,69 +181,7 @@ void ibc::sendNAK()
         USART1->TDR = NAK_PACKET[index++];
         while((USART1->ISR & (1 << 6))==0); // wait for transmission to complete
     }    
-    deassertLineBusy();
 }
-
-
-void ibc::announce()
-{
-    uint8_t AnnouncePacket[4];
-    uint8_t index;
-    State=AnnouncingState;
-    RXPacketWaiting = 0;
-    AnnouncePacket[0] = BROADCAST_ADDRESS;
-    AnnouncePacket[2] = ANNOUNCE_FLAG;
-    MyAddress = BROADCAST_ADDRESS-1;
-    while (MyAddress)
-    {        
-        AnnouncePacket[1] = MyAddress;                
-        AnnouncePacket[3] = getCHK(3,AnnouncePacket);
-               
-        int Timeout=LINE_IDLE_TIMEOUT; // wait for the line to become free.
-        while (lineIsFree()==0)
-        {
-            Timeout--;
-            Timer->sleep(1);
-        }                        
-        if (!Timeout)
-        {
-            // Line is permanently busy - must be some kind of fault
-            MyAddress = 0; // not a valid address 
-            break;
-        }
-        
-        assertLineBusy();
-        index = 0;                
-        while (index < 4)
-        {   
-            USART1->TDR = AnnouncePacket[index++];
-            while((USART1->ISR & (1 << 6))==0); // wait for transmission to complete
-        }        
-        deassertLineBusy();                                      
-        InputIndex=0;
-        Timeout=20; // wait up to 20 byte periods for a NAK
-        while (Timeout && (InputIndex < 4) ) 
-        {
-            Timeout--;
-            Timer->sleep(1+(10000/LINE_SPEED)); 
-        }
-        if (InputIndex>=4)
-        {            
-            // Did we get a NAK
-            if (InputBuffer[2] & NAK_FLAG)            
-                MyAddress--;              
-        }
-        else
-        {
-            // NAK not received so exit with this address.
-            
-            break;
-        }        
-    }
-    State=IdleState;
-}
-
-
 void ibc::handle_rxdata()
 {
     uint8_t rxdata;
@@ -272,8 +192,34 @@ void ibc::handle_rxdata()
         {
             InputBuffer[InputIndex]=rxdata;
             InputIndex++;
+            if (InputIndex > 2) // all of header received?
+            {
+                if (InputIndex == ((InputBuffer[2] & 0x0f)+4)) // received all bytes?
+                    RXPacketWaiting = validatePacket(InputIndex,InputBuffer);
+            }
         }
     }
+}
+void ibc::LineBusyCallback(void)
+{
+    if (pibc->LineBusyTimer)
+    {
+        pibc->LineBusyTimer--;
+        if (pibc->LineBusyTimer == 0)
+        {
+            pibc->deassertLineBusy();
+        }
+    }
+    else
+    {
+       
+        if (pibc->TXPacketWaiting)
+        {
+            if (!pibc->TxPause--)
+                pibc->send();
+        }
+    }
+    
 }
 void USART1_Handler(void)
 {
