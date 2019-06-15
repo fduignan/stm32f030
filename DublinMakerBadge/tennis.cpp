@@ -54,7 +54,13 @@ void Tennis(void)
     {
         return; // game cancelled
     }
-    Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_WIDTH, 0);        
+    Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_WIDTH, 0); 
+    if (!LeftSide)
+    {
+        Console.print("Press Fire to serve",sizeof("Press Fire to serve")-1,10,30,COLOUR(255,255,255),COLOUR(0,0,0));
+        Console.Timer.sleep(1000);
+        Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_WIDTH, 0); 
+    }
     brick Bat(COURT_WIDTH, COURT_HEIGHT+TopY - 35, 2, 40 ,COLOUR(255,255,255));        
     brick Ball(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 5, 5,COLOUR(255,255,64));
     Bat.show();    
@@ -89,8 +95,9 @@ void Tennis(void)
             // Hit the ball?
             if ( (Bat.touching(Ball.getX() + (Ball.getWidth()/2) , Ball.getY() + (Ball.getHeight() / 2)) )|| (Bat.touching(Ball.getX() - (Ball.getWidth()/2) , Ball.getY() + (Ball.getHeight() / 2)) ) )
             {            
-                BallXVelocity = -BallXVelocity;            
+                BallXVelocity = -BallXVelocity;                                            
                 BallYVelocity = -(((Bat.getY()+(Bat.getHeight()/2))-(Ball.getY() + (Ball.getHeight()/2))))/4;            
+                
                 Console.Sound.playTone(200,20);
             }
             // Did the ball hit the side of the court?
@@ -171,8 +178,11 @@ void Tennis(void)
                             Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT,COLOUR(0x00,0x00,0xff));
                             Console.print("You win!",sizeof("You win!")-1,50,30,COLOUR(0xff,0xff,0x00),COLOUR(0x00,0x00,0xff));
                             Console.print("Press fire to continue",sizeof("Press fire to continue")-1,50,50,COLOUR(0xff,0xff,00),COLOUR(0x00,0x00,0xff));
-                            while(Console.Controller.getButtonState() != Console.Controller.Fire)
+                            uint32_t timeout=1000;
+                            while( (Console.Controller.getButtonState() != Console.Controller.Fire) && timeout--)
+                            {
                                 Console.Timer.sleep(50);
+                            }
                             return;
                         }
                         Console.Sound.playTone(2000,10);

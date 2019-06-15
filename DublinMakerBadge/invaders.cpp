@@ -196,8 +196,11 @@ void playInvaders(uint16_t demo_mode)
                 Console.print("Fire to restart", 15, 60, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0));
                 if (!demo_mode)
                 {
-                    while (!FirePressed())
+                    uint32_t timeout=1000;
+                    while (!FirePressed() && timeout--)
+                    {
                         Console.Timer.sleep(10);
+                    }
                     while (FirePressed());
                 }
                 return;
@@ -277,11 +280,14 @@ void playInvaders(uint16_t demo_mode)
 
     }
   } // end of while (Level > 0)
+  uint32_t timeout=1000;
   Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, RGBToWord(0, 0, 0xff));
   Console.print("VICTORY!", 8, 40, 100, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0xff));
   Console.print("Fire to restart", 15, 8, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0xff));  
-  while (!FirePressed())
+  while (!FirePressed() && timeout--)
+  {
       Console.Timer.sleep(10);
+  }
   while (FirePressed());
   return;
 }

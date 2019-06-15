@@ -156,8 +156,11 @@ void Brici(brick *Bricks, uint16_t Brick_Count, uint16_t BatWidth,uint16_t demo_
                     Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
                     Console.print("GAME OVER", 9, 80, 100, RGBToWord(0xff, 0xff, 0xff), 0);
                     Console.print("Fire to restart", 15, 60, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0));
-                    while (!(Console.Controller.getButtonState() & Console.Controller.Fire))
+                    uint32_t timeout=1000; // time out the game over message after 10 seconds.
+                    while (!(Console.Controller.getButtonState() & Console.Controller.Fire) && timeout--)
+                    {
                         Console.Timer.sleep(10);
+                    }
                     return;
                 }
                 // start a new ball moving in a random way
@@ -200,13 +203,28 @@ void Brici(brick *Bricks, uint16_t Brick_Count, uint16_t BatWidth,uint16_t demo_
                 }
             }
             // No Blocks left, Move to next level.
-            if ((LevelComplete == 1) && (Level > 0))
+            if ((LevelComplete == 1))
             {
-                Level--;
-                Ball.hide();
-                Console.print("Level", 5, 5, SCREEN_HEIGHT-10, RGBToWord(0xff, 0xff, 0xff), RGBToWord(0, 0, 0));
-                Console.print(MAX_BRICI_LEVELS - Level + 1, 60, SCREEN_HEIGHT-10, RGBToWord(0xff, 0xff, 0xff), RGBToWord(0, 0, 0));                
-            }
+                if (Level > 0)
+                {
+                    Level--;
+                    Ball.hide();
+                    Console.print("Level", 5, 5, SCREEN_HEIGHT-10, RGBToWord(0xff, 0xff, 0xff), RGBToWord(0, 0, 0));
+                    Console.print(MAX_BRICI_LEVELS - Level + 1, 60, SCREEN_HEIGHT-10, RGBToWord(0xff, 0xff, 0xff), RGBToWord(0, 0, 0));                
+                }
+                else
+                {
+                    uint32_t timeout=1000; // time out the game over message after 10 seconds.
+                    Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, RGBToWord(0, 0, 0xff));
+                    Console.print("VICTORY!", 8, 40, 100, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0xff));
+                    Console.print("Fire to restart", 15, 8, 120, RGBToWord(0xff, 0xff, 0), RGBToWord(0, 0, 0xff));  
+                    while (!(Console.Controller.getButtonState() & Console.Controller.Fire) && timeout--)
+                    {
+                        Console.Timer.sleep(10);
+                    }
+                    return;
+                }
+            }            
             if (!demo_mode)
             {
                 Console.Timer.sleep(Level+5); // Slow the game to human speed                
