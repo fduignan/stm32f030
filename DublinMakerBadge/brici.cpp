@@ -12,7 +12,7 @@ void ClassicBrici()
     #define Brick_Width 30
     #define Brick_Height 10
     #define BRICK_COUNT ( (3*SCREEN_WIDTH) / Brick_Width )
-    Console.fillRectangle(0,0,SCREEN_WIDTH-1,SCREEN_HEIGHT-1,0);
+    Console.fillRectangle(0,0,SCREEN_WIDTH,SCREEN_HEIGHT,0);
     brick Bricks[BRICK_COUNT];
     uint16_t RowCount=0;
     uint32_t Brick_Count = BRICK_COUNT;

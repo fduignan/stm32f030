@@ -81,7 +81,7 @@ void PlayMoonlander()
             if (Vy > 20)
             {
                 Console.fillRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, COLOUR(255,0,0));
-                Console.print("The Eagle has creshed",sizeof("The Eagle has creshed")-1,5,20,COLOUR(255,255,255),COLOUR(255,0,0));
+                Console.print("The Eagle has crashed",sizeof("The Eagle has crashed")-1,5,20,COLOUR(255,255,255),COLOUR(255,0,0));
                 
             }
             else
