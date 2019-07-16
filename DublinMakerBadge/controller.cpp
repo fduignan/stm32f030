@@ -16,7 +16,7 @@ void controller::begin()
     
     ADC->CR |= (1 << 31); // start calibration
     while ( ADC->CR & (1 << 31) ); // wait for calibration to complete
-    ADC->SMPR = 0x07; // longest S+H time
+    ADC->SMPR = 0x01; // short S+H time
     ADC->CR = 1; // enable the ADC
     // Turn on port F
     RCC->AHBENR |= (1 << 22);

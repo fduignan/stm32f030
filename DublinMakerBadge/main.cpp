@@ -11,6 +11,7 @@
 #include "invaders.h"
 #include "logo_bricks.h"
 #include "tennis.h"
+#include "moonlander.h"
 void setup()
 {
     // Turn on Port F
@@ -197,7 +198,7 @@ int main()
     if (Console.Controller.getButtonState()==(Console.Controller.Fire+Console.Controller.Right))
     {
         debugScreen();
-    }
+    }    
     while (1) 
     {
         // Present a menu to the user
@@ -205,6 +206,7 @@ int main()
         Console.print("Press Fire for Brici",sizeof("Press Fire for Brici")-1,20,140,RGBToWord(0xff,0xff,0xff),0);
         Console.print("Press Left for Invaders",sizeof("Press Left for Invaders")-1,20,155,RGBToWord(0xff,0xff,0xff),0);
         Console.print("Press Right for Tennis",sizeof("Press Right for Tennis")-1,20,170,RGBToWord(0xff,0xff,0xff),0);
+        Console.print("Press Down for Moon lander",sizeof("Press Down for Moon lander")-1,20,185,RGBToWord(0xff,0xff,0xff),0);
         uint32_t choice=0;
         uint32_t Timeout=200;
         do {
@@ -224,6 +226,10 @@ int main()
             }
             case Console.Controller.Right : {
                  Tennis();                 
+                 break;
+            }
+            case Console.Controller.Down : {
+                 PlayMoonlander();   
                  break;
             }
             default: {                

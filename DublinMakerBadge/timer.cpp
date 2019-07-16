@@ -50,11 +50,14 @@ int timer::detach(fptr cb)
 }
 void timer::sleep(uint32_t dly)
 {  // Do not call on this in interrupt context
+   
     if (dly)
     {   
-        milliseconds = 0;
+        milliseconds = 0;        
         while(milliseconds<dly)
+        {                                    
             asm(" wfi "); // may as well sleep while waiting for millisecond to elapse (saves power)
+        }
     }  
 }
 void Systick_Handler(void)

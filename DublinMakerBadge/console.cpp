@@ -258,7 +258,7 @@ uint32_t console::prbs()
 	// This is an unverified 31 bit PRBS generator
 	// It should be maximum length but this has not been verified 
 	unsigned long new_bit=0;
-	static int busy=0; // need to prevent re-entrancy here
+	static int busy=0; // need to prevent re-entrancy here	
 	if (!busy)
 	{
 		busy=1;
@@ -288,5 +288,5 @@ void console::random_seed()
         for (int i=1;i<17;i++)
             shift_register += Controller.readTemperature()<<i;
     }   
-    Controller.stopADC();
+    Controller.stopADC(); // save some power by turning off the ADC and associated circuitry
 }

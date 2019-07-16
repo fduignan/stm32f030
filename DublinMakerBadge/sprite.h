@@ -35,7 +35,11 @@ public:
     inline uint16_t visible() {    
         return Visible;
     }
-    
+    void setimage(const uint16_t * newimage)
+    {
+        img=newimage;
+        redraw();
+    }
 protected:   
     uint16_t w,h;
     const uint16_t *img;

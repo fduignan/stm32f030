@@ -1,9 +1,9 @@
 Archive member included to satisfy reference by file (symbol)
 
 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
-                              /tmp/ccizIAj6.o (__aeabi_uidiv)
+                              /tmp/ccPOKpKo.o (__aeabi_uidiv)
 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
-                              /tmp/ccTAbu3s.o (__aeabi_idiv)
+                              /tmp/ccV5I7eJ.o (__aeabi_idiv)
 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
                               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
 
@@ -16,20 +16,21 @@ ram              0x0000000020000000 0x0000000000001000
 
 Linker script and memory map
 
-LOAD /tmp/ccidhOk7.o
-LOAD /tmp/ccE8W5c6.o
-LOAD /tmp/ccizIAj6.o
-LOAD /tmp/ccPqVhQ6.o
-LOAD /tmp/ccBOsXY7.o
-LOAD /tmp/cctlJN29.o
-LOAD /tmp/ccuqgqnc.o
-LOAD /tmp/cc8824Rg.o
-LOAD /tmp/ccyJm6Km.o
-LOAD /tmp/ccTAbu3s.o
-LOAD /tmp/ccqGy2Iz.o
-LOAD /tmp/ccE00ASG.o
-LOAD /tmp/ccSzuI1O.o
-LOAD /tmp/ccUCi0zX.o
+LOAD /tmp/ccfPu0vH.o
+LOAD /tmp/ccG1ztwx.o
+LOAD /tmp/ccPOKpKo.o
+LOAD /tmp/ccqRdBng.o
+LOAD /tmp/ccwDeEC8.o
+LOAD /tmp/ccsLVuL1.o
+LOAD /tmp/ccgBHVaV.o
+LOAD /tmp/ccOoRDxQ.o
+LOAD /tmp/ccK8DJuN.o
+LOAD /tmp/ccrc1EaL.o
+LOAD /tmp/ccV5I7eJ.o
+LOAD /tmp/cctD9EGH.o
+LOAD /tmp/cceHeEBG.o
+LOAD /tmp/cceYkevG.o
+LOAD /tmp/ccmuLFNG.o
 START GROUP
 LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a
 LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a
@@ -37,14 +38,14 @@ LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8
 END GROUP
                 0x0000000008000000                . = ORIGIN (flash)
 
-.text           0x0000000008000000     0x38e4
+.text           0x0000000008000000     0x3d2c
  *(.vectors)
- .vectors       0x0000000008000000       0xb4 /tmp/ccuqgqnc.o
+ .vectors       0x0000000008000000       0xb4 /tmp/ccgBHVaV.o
  *(.text)
- .text          0x00000000080000b4      0x5a4 /tmp/ccidhOk7.o
+ .text          0x00000000080000b4      0x5a4 /tmp/ccfPu0vH.o
                 0x00000000080000b4                Brici(brick*, unsigned short, unsigned short, unsigned short)
                 0x00000000080005a8                ClassicBrici()
- .text          0x0000000008000658       0xbc /tmp/ccE8W5c6.o
+ .text          0x0000000008000658       0xbc /tmp/ccG1ztwx.o
                 0x0000000008000658                brick::show()
                 0x000000000800067c                brick::hide()
                 0x00000000080006a4                brick::brick(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
@@ -52,7 +53,7 @@ END GROUP
                 0x00000000080006dc                brick::brick()
                 0x00000000080006dc                brick::brick()
                 0x00000000080006f8                brick::define(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
- .text          0x0000000008000714      0x594 /tmp/ccizIAj6.o
+ .text          0x0000000008000714      0x594 /tmp/ccPOKpKo.o
                 0x0000000008000714                console::fillRectangle(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
                 0x000000000800072a                console::drawCircle(unsigned short, unsigned short, unsigned short, unsigned short)
                 0x0000000008000868                console::drawLineLowSlope(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
@@ -68,225 +69,234 @@ END GROUP
                 0x0000000008000c24                console::random(unsigned long, unsigned long)
                 0x0000000008000c38                console::random_seed()
                 0x0000000008000c66                console::begin()
- .text          0x0000000008000ca8      0x130 /tmp/ccPqVhQ6.o
+ .text          0x0000000008000ca8      0x12c /tmp/ccqRdBng.o
                 0x0000000008000ca8                controller::begin()
-                0x0000000008000d4c                controller::stopADC()
-                0x0000000008000d70                controller::getButtonState()
-                0x0000000008000db4                controller::readTemperature()
- .text          0x0000000008000dd8      0x2b4 /tmp/ccBOsXY7.o
-                0x0000000008000dd8                display::RSLow()
-                0x0000000008000de8                display::RSHigh()
-                0x0000000008000df8                display::RSTLow()
-                0x0000000008000e06                display::RSTHigh()
-                0x0000000008000e14                display::writeCommand(unsigned char)
-                0x0000000008000e24                display::writeData8(unsigned char)
-                0x0000000008000e34                display::openAperture(unsigned short, unsigned short, unsigned short, unsigned short)
-                0x0000000008000ea0                display::writeData16(unsigned short)
-                0x0000000008000eb0                display::putPixel(unsigned short, unsigned short, unsigned short)
-                0x0000000008000ed0                display::putImage(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short const*)
-                0x0000000008000f26                display::fillRectangle(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
-                0x0000000008000f76                display::begin(timer*)
- .text          0x000000000800108c      0x35c /tmp/cctlJN29.o
-                0x000000000800108c                ibc::getPacket(unsigned char, unsigned char*)
-                0x00000000080010b6                ibc::getCHK(unsigned char, unsigned char*)
-                0x00000000080010ca                ibc::validatePacket(unsigned char, unsigned char*)
-                0x00000000080010e8                ibc::assertLineBusy()
-                0x0000000008001108                ibc::deassertLineBusy()
-                0x000000000800111c                ibc::begin(timer*)
-                0x0000000008001210                ibc::lineIsFree()
-                0x000000000800121c                ibc::sendPacket(unsigned char, unsigned char, unsigned char, unsigned char*)
-                0x000000000800126e                ibc::OnLineBecomesFree()
-                0x0000000008001274                ibc::send()
-                0x00000000080012c0                ibc::LineBusyCallback()
-                0x00000000080012f8                ibc::OnLineBecomesBusy()
-                0x000000000800130a                ibc::sendNAK()
-                0x000000000800134c                ibc::handle_rxdata()
-                0x00000000080013a0                USART1_Handler()
-                0x00000000080013bc                Line_State_Handler()
- .text          0x00000000080013e8      0x1a4 /tmp/ccuqgqnc.o
-                0x00000000080013e8                initClock()
-                0x000000000800148c                init_array()
-                0x00000000080014fc                init()
-                0x0000000008001584                Default_Handler()
- .text          0x000000000800158c      0x850 /tmp/cc8824Rg.o
-                0x000000000800158c                FirePressed()
-                0x00000000080015b4                Explode(unsigned short, unsigned short)
-                0x0000000008001618                playInvaders(unsigned short)
- .text          0x0000000008001ddc      0x328 /tmp/ccyJm6Km.o
-                0x0000000008001ddc                setup()
-                0x0000000008001e14                initADC()
-                0x0000000008001e58                debugScreen()
-                0x0000000008001e84                DrawLogo(unsigned long)
- .text          0x0000000008002104      0x12c /tmp/ccTAbu3s.o
-                0x0000000008002104                sound::begin()
-                0x0000000008002140                sound::playTone(unsigned short, unsigned short)
-                0x00000000080021bc                sound::stopTone()
-                0x00000000080021dc                sound::SoundPlaying()
-                0x00000000080021e4                sound::playMelody(unsigned short const*, unsigned short const*, int)
-                0x000000000800220e                sound::ms_callback()
- .text          0x0000000008002230       0xe4 /tmp/ccqGy2Iz.o
-                0x0000000008002230                transferSPI8(unsigned char)
-                0x0000000008002268                initSPI()
-                0x00000000080022dc                transferSPI16(unsigned short)
- .text          0x0000000008002314      0x148 /tmp/ccE00ASG.o
-                0x0000000008002314                sprite::show()
-                0x000000000800233c                sprite::hide()
-                0x0000000008002364                sprite::sprite(unsigned short const*, unsigned short, unsigned short, unsigned short, unsigned short)
-                0x0000000008002364                sprite::sprite(unsigned short const*, unsigned short, unsigned short, unsigned short, unsigned short)
-                0x0000000008002388                sprite::sprite()
-                0x0000000008002388                sprite::sprite()
-                0x0000000008002398                sprite::redraw()
-                0x00000000080023a8                sprite::move(unsigned short, unsigned short)
-                0x00000000080023d0                sprite::within(unsigned short, unsigned short)
-                0x0000000008002400                sprite::touching(unsigned short, unsigned short)
- .text          0x000000000800245c      0x45c /tmp/ccSzuI1O.o
-                0x000000000800245c                Tennis()
- .text          0x00000000080028b8       0xb4 /tmp/ccUCi0zX.o
-                0x00000000080028b8                timer::begin()
-                0x00000000080028f0                timer::attach(void (*)())
-                0x000000000800290e                timer::detach(void (*)())
-                0x000000000800292e                timer::sleep(unsigned long)
-                0x0000000008002948                Systick_Handler()
- .text          0x000000000800296c      0x114 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
-                0x000000000800296c                __udivsi3
-                0x000000000800296c                __aeabi_uidiv
-                0x0000000008002a78                __aeabi_uidivmod
- .text          0x0000000008002a80      0x1d4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
-                0x0000000008002a80                __aeabi_idiv
-                0x0000000008002a80                __divsi3
-                0x0000000008002c4c                __aeabi_idivmod
- .text          0x0000000008002c54        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
-                0x0000000008002c54                __aeabi_ldiv0
-                0x0000000008002c54                __aeabi_idiv0
-                0x0000000008002c58                . = ALIGN (0x4)
-                0x0000000008002c58                PROVIDE (__preinit_array_start = .)
+                0x0000000008000d48                controller::stopADC()
+                0x0000000008000d6c                controller::getButtonState()
+                0x0000000008000db0                controller::readTemperature()
+ .text          0x0000000008000dd4      0x2b4 /tmp/ccwDeEC8.o
+                0x0000000008000dd4                display::RSLow()
+                0x0000000008000de4                display::RSHigh()
+                0x0000000008000df4                display::RSTLow()
+                0x0000000008000e02                display::RSTHigh()
+                0x0000000008000e10                display::writeCommand(unsigned char)
+                0x0000000008000e20                display::writeData8(unsigned char)
+                0x0000000008000e30                display::openAperture(unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000e9c                display::writeData16(unsigned short)
+                0x0000000008000eac                display::putPixel(unsigned short, unsigned short, unsigned short)
+                0x0000000008000ecc                display::putImage(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short const*)
+                0x0000000008000f22                display::fillRectangle(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000f72                display::begin(timer*)
+ .text          0x0000000008001088      0x35c /tmp/ccsLVuL1.o
+                0x0000000008001088                ibc::getPacket(unsigned char, unsigned char*)
+                0x00000000080010b2                ibc::getCHK(unsigned char, unsigned char*)
+                0x00000000080010c6                ibc::validatePacket(unsigned char, unsigned char*)
+                0x00000000080010e4                ibc::assertLineBusy()
+                0x0000000008001104                ibc::deassertLineBusy()
+                0x0000000008001118                ibc::begin(timer*)
+                0x000000000800120c                ibc::lineIsFree()
+                0x0000000008001218                ibc::sendPacket(unsigned char, unsigned char, unsigned char, unsigned char*)
+                0x000000000800126a                ibc::OnLineBecomesFree()
+                0x0000000008001270                ibc::send()
+                0x00000000080012bc                ibc::LineBusyCallback()
+                0x00000000080012f4                ibc::OnLineBecomesBusy()
+                0x0000000008001306                ibc::sendNAK()
+                0x0000000008001348                ibc::handle_rxdata()
+                0x000000000800139c                USART1_Handler()
+                0x00000000080013b8                Line_State_Handler()
+ .text          0x00000000080013e4      0x1a4 /tmp/ccgBHVaV.o
+                0x00000000080013e4                initClock()
+                0x0000000008001488                init_array()
+                0x00000000080014f8                init()
+                0x0000000008001580                Default_Handler()
+ .text          0x0000000008001588      0x850 /tmp/ccOoRDxQ.o
+                0x0000000008001588                FirePressed()
+                0x00000000080015b0                Explode(unsigned short, unsigned short)
+                0x0000000008001614                playInvaders(unsigned short)
+ .text          0x0000000008001dd8      0x328 /tmp/ccK8DJuN.o
+                0x0000000008001dd8                setup()
+                0x0000000008001e10                initADC()
+                0x0000000008001e54                debugScreen()
+                0x0000000008001e80                DrawLogo(unsigned long)
+ .text          0x0000000008002100      0x240 /tmp/ccrc1EaL.o
+                0x0000000008002100                PlayMoonlander()
+ .text          0x0000000008002340      0x12c /tmp/ccV5I7eJ.o
+                0x0000000008002340                sound::begin()
+                0x000000000800237c                sound::playTone(unsigned short, unsigned short)
+                0x00000000080023f8                sound::stopTone()
+                0x0000000008002418                sound::SoundPlaying()
+                0x0000000008002420                sound::playMelody(unsigned short const*, unsigned short const*, int)
+                0x000000000800244a                sound::ms_callback()
+ .text          0x000000000800246c       0xe4 /tmp/cctD9EGH.o
+                0x000000000800246c                transferSPI8(unsigned char)
+                0x00000000080024a4                initSPI()
+                0x0000000008002518                transferSPI16(unsigned short)
+ .text          0x0000000008002550      0x148 /tmp/cceHeEBG.o
+                0x0000000008002550                sprite::show()
+                0x0000000008002578                sprite::hide()
+                0x00000000080025a0                sprite::sprite(unsigned short const*, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x00000000080025a0                sprite::sprite(unsigned short const*, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x00000000080025c4                sprite::sprite()
+                0x00000000080025c4                sprite::sprite()
+                0x00000000080025d4                sprite::redraw()
+                0x00000000080025e4                sprite::move(unsigned short, unsigned short)
+                0x000000000800260c                sprite::within(unsigned short, unsigned short)
+                0x000000000800263c                sprite::touching(unsigned short, unsigned short)
+ .text          0x0000000008002698      0x45c /tmp/cceYkevG.o
+                0x0000000008002698                Tennis()
+ .text          0x0000000008002af4       0xb4 /tmp/ccmuLFNG.o
+                0x0000000008002af4                timer::begin()
+                0x0000000008002b2c                timer::attach(void (*)())
+                0x0000000008002b4a                timer::detach(void (*)())
+                0x0000000008002b6a                timer::sleep(unsigned long)
+                0x0000000008002b84                Systick_Handler()
+ .text          0x0000000008002ba8      0x114 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                0x0000000008002ba8                __udivsi3
+                0x0000000008002ba8                __aeabi_uidiv
+                0x0000000008002cb4                __aeabi_uidivmod
+ .text          0x0000000008002cbc      0x1d4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                0x0000000008002cbc                __aeabi_idiv
+                0x0000000008002cbc                __divsi3
+                0x0000000008002e88                __aeabi_idivmod
+ .text          0x0000000008002e90        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x0000000008002e90                __aeabi_ldiv0
+                0x0000000008002e90                __aeabi_idiv0
+                0x0000000008002e94                . = ALIGN (0x4)
+                0x0000000008002e94                PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
-                0x0000000008002c58                PROVIDE (__preinit_array_end = .)
-                0x0000000008002c58                . = ALIGN (0x4)
-                0x0000000008002c58                PROVIDE (__init_array_start = .)
+                0x0000000008002e94                PROVIDE (__preinit_array_end = .)
+                0x0000000008002e94                . = ALIGN (0x4)
+                0x0000000008002e94                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x0000000008002c58                PROVIDE (__init_array_end = .)
-                0x0000000008002c58                . = ALIGN (0x4)
+                0x0000000008002e94                PROVIDE (__init_array_end = .)
+                0x0000000008002e94                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
                 [!provide]                        PROVIDE (__fini_array_end = .)
  *(.rodata)
- .rodata        0x0000000008002c58       0x10 /tmp/ccE8W5c6.o
-                0x0000000008002c58                vtable for brick
- .rodata        0x0000000008002c68      0x1e0 /tmp/ccizIAj6.o
- .rodata        0x0000000008002e48      0x2f8 /tmp/cc8824Rg.o
- .rodata        0x0000000008003140      0x45a /tmp/ccyJm6Km.o
- *fill*         0x000000000800359a        0x2 
- .rodata        0x000000000800359c       0x10 /tmp/ccE00ASG.o
-                0x000000000800359c                vtable for sprite
+ .rodata        0x0000000008002e94       0x10 /tmp/ccG1ztwx.o
+                0x0000000008002e94                vtable for brick
+ .rodata        0x0000000008002ea4      0x1e0 /tmp/ccPOKpKo.o
+ .rodata        0x0000000008003084      0x2f8 /tmp/ccOoRDxQ.o
+ .rodata        0x000000000800337c      0x45a /tmp/ccK8DJuN.o
+ .rodata        0x00000000080037d6      0x1e0 /tmp/ccrc1EaL.o
+ *fill*         0x00000000080039b6        0x2 
+ .rodata        0x00000000080039b8       0x10 /tmp/cceHeEBG.o
+                0x00000000080039b8                vtable for sprite
  *(.comment)
- .comment       0x00000000080035ac       0x75 /tmp/ccidhOk7.o
+ .comment       0x00000000080039c8       0x75 /tmp/ccfPu0vH.o
                                          0x76 (size before relaxing)
- .comment       0x0000000008003621       0x76 /tmp/ccE8W5c6.o
- .comment       0x0000000008003621       0x76 /tmp/ccizIAj6.o
- .comment       0x0000000008003621       0x76 /tmp/ccPqVhQ6.o
- .comment       0x0000000008003621       0x76 /tmp/ccBOsXY7.o
- .comment       0x0000000008003621       0x76 /tmp/cctlJN29.o
- .comment       0x0000000008003621       0x76 /tmp/ccuqgqnc.o
- .comment       0x0000000008003621       0x76 /tmp/cc8824Rg.o
- .comment       0x0000000008003621       0x76 /tmp/ccyJm6Km.o
- .comment       0x0000000008003621       0x76 /tmp/ccTAbu3s.o
- .comment       0x0000000008003621       0x76 /tmp/ccqGy2Iz.o
- .comment       0x0000000008003621       0x76 /tmp/ccE00ASG.o
- .comment       0x0000000008003621       0x76 /tmp/ccSzuI1O.o
- .comment       0x0000000008003621       0x76 /tmp/ccUCi0zX.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccG1ztwx.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccPOKpKo.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccqRdBng.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccwDeEC8.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccsLVuL1.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccgBHVaV.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccOoRDxQ.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccK8DJuN.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccrc1EaL.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccV5I7eJ.o
+ .comment       0x0000000008003a3d       0x76 /tmp/cctD9EGH.o
+ .comment       0x0000000008003a3d       0x76 /tmp/cceHeEBG.o
+ .comment       0x0000000008003a3d       0x76 /tmp/cceYkevG.o
+ .comment       0x0000000008003a3d       0x76 /tmp/ccmuLFNG.o
  *(.ARM.attributes)
  .ARM.attributes
-                0x0000000008003621       0x2c /tmp/ccidhOk7.o
+                0x0000000008003a3d       0x2c /tmp/ccfPu0vH.o
  .ARM.attributes
-                0x000000000800364d       0x2c /tmp/ccE8W5c6.o
+                0x0000000008003a69       0x2c /tmp/ccG1ztwx.o
  .ARM.attributes
-                0x0000000008003679       0x2c /tmp/ccizIAj6.o
+                0x0000000008003a95       0x2c /tmp/ccPOKpKo.o
  .ARM.attributes
-                0x00000000080036a5       0x2c /tmp/ccPqVhQ6.o
+                0x0000000008003ac1       0x2c /tmp/ccqRdBng.o
  .ARM.attributes
-                0x00000000080036d1       0x2c /tmp/ccBOsXY7.o
+                0x0000000008003aed       0x2c /tmp/ccwDeEC8.o
  .ARM.attributes
-                0x00000000080036fd       0x2c /tmp/cctlJN29.o
+                0x0000000008003b19       0x2c /tmp/ccsLVuL1.o
  .ARM.attributes
-                0x0000000008003729       0x2c /tmp/ccuqgqnc.o
+                0x0000000008003b45       0x2c /tmp/ccgBHVaV.o
  .ARM.attributes
-                0x0000000008003755       0x2c /tmp/cc8824Rg.o
+                0x0000000008003b71       0x2c /tmp/ccOoRDxQ.o
  .ARM.attributes
-                0x0000000008003781       0x2c /tmp/ccyJm6Km.o
+                0x0000000008003b9d       0x2c /tmp/ccK8DJuN.o
  .ARM.attributes
-                0x00000000080037ad       0x2c /tmp/ccTAbu3s.o
+                0x0000000008003bc9       0x2c /tmp/ccrc1EaL.o
  .ARM.attributes
-                0x00000000080037d9       0x2c /tmp/ccqGy2Iz.o
+                0x0000000008003bf5       0x2c /tmp/ccV5I7eJ.o
  .ARM.attributes
-                0x0000000008003805       0x2c /tmp/ccE00ASG.o
+                0x0000000008003c21       0x2c /tmp/cctD9EGH.o
  .ARM.attributes
-                0x0000000008003831       0x2c /tmp/ccSzuI1O.o
+                0x0000000008003c4d       0x2c /tmp/cceHeEBG.o
  .ARM.attributes
-                0x000000000800385d       0x2c /tmp/ccUCi0zX.o
+                0x0000000008003c79       0x2c /tmp/cceYkevG.o
  .ARM.attributes
-                0x0000000008003889       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                0x0000000008003ca5       0x2c /tmp/ccmuLFNG.o
  .ARM.attributes
-                0x00000000080038a7       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                0x0000000008003cd1       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .ARM.attributes
-                0x00000000080038c5       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
-                0x00000000080038e4                . = ALIGN (0x4)
- *fill*         0x00000000080038e3        0x1 
+                0x0000000008003cef       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x0000000008003d0d       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x0000000008003d2c                . = ALIGN (0x4)
+ *fill*         0x0000000008003d2b        0x1 
 
-.rodata.str1.1  0x00000000080038e4      0x126
+.rodata.str1.1  0x0000000008003d2c      0x189
  .rodata.str1.1
-                0x00000000080038e4       0x29 /tmp/ccidhOk7.o
+                0x0000000008003d2c       0x29 /tmp/ccfPu0vH.o
  .rodata.str1.1
-                0x000000000800390d       0x38 /tmp/cc8824Rg.o
+                0x0000000008003d55       0x38 /tmp/ccOoRDxQ.o
                                          0x61 (size before relaxing)
  .rodata.str1.1
-                0x0000000008003945       0x44 /tmp/ccyJm6Km.o
+                0x0000000008003d8d       0x5f /tmp/ccK8DJuN.o
  .rodata.str1.1
-                0x0000000008003989       0x81 /tmp/ccSzuI1O.o
+                0x0000000008003dec       0x48 /tmp/ccrc1EaL.o
+ .rodata.str1.1
+                0x0000000008003e34       0x81 /tmp/cceYkevG.o
 
-.glue_7         0x0000000008003a0c        0x0
- .glue_7        0x0000000008003a0c        0x0 linker stubs
+.glue_7         0x0000000008003eb8        0x0
+ .glue_7        0x0000000008003eb8        0x0 linker stubs
 
-.glue_7t        0x0000000008003a0c        0x0
- .glue_7t       0x0000000008003a0c        0x0 linker stubs
+.glue_7t        0x0000000008003eb8        0x0
+ .glue_7t       0x0000000008003eb8        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008003a0c        0x0
- .vfp11_veneer  0x0000000008003a0c        0x0 linker stubs
+.vfp11_veneer   0x0000000008003eb8        0x0
+ .vfp11_veneer  0x0000000008003eb8        0x0 linker stubs
 
-.v4_bx          0x0000000008003a0c        0x0
- .v4_bx         0x0000000008003a0c        0x0 linker stubs
+.v4_bx          0x0000000008003eb8        0x0
+ .v4_bx         0x0000000008003eb8        0x0 linker stubs
 
-.iplt           0x0000000008003a0c        0x0
- .iplt          0x0000000008003a0c        0x0 /tmp/ccidhOk7.o
+.iplt           0x0000000008003eb8        0x0
+ .iplt          0x0000000008003eb8        0x0 /tmp/ccfPu0vH.o
 
-.text.startup   0x0000000008003a0c      0x120
- .text.startup  0x0000000008003a0c      0x120 /tmp/ccyJm6Km.o
-                0x0000000008003a0c                main
+.text.startup   0x0000000008003eb8      0x144
+ .text.startup  0x0000000008003eb8      0x144 /tmp/ccK8DJuN.o
+                0x0000000008003eb8                main
 
-.rel.dyn        0x0000000008003b2c        0x0
- .rel.iplt      0x0000000008003b2c        0x0 /tmp/ccidhOk7.o
+.rel.dyn        0x0000000008003ffc        0x0
+ .rel.iplt      0x0000000008003ffc        0x0 /tmp/ccfPu0vH.o
                 0x0000000020000000                . = ORIGIN (ram)
 
-.data           0x0000000020000000        0x0 load address 0x0000000008003b2c
-                0x0000000008003b2c                INIT_DATA_VALUES = LOADADDR (.data)
+.data           0x0000000020000000        0x0 load address 0x0000000008003ffc
+                0x0000000008003ffc                INIT_DATA_VALUES = LOADADDR (.data)
                 0x0000000020000000                INIT_DATA_START = .
  *(.data)
- .data          0x0000000020000000        0x0 /tmp/ccidhOk7.o
- .data          0x0000000020000000        0x0 /tmp/ccE8W5c6.o
- .data          0x0000000020000000        0x0 /tmp/ccizIAj6.o
- .data          0x0000000020000000        0x0 /tmp/ccPqVhQ6.o
- .data          0x0000000020000000        0x0 /tmp/ccBOsXY7.o
- .data          0x0000000020000000        0x0 /tmp/cctlJN29.o
- .data          0x0000000020000000        0x0 /tmp/ccuqgqnc.o
- .data          0x0000000020000000        0x0 /tmp/cc8824Rg.o
- .data          0x0000000020000000        0x0 /tmp/ccyJm6Km.o
- .data          0x0000000020000000        0x0 /tmp/ccTAbu3s.o
- .data          0x0000000020000000        0x0 /tmp/ccqGy2Iz.o
- .data          0x0000000020000000        0x0 /tmp/ccE00ASG.o
- .data          0x0000000020000000        0x0 /tmp/ccSzuI1O.o
- .data          0x0000000020000000        0x0 /tmp/ccUCi0zX.o
+ .data          0x0000000020000000        0x0 /tmp/ccfPu0vH.o
+ .data          0x0000000020000000        0x0 /tmp/ccG1ztwx.o
+ .data          0x0000000020000000        0x0 /tmp/ccPOKpKo.o
+ .data          0x0000000020000000        0x0 /tmp/ccqRdBng.o
+ .data          0x0000000020000000        0x0 /tmp/ccwDeEC8.o
+ .data          0x0000000020000000        0x0 /tmp/ccsLVuL1.o
+ .data          0x0000000020000000        0x0 /tmp/ccgBHVaV.o
+ .data          0x0000000020000000        0x0 /tmp/ccOoRDxQ.o
+ .data          0x0000000020000000        0x0 /tmp/ccK8DJuN.o
+ .data          0x0000000020000000        0x0 /tmp/ccrc1EaL.o
+ .data          0x0000000020000000        0x0 /tmp/ccV5I7eJ.o
+ .data          0x0000000020000000        0x0 /tmp/cctD9EGH.o
+ .data          0x0000000020000000        0x0 /tmp/cceHeEBG.o
+ .data          0x0000000020000000        0x0 /tmp/cceYkevG.o
+ .data          0x0000000020000000        0x0 /tmp/ccmuLFNG.o
  .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
  .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
@@ -294,26 +304,27 @@ END GROUP
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                BSS_START = .
 
-.igot.plt       0x0000000020000000        0x0 load address 0x0000000008003b2c
- .igot.plt      0x0000000020000000        0x0 /tmp/ccidhOk7.o
+.igot.plt       0x0000000020000000        0x0 load address 0x0000000008003ffc
+ .igot.plt      0x0000000020000000        0x0 /tmp/ccfPu0vH.o
 
-.bss            0x0000000020000000       0x90 load address 0x0000000008003b2c
+.bss            0x0000000020000000       0x90 load address 0x0000000008003ffc
  *(.bss)
- .bss           0x0000000020000000        0x0 /tmp/ccidhOk7.o
- .bss           0x0000000020000000        0x0 /tmp/ccE8W5c6.o
- .bss           0x0000000020000000       0x7c /tmp/ccizIAj6.o
+ .bss           0x0000000020000000        0x0 /tmp/ccfPu0vH.o
+ .bss           0x0000000020000000        0x0 /tmp/ccG1ztwx.o
+ .bss           0x0000000020000000       0x7c /tmp/ccPOKpKo.o
                 0x0000000020000004                Console
- .bss           0x000000002000007c        0x0 /tmp/ccPqVhQ6.o
- .bss           0x000000002000007c        0x0 /tmp/ccBOsXY7.o
- .bss           0x000000002000007c        0x4 /tmp/cctlJN29.o
- .bss           0x0000000020000080        0x0 /tmp/ccuqgqnc.o
- .bss           0x0000000020000080        0x4 /tmp/cc8824Rg.o
- .bss           0x0000000020000084        0x0 /tmp/ccyJm6Km.o
- .bss           0x0000000020000084        0x4 /tmp/ccTAbu3s.o
- .bss           0x0000000020000088        0x0 /tmp/ccqGy2Iz.o
- .bss           0x0000000020000088        0x0 /tmp/ccE00ASG.o
- .bss           0x0000000020000088        0x0 /tmp/ccSzuI1O.o
- .bss           0x0000000020000088        0x8 /tmp/ccUCi0zX.o
+ .bss           0x000000002000007c        0x0 /tmp/ccqRdBng.o
+ .bss           0x000000002000007c        0x0 /tmp/ccwDeEC8.o
+ .bss           0x000000002000007c        0x4 /tmp/ccsLVuL1.o
+ .bss           0x0000000020000080        0x0 /tmp/ccgBHVaV.o
+ .bss           0x0000000020000080        0x4 /tmp/ccOoRDxQ.o
+ .bss           0x0000000020000084        0x0 /tmp/ccK8DJuN.o
+ .bss           0x0000000020000084        0x0 /tmp/ccrc1EaL.o
+ .bss           0x0000000020000084        0x4 /tmp/ccV5I7eJ.o
+ .bss           0x0000000020000088        0x0 /tmp/cctD9EGH.o
+ .bss           0x0000000020000088        0x0 /tmp/cceHeEBG.o
+ .bss           0x0000000020000088        0x0 /tmp/cceYkevG.o
+ .bss           0x0000000020000088        0x8 /tmp/ccmuLFNG.o
  .bss           0x0000000020000090        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .bss           0x0000000020000090        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
  .bss           0x0000000020000090        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
@@ -321,153 +332,163 @@ END GROUP
                 0x0000000020000090                BSS_END = .
 OUTPUT(main.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0xdd79
- .debug_info    0x0000000000000000     0x17bc /tmp/ccidhOk7.o
- .debug_info    0x00000000000017bc      0xffc /tmp/ccE8W5c6.o
- .debug_info    0x00000000000027b8     0x1d02 /tmp/ccizIAj6.o
- .debug_info    0x00000000000044ba      0x59f /tmp/ccPqVhQ6.o
- .debug_info    0x0000000000004a59      0xdfb /tmp/ccBOsXY7.o
- .debug_info    0x0000000000005854      0xe7e /tmp/cctlJN29.o
- .debug_info    0x00000000000066d2      0x3a6 /tmp/ccuqgqnc.o
- .debug_info    0x0000000000006a78     0x201d /tmp/cc8824Rg.o
- .debug_info    0x0000000000008a95     0x1bd3 /tmp/ccyJm6Km.o
- .debug_info    0x000000000000a668      0x7cb /tmp/ccTAbu3s.o
- .debug_info    0x000000000000ae33      0x3da /tmp/ccqGy2Iz.o
- .debug_info    0x000000000000b20d     0x1147 /tmp/ccE00ASG.o
- .debug_info    0x000000000000c354     0x16f2 /tmp/ccSzuI1O.o
- .debug_info    0x000000000000da46      0x333 /tmp/ccUCi0zX.o
+.debug_info     0x0000000000000000     0xf17b
+ .debug_info    0x0000000000000000     0x17bc /tmp/ccfPu0vH.o
+ .debug_info    0x00000000000017bc      0xffc /tmp/ccG1ztwx.o
+ .debug_info    0x00000000000027b8     0x1d02 /tmp/ccPOKpKo.o
+ .debug_info    0x00000000000044ba      0x59f /tmp/ccqRdBng.o
+ .debug_info    0x0000000000004a59      0xdfb /tmp/ccwDeEC8.o
+ .debug_info    0x0000000000005854      0xe7e /tmp/ccsLVuL1.o
+ .debug_info    0x00000000000066d2      0x3a6 /tmp/ccgBHVaV.o
+ .debug_info    0x0000000000006a78     0x201d /tmp/ccOoRDxQ.o
+ .debug_info    0x0000000000008a95     0x1e1f /tmp/ccK8DJuN.o
+ .debug_info    0x000000000000a8b4     0x119d /tmp/ccrc1EaL.o
+ .debug_info    0x000000000000ba51      0x7cb /tmp/ccV5I7eJ.o
+ .debug_info    0x000000000000c21c      0x3da /tmp/cctD9EGH.o
+ .debug_info    0x000000000000c5f6     0x1167 /tmp/cceHeEBG.o
+ .debug_info    0x000000000000d75d     0x16eb /tmp/cceYkevG.o
+ .debug_info    0x000000000000ee48      0x333 /tmp/ccmuLFNG.o
 
-.debug_abbrev   0x0000000000000000     0x28a0
- .debug_abbrev  0x0000000000000000      0x35e /tmp/ccidhOk7.o
- .debug_abbrev  0x000000000000035e      0x35a /tmp/ccE8W5c6.o
- .debug_abbrev  0x00000000000006b8      0x44c /tmp/ccizIAj6.o
- .debug_abbrev  0x0000000000000b04      0x1d6 /tmp/ccPqVhQ6.o
- .debug_abbrev  0x0000000000000cda      0x207 /tmp/ccBOsXY7.o
- .debug_abbrev  0x0000000000000ee1      0x3ca /tmp/cctlJN29.o
- .debug_abbrev  0x00000000000012ab      0x16a /tmp/ccuqgqnc.o
- .debug_abbrev  0x0000000000001415      0x3cd /tmp/cc8824Rg.o
- .debug_abbrev  0x00000000000017e2      0x418 /tmp/ccyJm6Km.o
- .debug_abbrev  0x0000000000001bfa      0x2bb /tmp/ccTAbu3s.o
- .debug_abbrev  0x0000000000001eb5      0x166 /tmp/ccqGy2Iz.o
- .debug_abbrev  0x000000000000201b      0x37b /tmp/ccE00ASG.o
- .debug_abbrev  0x0000000000002396      0x34a /tmp/ccSzuI1O.o
- .debug_abbrev  0x00000000000026e0      0x1c0 /tmp/ccUCi0zX.o
+.debug_abbrev   0x0000000000000000     0x2c01
+ .debug_abbrev  0x0000000000000000      0x35e /tmp/ccfPu0vH.o
+ .debug_abbrev  0x000000000000035e      0x35a /tmp/ccG1ztwx.o
+ .debug_abbrev  0x00000000000006b8      0x44c /tmp/ccPOKpKo.o
+ .debug_abbrev  0x0000000000000b04      0x1d6 /tmp/ccqRdBng.o
+ .debug_abbrev  0x0000000000000cda      0x207 /tmp/ccwDeEC8.o
+ .debug_abbrev  0x0000000000000ee1      0x3ca /tmp/ccsLVuL1.o
+ .debug_abbrev  0x00000000000012ab      0x16a /tmp/ccgBHVaV.o
+ .debug_abbrev  0x0000000000001415      0x3cd /tmp/ccOoRDxQ.o
+ .debug_abbrev  0x00000000000017e2      0x418 /tmp/ccK8DJuN.o
+ .debug_abbrev  0x0000000000001bfa      0x361 /tmp/ccrc1EaL.o
+ .debug_abbrev  0x0000000000001f5b      0x2bb /tmp/ccV5I7eJ.o
+ .debug_abbrev  0x0000000000002216      0x166 /tmp/cctD9EGH.o
+ .debug_abbrev  0x000000000000237c      0x37b /tmp/cceHeEBG.o
+ .debug_abbrev  0x00000000000026f7      0x34a /tmp/cceYkevG.o
+ .debug_abbrev  0x0000000000002a41      0x1c0 /tmp/ccmuLFNG.o
 
-.debug_loc      0x0000000000000000     0x4164
- .debug_loc     0x0000000000000000      0x6de /tmp/ccidhOk7.o
- .debug_loc     0x00000000000006de      0x2a3 /tmp/ccE8W5c6.o
- .debug_loc     0x0000000000000981     0x1499 /tmp/ccizIAj6.o
- .debug_loc     0x0000000000001e1a       0x92 /tmp/ccPqVhQ6.o
- .debug_loc     0x0000000000001eac      0x576 /tmp/ccBOsXY7.o
- .debug_loc     0x0000000000002422      0x50d /tmp/cctlJN29.o
- .debug_loc     0x000000000000292f      0x1f6 /tmp/ccuqgqnc.o
- .debug_loc     0x0000000000002b25      0x5ef /tmp/cc8824Rg.o
- .debug_loc     0x0000000000003114      0x6dd /tmp/ccyJm6Km.o
- .debug_loc     0x00000000000037f1      0x185 /tmp/ccTAbu3s.o
- .debug_loc     0x0000000000003976      0x174 /tmp/ccqGy2Iz.o
- .debug_loc     0x0000000000003aea      0x230 /tmp/ccE00ASG.o
- .debug_loc     0x0000000000003d1a      0x2d8 /tmp/ccSzuI1O.o
- .debug_loc     0x0000000000003ff2      0x172 /tmp/ccUCi0zX.o
+.debug_loc      0x0000000000000000     0x4351
+ .debug_loc     0x0000000000000000      0x6de /tmp/ccfPu0vH.o
+ .debug_loc     0x00000000000006de      0x2a3 /tmp/ccG1ztwx.o
+ .debug_loc     0x0000000000000981     0x1499 /tmp/ccPOKpKo.o
+ .debug_loc     0x0000000000001e1a       0x92 /tmp/ccqRdBng.o
+ .debug_loc     0x0000000000001eac      0x576 /tmp/ccwDeEC8.o
+ .debug_loc     0x0000000000002422      0x50d /tmp/ccsLVuL1.o
+ .debug_loc     0x000000000000292f      0x1f6 /tmp/ccgBHVaV.o
+ .debug_loc     0x0000000000002b25      0x5ef /tmp/ccOoRDxQ.o
+ .debug_loc     0x0000000000003114      0x6dd /tmp/ccK8DJuN.o
+ .debug_loc     0x00000000000037f1      0x1ed /tmp/ccrc1EaL.o
+ .debug_loc     0x00000000000039de      0x185 /tmp/ccV5I7eJ.o
+ .debug_loc     0x0000000000003b63      0x174 /tmp/cctD9EGH.o
+ .debug_loc     0x0000000000003cd7      0x230 /tmp/cceHeEBG.o
+ .debug_loc     0x0000000000003f07      0x2d8 /tmp/cceYkevG.o
+ .debug_loc     0x00000000000041df      0x172 /tmp/ccmuLFNG.o
 
-.debug_aranges  0x0000000000000000      0x1c8
+.debug_aranges  0x0000000000000000      0x1e8
  .debug_aranges
-                0x0000000000000000       0x20 /tmp/ccidhOk7.o
+                0x0000000000000000       0x20 /tmp/ccfPu0vH.o
  .debug_aranges
-                0x0000000000000020       0x20 /tmp/ccE8W5c6.o
+                0x0000000000000020       0x20 /tmp/ccG1ztwx.o
  .debug_aranges
-                0x0000000000000040       0x20 /tmp/ccizIAj6.o
+                0x0000000000000040       0x20 /tmp/ccPOKpKo.o
  .debug_aranges
-                0x0000000000000060       0x20 /tmp/ccPqVhQ6.o
+                0x0000000000000060       0x20 /tmp/ccqRdBng.o
  .debug_aranges
-                0x0000000000000080       0x20 /tmp/ccBOsXY7.o
+                0x0000000000000080       0x20 /tmp/ccwDeEC8.o
  .debug_aranges
-                0x00000000000000a0       0x20 /tmp/cctlJN29.o
+                0x00000000000000a0       0x20 /tmp/ccsLVuL1.o
  .debug_aranges
-                0x00000000000000c0       0x20 /tmp/ccuqgqnc.o
+                0x00000000000000c0       0x20 /tmp/ccgBHVaV.o
  .debug_aranges
-                0x00000000000000e0       0x20 /tmp/cc8824Rg.o
+                0x00000000000000e0       0x20 /tmp/ccOoRDxQ.o
  .debug_aranges
-                0x0000000000000100       0x28 /tmp/ccyJm6Km.o
+                0x0000000000000100       0x28 /tmp/ccK8DJuN.o
  .debug_aranges
-                0x0000000000000128       0x20 /tmp/ccTAbu3s.o
+                0x0000000000000128       0x20 /tmp/ccrc1EaL.o
  .debug_aranges
-                0x0000000000000148       0x20 /tmp/ccqGy2Iz.o
+                0x0000000000000148       0x20 /tmp/ccV5I7eJ.o
  .debug_aranges
-                0x0000000000000168       0x20 /tmp/ccE00ASG.o
+                0x0000000000000168       0x20 /tmp/cctD9EGH.o
  .debug_aranges
-                0x0000000000000188       0x20 /tmp/ccSzuI1O.o
+                0x0000000000000188       0x20 /tmp/cceHeEBG.o
  .debug_aranges
-                0x00000000000001a8       0x20 /tmp/ccUCi0zX.o
+                0x00000000000001a8       0x20 /tmp/cceYkevG.o
+ .debug_aranges
+                0x00000000000001c8       0x20 /tmp/ccmuLFNG.o
 
-.debug_ranges   0x0000000000000000      0x248
- .debug_ranges  0x0000000000000000       0x38 /tmp/ccidhOk7.o
- .debug_ranges  0x0000000000000038       0x20 /tmp/ccE8W5c6.o
- .debug_ranges  0x0000000000000058       0x20 /tmp/ccizIAj6.o
- .debug_ranges  0x0000000000000078       0x40 /tmp/cc8824Rg.o
- .debug_ranges  0x00000000000000b8      0x120 /tmp/ccyJm6Km.o
- .debug_ranges  0x00000000000001d8       0x18 /tmp/ccSzuI1O.o
- .debug_ranges  0x00000000000001f0       0x58 /tmp/ccUCi0zX.o
+.debug_ranges   0x0000000000000000      0x278
+ .debug_ranges  0x0000000000000000       0x38 /tmp/ccfPu0vH.o
+ .debug_ranges  0x0000000000000038       0x20 /tmp/ccG1ztwx.o
+ .debug_ranges  0x0000000000000058       0x20 /tmp/ccPOKpKo.o
+ .debug_ranges  0x0000000000000078       0x40 /tmp/ccOoRDxQ.o
+ .debug_ranges  0x00000000000000b8      0x120 /tmp/ccK8DJuN.o
+ .debug_ranges  0x00000000000001d8       0x30 /tmp/ccrc1EaL.o
+ .debug_ranges  0x0000000000000208       0x18 /tmp/cceYkevG.o
+ .debug_ranges  0x0000000000000220       0x58 /tmp/ccmuLFNG.o
 
-.debug_line     0x0000000000000000     0x44fd
- .debug_line    0x0000000000000000      0x791 /tmp/ccidhOk7.o
- .debug_line    0x0000000000000791      0x23f /tmp/ccE8W5c6.o
- .debug_line    0x00000000000009d0      0x764 /tmp/ccizIAj6.o
- .debug_line    0x0000000000001134      0x289 /tmp/ccPqVhQ6.o
- .debug_line    0x00000000000013bd      0x43a /tmp/ccBOsXY7.o
- .debug_line    0x00000000000017f7      0x631 /tmp/cctlJN29.o
- .debug_line    0x0000000000001e28      0x279 /tmp/ccuqgqnc.o
- .debug_line    0x00000000000020a1      0xa29 /tmp/cc8824Rg.o
- .debug_line    0x0000000000002aca      0x847 /tmp/ccyJm6Km.o
- .debug_line    0x0000000000003311      0x28d /tmp/ccTAbu3s.o
- .debug_line    0x000000000000359e      0x277 /tmp/ccqGy2Iz.o
- .debug_line    0x0000000000003815      0x362 /tmp/ccE00ASG.o
- .debug_line    0x0000000000003b77      0x71d /tmp/ccSzuI1O.o
- .debug_line    0x0000000000004294      0x269 /tmp/ccUCi0zX.o
+.debug_line     0x0000000000000000     0x490a
+ .debug_line    0x0000000000000000      0x791 /tmp/ccfPu0vH.o
+ .debug_line    0x0000000000000791      0x23f /tmp/ccG1ztwx.o
+ .debug_line    0x00000000000009d0      0x764 /tmp/ccPOKpKo.o
+ .debug_line    0x0000000000001134      0x289 /tmp/ccqRdBng.o
+ .debug_line    0x00000000000013bd      0x43a /tmp/ccwDeEC8.o
+ .debug_line    0x00000000000017f7      0x631 /tmp/ccsLVuL1.o
+ .debug_line    0x0000000000001e28      0x279 /tmp/ccgBHVaV.o
+ .debug_line    0x00000000000020a1      0xa29 /tmp/ccOoRDxQ.o
+ .debug_line    0x0000000000002aca      0x879 /tmp/ccK8DJuN.o
+ .debug_line    0x0000000000003343      0x3db /tmp/ccrc1EaL.o
+ .debug_line    0x000000000000371e      0x28d /tmp/ccV5I7eJ.o
+ .debug_line    0x00000000000039ab      0x277 /tmp/cctD9EGH.o
+ .debug_line    0x0000000000003c22      0x362 /tmp/cceHeEBG.o
+ .debug_line    0x0000000000003f84      0x71d /tmp/cceYkevG.o
+ .debug_line    0x00000000000046a1      0x269 /tmp/ccmuLFNG.o
 
-.debug_str      0x0000000000000000     0x16eb
- .debug_str     0x0000000000000000      0xce5 /tmp/ccidhOk7.o
+.debug_str      0x0000000000000000     0x17a4
+ .debug_str     0x0000000000000000      0xce0 /tmp/ccfPu0vH.o
                                         0xd90 (size before relaxing)
- .debug_str     0x0000000000000ce5       0x76 /tmp/ccE8W5c6.o
+ .debug_str     0x0000000000000ce0       0x76 /tmp/ccG1ztwx.o
                                         0xc45 (size before relaxing)
- .debug_str     0x0000000000000d5b      0x123 /tmp/ccizIAj6.o
+ .debug_str     0x0000000000000d56      0x123 /tmp/ccPOKpKo.o
                                         0xcaf (size before relaxing)
- .debug_str     0x0000000000000e7e       0xf3 /tmp/ccPqVhQ6.o
+ .debug_str     0x0000000000000e79       0xf3 /tmp/ccqRdBng.o
                                         0x389 (size before relaxing)
- .debug_str     0x0000000000000f71       0x5e /tmp/ccBOsXY7.o
+ .debug_str     0x0000000000000f6c       0x5e /tmp/ccwDeEC8.o
                                         0x544 (size before relaxing)
- .debug_str     0x0000000000000fcf      0x104 /tmp/cctlJN29.o
+ .debug_str     0x0000000000000fca      0x104 /tmp/ccsLVuL1.o
                                         0x725 (size before relaxing)
- .debug_str     0x00000000000010d3      0x12a /tmp/ccuqgqnc.o
+ .debug_str     0x00000000000010ce      0x12a /tmp/ccgBHVaV.o
                                         0x320 (size before relaxing)
- .debug_str     0x00000000000011fd      0x1e9 /tmp/cc8824Rg.o
+ .debug_str     0x00000000000011f8      0x1e9 /tmp/ccOoRDxQ.o
                                         0xe76 (size before relaxing)
- .debug_str     0x00000000000013e6       0xeb /tmp/ccyJm6Km.o
-                                        0xf9d (size before relaxing)
- .debug_str     0x00000000000014d1       0x8d /tmp/ccTAbu3s.o
+ .debug_str     0x00000000000013e1      0x122 /tmp/ccK8DJuN.o
+                                        0xfd4 (size before relaxing)
+ .debug_str     0x0000000000001503       0x8c /tmp/ccrc1EaL.o
+                                        0xcba (size before relaxing)
+ .debug_str     0x000000000000158f       0x8d /tmp/ccV5I7eJ.o
                                         0x429 (size before relaxing)
- .debug_str     0x000000000000155e       0x4c /tmp/ccqGy2Iz.o
+ .debug_str     0x000000000000161c       0x4c /tmp/cctD9EGH.o
                                         0x302 (size before relaxing)
- .debug_str     0x00000000000015aa       0x9b /tmp/ccE00ASG.o
-                                        0xd42 (size before relaxing)
- .debug_str     0x0000000000001645       0x53 /tmp/ccSzuI1O.o
+ .debug_str     0x0000000000001668       0x9b /tmp/cceHeEBG.o
+                                        0xd63 (size before relaxing)
+ .debug_str     0x0000000000001703       0x4e /tmp/cceYkevG.o
                                         0xd2d (size before relaxing)
- .debug_str     0x0000000000001698       0x53 /tmp/ccUCi0zX.o
+ .debug_str     0x0000000000001751       0x53 /tmp/ccmuLFNG.o
                                         0x26c (size before relaxing)
 
-.debug_frame    0x0000000000000000      0xa24
- .debug_frame   0x0000000000000000       0x54 /tmp/ccidhOk7.o
- .debug_frame   0x0000000000000054       0xa0 /tmp/ccE8W5c6.o
- .debug_frame   0x00000000000000f4      0x1d0 /tmp/ccizIAj6.o
- .debug_frame   0x00000000000002c4       0x58 /tmp/ccPqVhQ6.o
- .debug_frame   0x000000000000031c      0x13c /tmp/ccBOsXY7.o
- .debug_frame   0x0000000000000458      0x178 /tmp/cctlJN29.o
- .debug_frame   0x00000000000005d0       0x88 /tmp/ccuqgqnc.o
- .debug_frame   0x0000000000000658       0x68 /tmp/cc8824Rg.o
- .debug_frame   0x00000000000006c0       0x9c /tmp/ccyJm6Km.o
- .debug_frame   0x000000000000075c       0x9c /tmp/ccTAbu3s.o
- .debug_frame   0x00000000000007f8       0x60 /tmp/ccqGy2Iz.o
- .debug_frame   0x0000000000000858       0xe0 /tmp/ccE00ASG.o
- .debug_frame   0x0000000000000938       0x30 /tmp/ccSzuI1O.o
- .debug_frame   0x0000000000000968       0x7c /tmp/ccUCi0zX.o
- .debug_frame   0x00000000000009e4       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
- .debug_frame   0x0000000000000a04       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+.debug_frame    0x0000000000000000      0xa54
+ .debug_frame   0x0000000000000000       0x54 /tmp/ccfPu0vH.o
+ .debug_frame   0x0000000000000054       0xa0 /tmp/ccG1ztwx.o
+ .debug_frame   0x00000000000000f4      0x1d0 /tmp/ccPOKpKo.o
+ .debug_frame   0x00000000000002c4       0x58 /tmp/ccqRdBng.o
+ .debug_frame   0x000000000000031c      0x13c /tmp/ccwDeEC8.o
+ .debug_frame   0x0000000000000458      0x178 /tmp/ccsLVuL1.o
+ .debug_frame   0x00000000000005d0       0x88 /tmp/ccgBHVaV.o
+ .debug_frame   0x0000000000000658       0x68 /tmp/ccOoRDxQ.o
+ .debug_frame   0x00000000000006c0       0x9c /tmp/ccK8DJuN.o
+ .debug_frame   0x000000000000075c       0x30 /tmp/ccrc1EaL.o
+ .debug_frame   0x000000000000078c       0x9c /tmp/ccV5I7eJ.o
+ .debug_frame   0x0000000000000828       0x60 /tmp/cctD9EGH.o
+ .debug_frame   0x0000000000000888       0xe0 /tmp/cceHeEBG.o
+ .debug_frame   0x0000000000000968       0x30 /tmp/cceYkevG.o
+ .debug_frame   0x0000000000000998       0x7c /tmp/ccmuLFNG.o
+ .debug_frame   0x0000000000000a14       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000000000000a34       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)

@@ -1,2 +1,0 @@
-Add a timeout to the "game over" message at the end of each game so it reverts back to demo mode
-Tweak the angle of the bounce in Tennis

@@ -68,8 +68,8 @@ void Tennis(void)
     {        
         Ball.show();    
     }    
-    Console.drawLine(0,TopY, SCREEN_WIDTH, TopY,COLOUR(255,64,64));
-    Console.drawLine(0,TopY+COURT_HEIGHT, SCREEN_WIDTH, TopY+COURT_HEIGHT,COLOUR(255,64,64));
+    Console.drawLine(0,TopY-5, SCREEN_WIDTH, TopY-5,COLOUR(255,64,64));
+    Console.drawLine(0,TopY+5+COURT_HEIGHT, SCREEN_WIDTH, TopY+5+COURT_HEIGHT,COLOUR(255,64,64));
     if (!LeftSide)
     {        
         if (Console.Ibc.getPacket(4,Message) > 0)
