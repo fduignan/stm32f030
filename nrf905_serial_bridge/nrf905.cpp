@@ -57,6 +57,13 @@ int nrf905::begin(timer *pTimer, spi * SPI, uint8_t *rx_address, uint8_t *tx_add
     writeRegister(3,32);  // Set the RX Packet size 32 bytes
     writeRegister(4,32);  // Set the TX Packet size 32 bytes
     pTimer->sleep(3);
+    
+    setRXAFW(4);
+    setTXAddress(tx_address);
+    setRXAddress(rx_address);    
+    setChannel(channel); 
+    setBand(0);
+    setTXPower(3);     
     return 0;
 }
 
@@ -311,6 +318,16 @@ int nrf905::DataReady()
         return 0;
     }
 }
+void nrf905::RXMode()
+{
+    PwrHigh();
+    CEHigh();
+}
+void nrf905::LPMode()
+{
+    CELow();
+    PwrLow();
+}
 void nrf905::transmit(NRF905DataPacket *Pkt)
 {
     
@@ -318,13 +335,7 @@ void nrf905::transmit(NRF905DataPacket *Pkt)
     TXEnLow();        
     PwrHigh();
     writeRegister(4,PAYLOAD_LENGTH);  // Set the TX Packet size 32 bytes    
-    CSNLow();
-    pSPI->transferSPI((uint8_t)0b00100010);
-    pSPI->transferSPI(Pkt->Address[0]);
-    pSPI->transferSPI(Pkt->Address[1]);
-    pSPI->transferSPI(Pkt->Address[2]);
-    pSPI->transferSPI(Pkt->Address[3]);
-    CSNHigh();
+    setTXAddress(Pkt->Address);    
     CSNLow();
     pSPI->transferSPI((uint8_t)0b00100000);
     for (int i=0;i < PAYLOAD_LENGTH ; i++)
@@ -334,6 +345,7 @@ void nrf905::transmit(NRF905DataPacket *Pkt)
     TXEnHigh();
     pTimer->sleep(20);      
     TXEnLow();
-    CELow();   
+    CELow();  
+    PwrLow();
    
 }

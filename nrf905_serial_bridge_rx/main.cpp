@@ -1,4 +1,4 @@
-// RX VERSION
+// RX VERSION: This blinks an LED when a packet is received
 #include <stdint.h>
 #include "timer.h"
 #include "uart.h"
@@ -11,8 +11,8 @@ timer Timer;
 uart serial;
 spi SPI;
 nrf905 NRF905;
-uint8_t TXAddr[8];
-uint8_t RXAddr[8];
+uint8_t TXAddr[4]={0xAA,0xAA,0xAA,0x02};
+uint8_t RXAddr[4]={0xAA,0xAA,0xAA,0x01};
 
 void delay(volatile uint32_t dly)
 {
@@ -23,8 +23,11 @@ void setup()
     Timer.begin();
     serial.begin();    
     SPI.begin();    
-    NRF905.begin(&Timer,&SPI,TXAddr,RXAddr,2);
+    NRF905.begin(&Timer,&SPI,RXAddr,TXAddr,106); // 106 -> 433MHz
     enable_interrupts();
+    
+    GPIOA->MODER &= ~(1 <<1);	// Make Port A, bit 0 behave as a
+    GPIOA->MODER |= 1;	        // general purpose output
 }
 void ShowRegisters()
 {
@@ -57,27 +60,17 @@ void ShowRegisters()
 }
 int main()
 {
-    uint8_t addr[] = {0xAA,0xAA,0xAA,0x01};
+    
     uint32_t msg=0;
     uint16_t ch=0;
     setup();            
-    NRF905.setRXAddress(addr);
-    addr[3] = 2;
-    NRF905.setRXAFW(4);
-    NRF905.setTXAddress(addr);
-    NRF905.setChannel(106); // 106 -> 433MHz
-    NRF905.setBand(0);
-    NRF905.setTXPower(3);    
-    NRF905.PwrHigh();
-    NRF905.CEHigh();
-    serial.print("RX Mode\r\n");
+    NRF905.RXMode();
+    serial.print("RX Modea\r\n");
     while(1)
-    {        
-        
-        ShowRegisters();                
-        
+    {                        
         if (NRF905.DataReady())
         {
+            GPIOA->ODR |= 1;  // LED on
             uint8_t message[32];
             NRF905.readRXPayload(message,sizeof(message));
             serial.print("\r\nRX\r\n");
@@ -87,6 +80,7 @@ int main()
                 serial.print(" ");
             }
             serial.print("\r\n");
+            GPIOA->ODR &= ~1; // LED on
         }
         
         Timer.sleep(400);        

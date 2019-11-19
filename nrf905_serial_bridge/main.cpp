@@ -1,4 +1,4 @@
-// TX Version
+// TX Version.  Sends a 32 byte packet twice a second at maximum power
 #include <stdint.h>
 #include "timer.h"
 #include "uart.h"
@@ -11,8 +11,10 @@ timer Timer;
 uart serial;
 spi SPI;
 nrf905 NRF905;
-uint8_t TXAddr[8];
-uint8_t RXAddr[8];
+
+uint8_t TXAddr[4]={0xAA,0xAA,0xAA,0x01};
+uint8_t RXAddr[4]={0xAA,0xAA,0xAA,0x02};
+
 
 void delay(volatile uint32_t dly)
 {
@@ -23,7 +25,7 @@ void setup()
     Timer.begin();
     serial.begin();    
     SPI.begin();    
-    NRF905.begin(&Timer,&SPI,TXAddr,RXAddr,2);
+    NRF905.begin(&Timer,&SPI,RXAddr,TXAddr,106); // 106 -> 433MHz
     enable_interrupts();
 }
 void ShowRegisters()
@@ -65,24 +67,14 @@ int main()
     pkt.Address[0]=0xaa;
     pkt.Address[1]=0xaa;
     pkt.Address[2]=0xaa;
-    pkt.Address[3]=0x01;        
-    NRF905.setTXAddress(addr);    
-    addr[3]=2;
-    NRF905.setRXAddress(addr);
-    NRF905.setChannel(106); // 106 -> 433MHz
-    NRF905.setBand(0);
-    NRF905.setTXPower(3);
+    pkt.Address[3]=0x01;            
     for (int i=0;i<32;i++)
         pkt.Payload[i]=0;
     while(1)
-    {        
-        
-        
+    {                        
         ShowRegisters();                
         Timer.sleep(500);
         NRF905.transmit(&pkt);
-        pkt.Payload[31]++;
-        
-        
+        pkt.Payload[31]++;   // send a changing message to the receiver
     }
 }

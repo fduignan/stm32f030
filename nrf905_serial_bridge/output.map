@@ -1,7 +1,3 @@
-Archive member included to satisfy reference by file (symbol)
-
-/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memcpy-stub.o)
-                              /tmp/ccVI46s8.o (memcpy)
 
 Memory Configuration
 
@@ -12,12 +8,12 @@ ram              0x0000000020000000 0x0000000000001000
 
 Linker script and memory map
 
-LOAD /tmp/cc6n5tff.o
-LOAD /tmp/ccVI46s8.o
-LOAD /tmp/ccbmNnU2.o
-LOAD /tmp/cc9B5cIX.o
-LOAD /tmp/ccxI9QVS.o
-LOAD /tmp/ccgnhWOO.o
+LOAD /tmp/ccJ43VNb.o
+LOAD /tmp/ccya15lN.o
+LOAD /tmp/ccFdzp9p.o
+LOAD /tmp/cchggQk3.o
+LOAD /tmp/ccpGwOVG.o
+LOAD /tmp/ccZVEyel.o
 START GROUP
 LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a
 LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a
@@ -25,243 +21,234 @@ LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8
 END GROUP
                 0x0000000008000000                . = ORIGIN (flash)
 
-.text           0x0000000008000000      0xe50
+.text           0x0000000008000000      0xe48
  *(.vectors)
- .vectors       0x0000000008000000       0xb4 /tmp/cc6n5tff.o
+ .vectors       0x0000000008000000       0xb4 /tmp/ccJ43VNb.o
  *(.text)
- .text          0x00000000080000b4      0x1a4 /tmp/cc6n5tff.o
+ .text          0x00000000080000b4      0x1a4 /tmp/ccJ43VNb.o
                 0x00000000080000b4                initClock()
                 0x0000000008000158                init_array()
                 0x00000000080001c8                init()
                 0x0000000008000250                Default_Handler()
- .text          0x0000000008000258      0x134 /tmp/ccVI46s8.o
+ .text          0x0000000008000258      0x12c /tmp/ccya15lN.o
                 0x0000000008000258                delay(unsigned long)
                 0x000000000800026a                setup()
-                0x00000000080002ac                ShowRegisters()
- .text          0x000000000800038c      0x51c /tmp/ccbmNnU2.o
-                0x00000000080003a8                nrf905::CELow()
-                0x00000000080003c4                nrf905::CEHigh()
-                0x00000000080003e0                nrf905::CSNLow()
-                0x00000000080003ee                nrf905::CSNHigh()
-                0x00000000080003fc                nrf905::TXEnHigh()
-                0x0000000008000414                nrf905::TXEnLow()
-                0x000000000800042c                nrf905::PwrHigh()
-                0x0000000008000448                nrf905::PwrLow()
-                0x0000000008000464                nrf905::readRegister(int)
-                0x000000000800048c                nrf905::writeRegister(int, unsigned char)
-                0x00000000080004a8                nrf905::begin(timer*, spi*, unsigned char*, unsigned char*, unsigned long)
-                0x0000000008000564                nrf905::getStatus()
-                0x000000000800057e                nrf905::readRXAddress(unsigned char*)
-                0x00000000080005ac                nrf905::setRXAddress(unsigned char const*)
-                0x00000000080005da                nrf905::readTXAddress(unsigned char*)
-                0x000000000800061a                nrf905::setTXAddress(unsigned char const*)
-                0x0000000008000652                nrf905::setChannel(int)
-                0x0000000008000682                nrf905::setBand(int)
-                0x00000000080006ae                nrf905::setAutoRetran(int)
-                0x00000000080006da                nrf905::setTXPower(int)
-                0x00000000080006fe                nrf905::setRXLowPower(int)
-                0x0000000008000724                nrf905::setRXAFW(int)
-                0x000000000800074c                nrf905::setTXAFW(int)
-                0x0000000008000774                nrf905::writeTXPayload(unsigned char*, unsigned int)
-                0x00000000080007ac                nrf905::readTXPayload(unsigned char*, unsigned int)
-                0x00000000080007da                nrf905::readRXPayload(unsigned char*, unsigned int)
-                0x0000000008000808                nrf905::DataReady()
-                0x0000000008000814                nrf905::transmit(NRF905DataPacket*)
- .text          0x00000000080008a8       0xf8 /tmp/cc9B5cIX.o
-                0x00000000080008a8                spi::begin()
-                0x0000000008000920                spi::transferSPI(unsigned char)
-                0x0000000008000954                spi::transferSPI(unsigned short)
- .text          0x00000000080009a0       0xc0 /tmp/ccxI9QVS.o
-                0x00000000080009a0                timer::begin()
-                0x00000000080009d8                timer::attach(void (*)())
-                0x00000000080009f6                timer::detach(void (*)())
-                0x0000000008000a16                timer::sleep(unsigned long)
-                0x0000000008000a3c                Systick_Handler()
- .text          0x0000000008000a60      0x240 /tmp/ccgnhWOO.o
-                0x0000000008000a60                uart::begin()
-                0x0000000008000b04                circular_buffer::put(unsigned char)
-                0x0000000008000b38                uart::handle_rx()
-                0x0000000008000b4c                circular_buffer::get()
-                0x0000000008000b74                uart::egetc()
-                0x0000000008000bb8                uart::eputc(unsigned char)
-                0x0000000008000bc0                uart::print(char const*)
-                0x0000000008000bd8                uart::print(unsigned char)
-                0x0000000008000c0a                uart::print(unsigned short)
-                0x0000000008000c20                uart::print(unsigned long)
-                0x0000000008000c36                uart::handle_tx()
-                0x0000000008000c74                USART1_Handler()
- .text          0x0000000008000ca0        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memcpy-stub.o)
+                0x00000000080002a8                ShowRegisters()
+ .text          0x0000000008000384      0x54c /tmp/ccFdzp9p.o
+                0x00000000080003a0                nrf905::CELow()
+                0x00000000080003bc                nrf905::CEHigh()
+                0x00000000080003d8                nrf905::CSNLow()
+                0x00000000080003e6                nrf905::CSNHigh()
+                0x00000000080003f4                nrf905::TXEnHigh()
+                0x000000000800040c                nrf905::TXEnLow()
+                0x0000000008000424                nrf905::PwrHigh()
+                0x0000000008000440                nrf905::PwrLow()
+                0x000000000800045c                nrf905::readRegister(int)
+                0x0000000008000484                nrf905::writeRegister(int, unsigned char)
+                0x00000000080004a0                nrf905::getStatus()
+                0x00000000080004ba                nrf905::readRXAddress(unsigned char*)
+                0x00000000080004e8                nrf905::setRXAddress(unsigned char const*)
+                0x0000000008000516                nrf905::readTXAddress(unsigned char*)
+                0x0000000008000556                nrf905::setTXAddress(unsigned char const*)
+                0x000000000800058e                nrf905::setChannel(int)
+                0x00000000080005be                nrf905::setBand(int)
+                0x00000000080005ea                nrf905::setAutoRetran(int)
+                0x0000000008000616                nrf905::setTXPower(int)
+                0x000000000800063a                nrf905::setRXLowPower(int)
+                0x0000000008000660                nrf905::setRXAFW(int)
+                0x0000000008000688                nrf905::begin(timer*, spi*, unsigned char*, unsigned char*, unsigned long)
+                0x0000000008000774                nrf905::setTXAFW(int)
+                0x000000000800079c                nrf905::writeTXPayload(unsigned char*, unsigned int)
+                0x00000000080007d4                nrf905::readTXPayload(unsigned char*, unsigned int)
+                0x0000000008000802                nrf905::readRXPayload(unsigned char*, unsigned int)
+                0x0000000008000830                nrf905::DataReady()
+                0x000000000800083c                nrf905::RXMode()
+                0x000000000800084c                nrf905::LPMode()
+                0x000000000800085c                nrf905::transmit(NRF905DataPacket*)
+ .text          0x00000000080008d0       0xf8 /tmp/cchggQk3.o
+                0x00000000080008d0                spi::begin()
+                0x0000000008000948                spi::transferSPI(unsigned char)
+                0x000000000800097c                spi::transferSPI(unsigned short)
+ .text          0x00000000080009c8       0xc0 /tmp/ccpGwOVG.o
+                0x00000000080009c8                timer::begin()
+                0x0000000008000a00                timer::attach(void (*)())
+                0x0000000008000a1e                timer::detach(void (*)())
+                0x0000000008000a3e                timer::sleep(unsigned long)
+                0x0000000008000a64                Systick_Handler()
+ .text          0x0000000008000a88      0x240 /tmp/ccZVEyel.o
+                0x0000000008000a88                uart::begin()
+                0x0000000008000b2c                circular_buffer::put(unsigned char)
+                0x0000000008000b60                uart::handle_rx()
+                0x0000000008000b74                circular_buffer::get()
+                0x0000000008000b9c                uart::egetc()
+                0x0000000008000be0                uart::eputc(unsigned char)
+                0x0000000008000be8                uart::print(char const*)
+                0x0000000008000c00                uart::print(unsigned char)
+                0x0000000008000c32                uart::print(unsigned short)
+                0x0000000008000c48                uart::print(unsigned long)
+                0x0000000008000c5e                uart::handle_tx()
+                0x0000000008000c9c                USART1_Handler()
  *(.rodata)
- .rodata        0x0000000008000ca0        0x4 /tmp/ccVI46s8.o
  *(.comment)
- .comment       0x0000000008000ca4       0x75 /tmp/cc6n5tff.o
+ .comment       0x0000000008000cc8       0x75 /tmp/ccJ43VNb.o
                                          0x76 (size before relaxing)
- .comment       0x0000000008000d19       0x76 /tmp/ccVI46s8.o
- .comment       0x0000000008000d19       0x76 /tmp/ccbmNnU2.o
- .comment       0x0000000008000d19       0x76 /tmp/cc9B5cIX.o
- .comment       0x0000000008000d19       0x76 /tmp/ccxI9QVS.o
- .comment       0x0000000008000d19       0x76 /tmp/ccgnhWOO.o
+ .comment       0x0000000008000d3d       0x76 /tmp/ccya15lN.o
+ .comment       0x0000000008000d3d       0x76 /tmp/ccFdzp9p.o
+ .comment       0x0000000008000d3d       0x76 /tmp/cchggQk3.o
+ .comment       0x0000000008000d3d       0x76 /tmp/ccpGwOVG.o
+ .comment       0x0000000008000d3d       0x76 /tmp/ccZVEyel.o
  *(.ARM.attributes)
  .ARM.attributes
-                0x0000000008000d19       0x2c /tmp/cc6n5tff.o
+                0x0000000008000d3d       0x2c /tmp/ccJ43VNb.o
  .ARM.attributes
-                0x0000000008000d45       0x2c /tmp/ccVI46s8.o
+                0x0000000008000d69       0x2c /tmp/ccya15lN.o
  .ARM.attributes
-                0x0000000008000d71       0x2c /tmp/ccbmNnU2.o
+                0x0000000008000d95       0x2c /tmp/ccFdzp9p.o
  .ARM.attributes
-                0x0000000008000d9d       0x2c /tmp/cc9B5cIX.o
+                0x0000000008000dc1       0x2c /tmp/cchggQk3.o
  .ARM.attributes
-                0x0000000008000dc9       0x2c /tmp/ccxI9QVS.o
+                0x0000000008000ded       0x2c /tmp/ccpGwOVG.o
  .ARM.attributes
-                0x0000000008000df5       0x2c /tmp/ccgnhWOO.o
- .ARM.attributes
-                0x0000000008000e21       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memcpy-stub.o)
-                0x0000000008000e50                . = ALIGN (0x4)
- *fill*         0x0000000008000e4d        0x3 
+                0x0000000008000e19       0x2c /tmp/ccZVEyel.o
+                0x0000000008000e48                . = ALIGN (0x4)
+ *fill*         0x0000000008000e45        0x3 
 
-.glue_7         0x0000000008000e50        0x0
- .glue_7        0x0000000008000e50        0x0 linker stubs
+.glue_7         0x0000000008000e48        0x0
+ .glue_7        0x0000000008000e48        0x0 linker stubs
 
-.glue_7t        0x0000000008000e50        0x0
- .glue_7t       0x0000000008000e50        0x0 linker stubs
+.glue_7t        0x0000000008000e48        0x0
+ .glue_7t       0x0000000008000e48        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008000e50        0x0
- .vfp11_veneer  0x0000000008000e50        0x0 linker stubs
+.vfp11_veneer   0x0000000008000e48        0x0
+ .vfp11_veneer  0x0000000008000e48        0x0 linker stubs
 
-.v4_bx          0x0000000008000e50        0x0
- .v4_bx         0x0000000008000e50        0x0 linker stubs
+.v4_bx          0x0000000008000e48        0x0
+ .v4_bx         0x0000000008000e48        0x0 linker stubs
 
-.iplt           0x0000000008000e50        0x0
- .iplt          0x0000000008000e50        0x0 /tmp/cc6n5tff.o
+.iplt           0x0000000008000e48        0x0
+ .iplt          0x0000000008000e48        0x0 /tmp/ccJ43VNb.o
 
-.text.startup   0x0000000008000e50       0xa4
- .text.startup  0x0000000008000e50       0xa4 /tmp/ccVI46s8.o
-                0x0000000008000e50                main
+.text.startup   0x0000000008000e48       0x64
+ .text.startup  0x0000000008000e48       0x64 /tmp/ccya15lN.o
+                0x0000000008000e48                main
 
-.text.memcpy    0x0000000008000ef4       0xa4
- .text.memcpy   0x0000000008000ef4       0xa4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memcpy-stub.o)
-                0x0000000008000ef4                memcpy
-
-.rodata.str1.1  0x0000000008000f98       0x38
+.rodata.str1.1  0x0000000008000eac       0x38
  .rodata.str1.1
-                0x0000000008000f98       0x38 /tmp/ccVI46s8.o
+                0x0000000008000eac       0x38 /tmp/ccya15lN.o
                                          0x3d (size before relaxing)
 
-.rel.dyn        0x0000000008000fd0        0x0
- .rel.iplt      0x0000000008000fd0        0x0 /tmp/cc6n5tff.o
+.rel.dyn        0x0000000008000ee4        0x0
+ .rel.iplt      0x0000000008000ee4        0x0 /tmp/ccJ43VNb.o
                 0x0000000020000000                . = ORIGIN (ram)
 
-.data           0x0000000020000000        0x0 load address 0x0000000008000fd0
-                0x0000000008000fd0                INIT_DATA_VALUES = LOADADDR (.data)
+.data           0x0000000020000000        0x8 load address 0x0000000008000ee4
+                0x0000000008000ee4                INIT_DATA_VALUES = LOADADDR (.data)
                 0x0000000020000000                INIT_DATA_START = .
  *(.data)
- .data          0x0000000020000000        0x0 /tmp/cc6n5tff.o
- .data          0x0000000020000000        0x0 /tmp/ccVI46s8.o
- .data          0x0000000020000000        0x0 /tmp/ccbmNnU2.o
- .data          0x0000000020000000        0x0 /tmp/cc9B5cIX.o
- .data          0x0000000020000000        0x0 /tmp/ccxI9QVS.o
- .data          0x0000000020000000        0x0 /tmp/ccgnhWOO.o
- .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memcpy-stub.o)
-                0x0000000020000000                INIT_DATA_END = .
-                0x0000000020000000                . = ALIGN (0x4)
-                0x0000000020000000                BSS_START = .
+ .data          0x0000000020000000        0x0 /tmp/ccJ43VNb.o
+ .data          0x0000000020000000        0x8 /tmp/ccya15lN.o
+                0x0000000020000000                RXAddr
+                0x0000000020000004                TXAddr
+ .data          0x0000000020000008        0x0 /tmp/ccFdzp9p.o
+ .data          0x0000000020000008        0x0 /tmp/cchggQk3.o
+ .data          0x0000000020000008        0x0 /tmp/ccpGwOVG.o
+ .data          0x0000000020000008        0x0 /tmp/ccZVEyel.o
+                0x0000000020000008                INIT_DATA_END = .
+                0x0000000020000008                . = ALIGN (0x4)
+                0x0000000020000008                BSS_START = .
 
-.igot.plt       0x0000000020000000        0x0 load address 0x0000000008000fd0
- .igot.plt      0x0000000020000000        0x0 /tmp/cc6n5tff.o
+.igot.plt       0x0000000020000008        0x0 load address 0x0000000008000eec
+ .igot.plt      0x0000000020000008        0x0 /tmp/ccJ43VNb.o
 
-.init_array     0x0000000020000000        0x4 load address 0x0000000008000fd0
- .init_array    0x0000000020000000        0x4 /tmp/ccVI46s8.o
+.init_array     0x0000000020000008        0x4 load address 0x0000000008000eec
+ .init_array    0x0000000020000008        0x4 /tmp/ccya15lN.o
 
-.bss            0x0000000020000004       0xb0 load address 0x0000000008000fd4
+.bss            0x000000002000000c       0x98 load address 0x0000000008000ef0
  *(.bss)
- .bss           0x0000000020000004        0x0 /tmp/cc6n5tff.o
- .bss           0x0000000020000004       0xa4 /tmp/ccVI46s8.o
-                0x0000000020000004                Timer
-                0x0000000020000024                serial
-                0x000000002000007c                SPI
-                0x000000002000007d                TXAddr
+ .bss           0x000000002000000c        0x0 /tmp/ccJ43VNb.o
+ .bss           0x000000002000000c       0x8c /tmp/ccya15lN.o
+                0x000000002000000c                Timer
+                0x000000002000002c                serial
+                0x0000000020000084                SPI
                 0x0000000020000088                NRF905
-                0x000000002000009c                RXAddr
-                0x00000000200000a4                i
- .bss           0x00000000200000a8        0x0 /tmp/ccbmNnU2.o
- .bss           0x00000000200000a8        0x0 /tmp/cc9B5cIX.o
- .bss           0x00000000200000a8        0x8 /tmp/ccxI9QVS.o
- .bss           0x00000000200000b0        0x4 /tmp/ccgnhWOO.o
- .bss           0x00000000200000b4        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memcpy-stub.o)
-                0x00000000200000b4                . = ALIGN (0x4)
-                0x00000000200000b4                BSS_END = .
+                0x0000000020000094                i
+ .bss           0x0000000020000098        0x0 /tmp/ccFdzp9p.o
+ .bss           0x0000000020000098        0x0 /tmp/cchggQk3.o
+ .bss           0x0000000020000098        0x8 /tmp/ccpGwOVG.o
+ .bss           0x00000000200000a0        0x4 /tmp/ccZVEyel.o
+                0x00000000200000a4                . = ALIGN (0x4)
+                0x00000000200000a4                BSS_END = .
 OUTPUT(main.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x404e
- .debug_info    0x0000000000000000      0x3a6 /tmp/cc6n5tff.o
- .debug_info    0x00000000000003a6     0x1039 /tmp/ccVI46s8.o
- .debug_info    0x00000000000013df     0x1861 /tmp/ccbmNnU2.o
- .debug_info    0x0000000000002c40      0x4ad /tmp/cc9B5cIX.o
- .debug_info    0x00000000000030ed      0x333 /tmp/ccxI9QVS.o
- .debug_info    0x0000000000003420      0xc2e /tmp/ccgnhWOO.o
+.debug_info     0x0000000000000000     0x40b5
+ .debug_info    0x0000000000000000      0x3a6 /tmp/ccJ43VNb.o
+ .debug_info    0x00000000000003a6      0xf89 /tmp/ccya15lN.o
+ .debug_info    0x000000000000132f     0x1978 /tmp/ccFdzp9p.o
+ .debug_info    0x0000000000002ca7      0x4ad /tmp/cchggQk3.o
+ .debug_info    0x0000000000003154      0x333 /tmp/ccpGwOVG.o
+ .debug_info    0x0000000000003487      0xc2e /tmp/ccZVEyel.o
 
-.debug_abbrev   0x0000000000000000      0xed6
- .debug_abbrev  0x0000000000000000      0x16a /tmp/cc6n5tff.o
- .debug_abbrev  0x000000000000016a      0x345 /tmp/ccVI46s8.o
- .debug_abbrev  0x00000000000004af      0x343 /tmp/ccbmNnU2.o
- .debug_abbrev  0x00000000000007f2      0x1d0 /tmp/cc9B5cIX.o
- .debug_abbrev  0x00000000000009c2      0x1c0 /tmp/ccxI9QVS.o
- .debug_abbrev  0x0000000000000b82      0x354 /tmp/ccgnhWOO.o
+.debug_abbrev   0x0000000000000000      0xec1
+ .debug_abbrev  0x0000000000000000      0x16a /tmp/ccJ43VNb.o
+ .debug_abbrev  0x000000000000016a      0x32e /tmp/ccya15lN.o
+ .debug_abbrev  0x0000000000000498      0x345 /tmp/ccFdzp9p.o
+ .debug_abbrev  0x00000000000007dd      0x1d0 /tmp/cchggQk3.o
+ .debug_abbrev  0x00000000000009ad      0x1c0 /tmp/ccpGwOVG.o
+ .debug_abbrev  0x0000000000000b6d      0x354 /tmp/ccZVEyel.o
 
-.debug_loc      0x0000000000000000     0x1768
- .debug_loc     0x0000000000000000      0x1f6 /tmp/cc6n5tff.o
- .debug_loc     0x00000000000001f6      0x1a5 /tmp/ccVI46s8.o
- .debug_loc     0x000000000000039b      0xcf2 /tmp/ccbmNnU2.o
- .debug_loc     0x000000000000108d       0xea /tmp/cc9B5cIX.o
- .debug_loc     0x0000000000001177      0x172 /tmp/ccxI9QVS.o
- .debug_loc     0x00000000000012e9      0x47f /tmp/ccgnhWOO.o
+.debug_loc      0x0000000000000000     0x1800
+ .debug_loc     0x0000000000000000      0x1f6 /tmp/ccJ43VNb.o
+ .debug_loc     0x00000000000001f6      0x1cc /tmp/ccya15lN.o
+ .debug_loc     0x00000000000003c2      0xd63 /tmp/ccFdzp9p.o
+ .debug_loc     0x0000000000001125       0xea /tmp/cchggQk3.o
+ .debug_loc     0x000000000000120f      0x172 /tmp/ccpGwOVG.o
+ .debug_loc     0x0000000000001381      0x47f /tmp/ccZVEyel.o
 
 .debug_aranges  0x0000000000000000       0xd0
  .debug_aranges
-                0x0000000000000000       0x20 /tmp/cc6n5tff.o
+                0x0000000000000000       0x20 /tmp/ccJ43VNb.o
  .debug_aranges
-                0x0000000000000020       0x30 /tmp/ccVI46s8.o
+                0x0000000000000020       0x30 /tmp/ccya15lN.o
  .debug_aranges
-                0x0000000000000050       0x20 /tmp/ccbmNnU2.o
+                0x0000000000000050       0x20 /tmp/ccFdzp9p.o
  .debug_aranges
-                0x0000000000000070       0x20 /tmp/cc9B5cIX.o
+                0x0000000000000070       0x20 /tmp/cchggQk3.o
  .debug_aranges
-                0x0000000000000090       0x20 /tmp/ccxI9QVS.o
+                0x0000000000000090       0x20 /tmp/ccpGwOVG.o
  .debug_aranges
-                0x00000000000000b0       0x20 /tmp/ccgnhWOO.o
+                0x00000000000000b0       0x20 /tmp/ccZVEyel.o
 
-.debug_line     0x0000000000000000     0x178c
- .debug_line    0x0000000000000000      0x279 /tmp/cc6n5tff.o
- .debug_line    0x0000000000000279      0x3d6 /tmp/ccVI46s8.o
- .debug_line    0x000000000000064f      0x7c3 /tmp/ccbmNnU2.o
- .debug_line    0x0000000000000e12      0x270 /tmp/cc9B5cIX.o
- .debug_line    0x0000000000001082      0x274 /tmp/ccxI9QVS.o
- .debug_line    0x00000000000012f6      0x496 /tmp/ccgnhWOO.o
+.debug_line     0x0000000000000000     0x1779
+ .debug_line    0x0000000000000000      0x279 /tmp/ccJ43VNb.o
+ .debug_line    0x0000000000000279      0x38c /tmp/ccya15lN.o
+ .debug_line    0x0000000000000605      0x7fa /tmp/ccFdzp9p.o
+ .debug_line    0x0000000000000dff      0x270 /tmp/cchggQk3.o
+ .debug_line    0x000000000000106f      0x274 /tmp/ccpGwOVG.o
+ .debug_line    0x00000000000012e3      0x496 /tmp/ccZVEyel.o
 
-.debug_str      0x0000000000000000      0xcd1
- .debug_str     0x0000000000000000      0x2c3 /tmp/cc6n5tff.o
+.debug_str      0x0000000000000000      0xcf6
+ .debug_str     0x0000000000000000      0x2c3 /tmp/ccJ43VNb.o
                                         0x324 (size before relaxing)
- .debug_str     0x00000000000002c3      0x800 /tmp/ccVI46s8.o
-                                        0x9e7 (size before relaxing)
- .debug_str     0x0000000000000ac3       0xa1 /tmp/ccbmNnU2.o
-                                        0x7f7 (size before relaxing)
- .debug_str     0x0000000000000b64       0x5b /tmp/cc9B5cIX.o
+ .debug_str     0x00000000000002c3      0x825 /tmp/ccya15lN.o
+                                        0x9fc (size before relaxing)
+ .debug_str     0x0000000000000ae8       0xa1 /tmp/ccFdzp9p.o
+                                        0x824 (size before relaxing)
+ .debug_str     0x0000000000000b89       0x5b /tmp/cchggQk3.o
                                         0x315 (size before relaxing)
- .debug_str     0x0000000000000bbf       0x4c /tmp/ccxI9QVS.o
+ .debug_str     0x0000000000000be4       0x4c /tmp/ccpGwOVG.o
                                         0x270 (size before relaxing)
- .debug_str     0x0000000000000c0b       0xc6 /tmp/ccgnhWOO.o
+ .debug_str     0x0000000000000c30       0xc6 /tmp/ccZVEyel.o
                                         0x50e (size before relaxing)
 
 .debug_frame    0x0000000000000000      0x664
- .debug_frame   0x0000000000000000       0x88 /tmp/cc6n5tff.o
- .debug_frame   0x0000000000000088       0x94 /tmp/ccVI46s8.o
- .debug_frame   0x000000000000011c      0x300 /tmp/ccbmNnU2.o
- .debug_frame   0x000000000000041c       0x54 /tmp/cc9B5cIX.o
- .debug_frame   0x0000000000000470       0x7c /tmp/ccxI9QVS.o
- .debug_frame   0x00000000000004ec      0x144 /tmp/ccgnhWOO.o
- .debug_frame   0x0000000000000630       0x34 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000000000000000       0x88 /tmp/ccJ43VNb.o
+ .debug_frame   0x0000000000000088       0x94 /tmp/ccya15lN.o
+ .debug_frame   0x000000000000011c      0x334 /tmp/ccFdzp9p.o
+ .debug_frame   0x0000000000000450       0x54 /tmp/cchggQk3.o
+ .debug_frame   0x00000000000004a4       0x7c /tmp/ccpGwOVG.o
+ .debug_frame   0x0000000000000520      0x144 /tmp/ccZVEyel.o
 
 .debug_ranges   0x0000000000000000      0x120
- .debug_ranges  0x0000000000000000       0x80 /tmp/ccVI46s8.o
- .debug_ranges  0x0000000000000080       0x58 /tmp/ccxI9QVS.o
- .debug_ranges  0x00000000000000d8       0x48 /tmp/ccgnhWOO.o
+ .debug_ranges  0x0000000000000000       0x80 /tmp/ccya15lN.o
+ .debug_ranges  0x0000000000000080       0x58 /tmp/ccpGwOVG.o
+ .debug_ranges  0x00000000000000d8       0x48 /tmp/ccZVEyel.o

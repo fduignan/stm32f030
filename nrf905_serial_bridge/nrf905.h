@@ -34,19 +34,22 @@ public:
     void writeRegister(int RegNum, uint8_t contents);
     uint8_t readRegister(int RegNum);     
     void transmit(NRF905DataPacket *Pkt);
-    void PwrHigh();
-//private:    
+    void RXMode();
+    void LPMode();
+private:    
     spi *pSPI;
     timer *pTimer;
-    uint8_t Status;
-    uint8_t Register[10];
+    uint8_t Status;    
     void TXEnHigh();
-    void TXEnLow();
-    void CELow();
-    void CEHigh();
+    void TXEnLow();    
     void CSNLow();
     void CSNHigh();
-    
+    void CELow();
+    void CEHigh();
+    void PwrHigh();
     void PwrLow();    
+
+    
+
 };
 #endif
