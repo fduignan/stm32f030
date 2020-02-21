@@ -23,7 +23,7 @@ void initSPI(void)
 	// Now configure the SPI interface
 	drain = SPI1->SR;				// dummy read of SR to clear MODF	
 	// enable SSM, set SSI, enable SPI, PCLK/2, LSB First Master, Clock = 1 when idle
-	SPI1->CR1 = (1 << 9)+(1 << 8)+(1 << 6)+(1 << 2)+(1 << 1) + (1 << 5) + (1 << 15) + ( 1<< 14);	 // update : set bit 5 to slow down the clock for debugging + bit 15 for bidimode + bit14 for tx mode
+	SPI1->CR1 = (1 << 9)+(1 << 8)+(1 << 6)+(1 << 2)+(1 << 1) + (1 << 15) + ( 1<< 14);	 // update : set bit 5 to slow down the clock for debugging + bit 15 for bidimode + bit14 for tx mode
 	SPI1->CR2 = (1 << 10)+(1 << 9)+(1 << 8); 	// configure for 8 bit operation
    
     for (drain_count = 0; drain_count < 32; drain_count++)
