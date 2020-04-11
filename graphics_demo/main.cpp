@@ -35,11 +35,17 @@ void initADC()
 
 int main()
 {        
+    uint8_t IDData[4];
     int Count=0;
     setup();
     Console.begin();       
     
 
+    while(0)
+    {
+         Console.Display.readDisplayID(IDData);
+         Console.Timer.sleep(2);
+    }
     while (1) 
     {
         // Draw some random rectangles
