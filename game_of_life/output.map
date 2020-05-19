@@ -1,0 +1,266 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                              /tmp/ccVxYDUj.o (__aeabi_uidiv)
+/usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                              /tmp/ccVxYDUj.o (__aeabi_idiv)
+/usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                              /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+/usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memset.o)
+                              /tmp/ccsyv05h.o (memset)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+flash            0x0000000008000000 0x0000000000004000
+ram              0x0000000020000000 0x0000000000001000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /tmp/ccVxYDUj.o
+LOAD /tmp/ccXHKrzk.o
+LOAD /tmp/cc9ugvsh.o
+LOAD /tmp/ccsyv05h.o
+START GROUP
+LOAD /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a
+LOAD /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a
+LOAD /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a
+END GROUP
+                0x0000000008000000                . = ORIGIN (flash)
+
+.text           0x0000000008000000     0x2744
+ *(.vectors)
+ .vectors       0x0000000008000000       0xb4 /tmp/ccXHKrzk.o
+ *(.text)
+ .text          0x00000000080000b4     0x1828 /tmp/ccVxYDUj.o
+                0x00000000080000b4                display::getPixel(unsigned short, unsigned short)
+                0x0000000008000174                display::drawLineLowSlope(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000368                display::drawLineHighSlope(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000560                display::drawLine(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x00000000080005bc                display::drawRectangle(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000674                display::fillCircle(unsigned short, unsigned short, unsigned short, unsigned short)
+                0x00000000080007a8                display::print(char const*, unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000cdc                display::print(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000d7c                HexChar(char)
+                0x0000000008000d8c                display::printHex(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008000e10                display::resetDisplay()
+                0x0000000008000e5c                display::writeCommand(unsigned char)
+                0x0000000008000e70                display::writeCommand(unsigned short)
+                0x0000000008000e9c                display::writeData(unsigned char)
+                0x0000000008000eb0                display::writeData(unsigned short)
+                0x0000000008000edc                delay(int)
+                0x0000000008000ef0                display::readData()
+                0x0000000008000f38                display::writeCommandData(unsigned short, unsigned short)
+                0x0000000008000f7c                display::openAperture(unsigned short, unsigned short, unsigned short, unsigned short)
+                0x00000000080010d0                display::putPixel(unsigned short, unsigned short, unsigned short)
+                0x0000000008001110                display::putImage(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short const*)
+                0x00000000080011b4                display::fillRectangle(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008001240                display::begin(timer&)
+                0x0000000008001488                display::drawCircle(unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0000000008001730                display::readXTouch()
+                0x00000000080017d0                display::readYTouch()
+                0x0000000008001874                display::RGBToWord(unsigned short)
+                0x0000000008001890                display::WordToRGB(unsigned short)
+                0x0000000008001898                display::encodePixelMetaData(unsigned short, unsigned short)
+                0x00000000080018bc                display::decodePixelMetaData(unsigned short)
+ .text          0x00000000080018dc      0x1a4 /tmp/ccXHKrzk.o
+                0x00000000080018dc                initClock()
+                0x0000000008001980                init_array()
+                0x00000000080019f0                init()
+                0x0000000008001a78                Default_Handler()
+ .text          0x0000000008001a80      0x514 /tmp/cc9ugvsh.o
+                0x0000000008001a80                initADC()
+                0x0000000008001ac0                getAnalogueNoise()
+                0x0000000008001af8                prbs()
+                0x0000000008001b20                random_seed()
+                0x0000000008001b84                random(unsigned long, unsigned long)
+                0x0000000008001bbc                setup()
+                0x0000000008001c74                testRoutine()
+                0x0000000008001df0                wrap(unsigned short, unsigned short)
+                0x0000000008001e04                getChildColour(unsigned short*)
+ .text          0x0000000008001f94      0x134 /tmp/ccsyv05h.o
+                0x0000000008001f94                timer::begin()
+                0x0000000008001fc8                timer::attach(void (*)())
+                0x0000000008002028                timer::detach(void (*)())
+                0x0000000008002088                timer::sleep(unsigned long)
+                0x000000000800209c                Systick_Handler()
+ .text          0x00000000080020c8      0x114 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                0x00000000080020c8                __udivsi3
+                0x00000000080020c8                __aeabi_uidiv
+                0x00000000080021d4                __aeabi_uidivmod
+ .text          0x00000000080021dc      0x1d4 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                0x00000000080021dc                __aeabi_idiv
+                0x00000000080021dc                __divsi3
+                0x00000000080023a8                __aeabi_idivmod
+ .text          0x00000000080023b0        0x4 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x00000000080023b0                __aeabi_ldiv0
+                0x00000000080023b0                __aeabi_idiv0
+ .text          0x00000000080023b4        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memset.o)
+                0x00000000080023b4                . = ALIGN (0x4)
+                0x00000000080023b4                PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                0x00000000080023b4                PROVIDE (__preinit_array_end = .)
+                0x00000000080023b4                . = ALIGN (0x4)
+                0x00000000080023b4                PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array)
+                0x00000000080023b4                PROVIDE (__init_array_end = .)
+                0x00000000080023b4                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array)
+                [!provide]                        PROVIDE (__fini_array_end = .)
+ *(.rodata)
+ .rodata        0x00000000080023b4      0x1e0 /tmp/ccVxYDUj.o
+ *(.comment)
+ .comment       0x0000000008002594       0x79 /tmp/ccVxYDUj.o
+                                         0x7a (size before relaxing)
+ .comment       0x000000000800260d       0x7a /tmp/ccXHKrzk.o
+ .comment       0x000000000800260d       0x7a /tmp/cc9ugvsh.o
+ .comment       0x000000000800260d       0x7a /tmp/ccsyv05h.o
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x000000000800260d       0x2c /tmp/ccVxYDUj.o
+ .ARM.attributes
+                0x0000000008002639       0x2c /tmp/ccXHKrzk.o
+ .ARM.attributes
+                0x0000000008002665       0x2c /tmp/cc9ugvsh.o
+ .ARM.attributes
+                0x0000000008002691       0x2c /tmp/ccsyv05h.o
+ .ARM.attributes
+                0x00000000080026bd       0x1e /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x00000000080026db       0x1e /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x00000000080026f9       0x1e /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x0000000008002717       0x2c /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memset.o)
+                0x0000000008002744                . = ALIGN (0x4)
+ *fill*         0x0000000008002743        0x1 
+
+.rodata.str1.4  0x0000000008002744       0x61
+ .rodata.str1.4
+                0x0000000008002744       0x61 /tmp/cc9ugvsh.o
+
+.glue_7         0x00000000080027a8        0x0
+ .glue_7        0x00000000080027a8        0x0 linker stubs
+
+.glue_7t        0x00000000080027a8        0x0
+ .glue_7t       0x00000000080027a8        0x0 linker stubs
+
+.vfp11_veneer   0x00000000080027a8        0x0
+ .vfp11_veneer  0x00000000080027a8        0x0 linker stubs
+
+.v4_bx          0x00000000080027a8        0x0
+ .v4_bx         0x00000000080027a8        0x0 linker stubs
+
+.iplt           0x00000000080027a8        0x0
+ .iplt          0x00000000080027a8        0x0 /tmp/ccVxYDUj.o
+
+.text.startup   0x00000000080027a8      0x7d4
+ .text.startup  0x00000000080027a8      0x7d4 /tmp/cc9ugvsh.o
+                0x00000000080027a8                main
+
+.text.memset    0x0000000008002f7c       0xa8
+ .text.memset   0x0000000008002f7c       0xa8 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memset.o)
+                0x0000000008002f7c                memset
+
+.rel.dyn        0x0000000008003024        0x0
+ .rel.iplt      0x0000000008003024        0x0 /tmp/ccVxYDUj.o
+                0x0000000020000000                . = ORIGIN (ram)
+
+.data           0x0000000020000000        0x0 load address 0x0000000008003024
+                0x0000000008003024                INIT_DATA_VALUES = LOADADDR (.data)
+                0x0000000020000000                INIT_DATA_START = .
+ *(.data)
+ .data          0x0000000020000000        0x0 /tmp/ccVxYDUj.o
+ .data          0x0000000020000000        0x0 /tmp/ccXHKrzk.o
+ .data          0x0000000020000000        0x0 /tmp/cc9ugvsh.o
+ .data          0x0000000020000000        0x0 /tmp/ccsyv05h.o
+ .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memset.o)
+                0x0000000020000000                INIT_DATA_END = .
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                BSS_START = .
+
+.igot.plt       0x0000000020000000        0x0 load address 0x0000000008003024
+ .igot.plt      0x0000000020000000        0x0 /tmp/ccVxYDUj.o
+
+.bss            0x0000000020000000       0x34 load address 0x0000000008003024
+ *(.bss)
+ .bss           0x0000000020000000        0x0 /tmp/ccVxYDUj.o
+ .bss           0x0000000020000000        0x0 /tmp/ccXHKrzk.o
+ .bss           0x0000000020000000       0x2d /tmp/cc9ugvsh.o
+                0x0000000020000004                shift_register
+                0x0000000020000008                Timer
+                0x000000002000002c                Display
+ *fill*         0x000000002000002d        0x3 
+ .bss           0x0000000020000030        0x4 /tmp/ccsyv05h.o
+ .bss           0x0000000020000034        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .bss           0x0000000020000034        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .bss           0x0000000020000034        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .bss           0x0000000020000034        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memset.o)
+                0x0000000020000034                . = ALIGN (0x4)
+                0x0000000020000034                BSS_END = .
+OUTPUT(main.elf elf32-littlearm)
+
+.debug_info     0x0000000000000000     0xd3d4
+ .debug_info    0x0000000000000000     0xad30 /tmp/ccVxYDUj.o
+ .debug_info    0x000000000000ad30      0x3a6 /tmp/ccXHKrzk.o
+ .debug_info    0x000000000000b0d6     0x1fab /tmp/cc9ugvsh.o
+ .debug_info    0x000000000000d081      0x353 /tmp/ccsyv05h.o
+
+.debug_abbrev   0x0000000000000000      0xc93
+ .debug_abbrev  0x0000000000000000      0x4e7 /tmp/ccVxYDUj.o
+ .debug_abbrev  0x00000000000004e7      0x16a /tmp/ccXHKrzk.o
+ .debug_abbrev  0x0000000000000651      0x469 /tmp/cc9ugvsh.o
+ .debug_abbrev  0x0000000000000aba      0x1d9 /tmp/ccsyv05h.o
+
+.debug_loc      0x0000000000000000     0xb068
+ .debug_loc     0x0000000000000000     0x924d /tmp/ccVxYDUj.o
+ .debug_loc     0x000000000000924d      0x1f6 /tmp/ccXHKrzk.o
+ .debug_loc     0x0000000000009443     0x195e /tmp/cc9ugvsh.o
+ .debug_loc     0x000000000000ada1      0x2c7 /tmp/ccsyv05h.o
+
+.debug_aranges  0x0000000000000000       0x88
+ .debug_aranges
+                0x0000000000000000       0x20 /tmp/ccVxYDUj.o
+ .debug_aranges
+                0x0000000000000020       0x20 /tmp/ccXHKrzk.o
+ .debug_aranges
+                0x0000000000000040       0x28 /tmp/cc9ugvsh.o
+ .debug_aranges
+                0x0000000000000068       0x20 /tmp/ccsyv05h.o
+
+.debug_ranges   0x0000000000000000     0x6cd0
+ .debug_ranges  0x0000000000000000     0x69b8 /tmp/ccVxYDUj.o
+ .debug_ranges  0x00000000000069b8      0x2d0 /tmp/cc9ugvsh.o
+ .debug_ranges  0x0000000000006c88       0x48 /tmp/ccsyv05h.o
+
+.debug_line     0x0000000000000000     0x7133
+ .debug_line    0x0000000000000000     0x5b3a /tmp/ccVxYDUj.o
+ .debug_line    0x0000000000005b3a      0x285 /tmp/ccXHKrzk.o
+ .debug_line    0x0000000000005dbf     0x10d0 /tmp/cc9ugvsh.o
+ .debug_line    0x0000000000006e8f      0x2a4 /tmp/ccsyv05h.o
+
+.debug_str      0x0000000000000000      0xcd4
+ .debug_str     0x0000000000000000      0x956 /tmp/ccVxYDUj.o
+                                        0x9fa (size before relaxing)
+ .debug_str     0x0000000000000956      0x130 /tmp/ccXHKrzk.o
+                                        0x320 (size before relaxing)
+ .debug_str     0x0000000000000a86      0x1f7 /tmp/cc9ugvsh.o
+                                        0xb15 (size before relaxing)
+ .debug_str     0x0000000000000c7d       0x57 /tmp/ccsyv05h.o
+                                        0x284 (size before relaxing)
+
+.debug_frame    0x0000000000000000      0x644
+ .debug_frame   0x0000000000000000      0x3ac /tmp/ccVxYDUj.o
+ .debug_frame   0x00000000000003ac       0x88 /tmp/ccXHKrzk.o
+ .debug_frame   0x0000000000000434      0x12c /tmp/cc9ugvsh.o
+ .debug_frame   0x0000000000000560       0x74 /tmp/ccsyv05h.o
+ .debug_frame   0x00000000000005d4       0x20 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000000000005f4       0x20 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .debug_frame   0x0000000000000614       0x30 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memset.o)
