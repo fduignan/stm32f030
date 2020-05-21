@@ -305,7 +305,7 @@ This game will render in two passes.  On the first pass, the next state of each 
 During pass 2 all pixel colours are set to their new pixel values
 */
 
-start:
+
     // Test shape to check that all is well
     /*Display.putPixel(10,200,Display.RGBToWord(0b110));
     Display.putPixel(10,201,Display.RGBToWord(0b110));

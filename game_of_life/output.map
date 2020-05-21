@@ -1,13 +1,13 @@
 Archive member included to satisfy reference by file (symbol)
 
 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
-                              /tmp/ccVxYDUj.o (__aeabi_uidiv)
+                              /tmp/ccecx4Cg.o (__aeabi_uidiv)
 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
-                              /tmp/ccVxYDUj.o (__aeabi_idiv)
+                              /tmp/ccecx4Cg.o (__aeabi_idiv)
 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
                               /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memset.o)
-                              /tmp/ccsyv05h.o (memset)
+                              /tmp/ccLYp57h.o (memset)
 
 Memory Configuration
 
@@ -18,10 +18,10 @@ ram              0x0000000020000000 0x0000000000001000
 
 Linker script and memory map
 
-LOAD /tmp/ccVxYDUj.o
-LOAD /tmp/ccXHKrzk.o
-LOAD /tmp/cc9ugvsh.o
-LOAD /tmp/ccsyv05h.o
+LOAD /tmp/ccecx4Cg.o
+LOAD /tmp/ccuiC20h.o
+LOAD /tmp/ccgkk17e.o
+LOAD /tmp/ccLYp57h.o
 START GROUP
 LOAD /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a
 LOAD /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a
@@ -31,9 +31,9 @@ END GROUP
 
 .text           0x0000000008000000     0x2744
  *(.vectors)
- .vectors       0x0000000008000000       0xb4 /tmp/ccXHKrzk.o
+ .vectors       0x0000000008000000       0xb4 /tmp/ccuiC20h.o
  *(.text)
- .text          0x00000000080000b4     0x1828 /tmp/ccVxYDUj.o
+ .text          0x00000000080000b4     0x1828 /tmp/ccecx4Cg.o
                 0x00000000080000b4                display::getPixel(unsigned short, unsigned short)
                 0x0000000008000174                display::drawLineLowSlope(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
                 0x0000000008000368                display::drawLineHighSlope(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
@@ -64,12 +64,12 @@ END GROUP
                 0x0000000008001890                display::WordToRGB(unsigned short)
                 0x0000000008001898                display::encodePixelMetaData(unsigned short, unsigned short)
                 0x00000000080018bc                display::decodePixelMetaData(unsigned short)
- .text          0x00000000080018dc      0x1a4 /tmp/ccXHKrzk.o
+ .text          0x00000000080018dc      0x1a4 /tmp/ccuiC20h.o
                 0x00000000080018dc                initClock()
                 0x0000000008001980                init_array()
                 0x00000000080019f0                init()
                 0x0000000008001a78                Default_Handler()
- .text          0x0000000008001a80      0x514 /tmp/cc9ugvsh.o
+ .text          0x0000000008001a80      0x514 /tmp/ccgkk17e.o
                 0x0000000008001a80                initADC()
                 0x0000000008001ac0                getAnalogueNoise()
                 0x0000000008001af8                prbs()
@@ -79,7 +79,7 @@ END GROUP
                 0x0000000008001c74                testRoutine()
                 0x0000000008001df0                wrap(unsigned short, unsigned short)
                 0x0000000008001e04                getChildColour(unsigned short*)
- .text          0x0000000008001f94      0x134 /tmp/ccsyv05h.o
+ .text          0x0000000008001f94      0x134 /tmp/ccLYp57h.o
                 0x0000000008001f94                timer::begin()
                 0x0000000008001fc8                timer::attach(void (*)())
                 0x0000000008002028                timer::detach(void (*)())
@@ -112,22 +112,22 @@ END GROUP
  *(.fini_array)
                 [!provide]                        PROVIDE (__fini_array_end = .)
  *(.rodata)
- .rodata        0x00000000080023b4      0x1e0 /tmp/ccVxYDUj.o
+ .rodata        0x00000000080023b4      0x1e0 /tmp/ccecx4Cg.o
  *(.comment)
- .comment       0x0000000008002594       0x79 /tmp/ccVxYDUj.o
+ .comment       0x0000000008002594       0x79 /tmp/ccecx4Cg.o
                                          0x7a (size before relaxing)
- .comment       0x000000000800260d       0x7a /tmp/ccXHKrzk.o
- .comment       0x000000000800260d       0x7a /tmp/cc9ugvsh.o
- .comment       0x000000000800260d       0x7a /tmp/ccsyv05h.o
+ .comment       0x000000000800260d       0x7a /tmp/ccuiC20h.o
+ .comment       0x000000000800260d       0x7a /tmp/ccgkk17e.o
+ .comment       0x000000000800260d       0x7a /tmp/ccLYp57h.o
  *(.ARM.attributes)
  .ARM.attributes
-                0x000000000800260d       0x2c /tmp/ccVxYDUj.o
+                0x000000000800260d       0x2c /tmp/ccecx4Cg.o
  .ARM.attributes
-                0x0000000008002639       0x2c /tmp/ccXHKrzk.o
+                0x0000000008002639       0x2c /tmp/ccuiC20h.o
  .ARM.attributes
-                0x0000000008002665       0x2c /tmp/cc9ugvsh.o
+                0x0000000008002665       0x2c /tmp/ccgkk17e.o
  .ARM.attributes
-                0x0000000008002691       0x2c /tmp/ccsyv05h.o
+                0x0000000008002691       0x2c /tmp/ccLYp57h.o
  .ARM.attributes
                 0x00000000080026bd       0x1e /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .ARM.attributes
@@ -141,7 +141,7 @@ END GROUP
 
 .rodata.str1.4  0x0000000008002744       0x61
  .rodata.str1.4
-                0x0000000008002744       0x61 /tmp/cc9ugvsh.o
+                0x0000000008002744       0x61 /tmp/ccgkk17e.o
 
 .glue_7         0x00000000080027a8        0x0
  .glue_7        0x00000000080027a8        0x0 linker stubs
@@ -156,10 +156,10 @@ END GROUP
  .v4_bx         0x00000000080027a8        0x0 linker stubs
 
 .iplt           0x00000000080027a8        0x0
- .iplt          0x00000000080027a8        0x0 /tmp/ccVxYDUj.o
+ .iplt          0x00000000080027a8        0x0 /tmp/ccecx4Cg.o
 
 .text.startup   0x00000000080027a8      0x7d4
- .text.startup  0x00000000080027a8      0x7d4 /tmp/cc9ugvsh.o
+ .text.startup  0x00000000080027a8      0x7d4 /tmp/ccgkk17e.o
                 0x00000000080027a8                main
 
 .text.memset    0x0000000008002f7c       0xa8
@@ -167,17 +167,17 @@ END GROUP
                 0x0000000008002f7c                memset
 
 .rel.dyn        0x0000000008003024        0x0
- .rel.iplt      0x0000000008003024        0x0 /tmp/ccVxYDUj.o
+ .rel.iplt      0x0000000008003024        0x0 /tmp/ccecx4Cg.o
                 0x0000000020000000                . = ORIGIN (ram)
 
 .data           0x0000000020000000        0x0 load address 0x0000000008003024
                 0x0000000008003024                INIT_DATA_VALUES = LOADADDR (.data)
                 0x0000000020000000                INIT_DATA_START = .
  *(.data)
- .data          0x0000000020000000        0x0 /tmp/ccVxYDUj.o
- .data          0x0000000020000000        0x0 /tmp/ccXHKrzk.o
- .data          0x0000000020000000        0x0 /tmp/cc9ugvsh.o
- .data          0x0000000020000000        0x0 /tmp/ccsyv05h.o
+ .data          0x0000000020000000        0x0 /tmp/ccecx4Cg.o
+ .data          0x0000000020000000        0x0 /tmp/ccuiC20h.o
+ .data          0x0000000020000000        0x0 /tmp/ccgkk17e.o
+ .data          0x0000000020000000        0x0 /tmp/ccLYp57h.o
  .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
  .data          0x0000000020000000        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
@@ -187,18 +187,18 @@ END GROUP
                 0x0000000020000000                BSS_START = .
 
 .igot.plt       0x0000000020000000        0x0 load address 0x0000000008003024
- .igot.plt      0x0000000020000000        0x0 /tmp/ccVxYDUj.o
+ .igot.plt      0x0000000020000000        0x0 /tmp/ccecx4Cg.o
 
 .bss            0x0000000020000000       0x34 load address 0x0000000008003024
  *(.bss)
- .bss           0x0000000020000000        0x0 /tmp/ccVxYDUj.o
- .bss           0x0000000020000000        0x0 /tmp/ccXHKrzk.o
- .bss           0x0000000020000000       0x2d /tmp/cc9ugvsh.o
+ .bss           0x0000000020000000        0x0 /tmp/ccecx4Cg.o
+ .bss           0x0000000020000000        0x0 /tmp/ccuiC20h.o
+ .bss           0x0000000020000000       0x2d /tmp/ccgkk17e.o
                 0x0000000020000004                shift_register
                 0x0000000020000008                Timer
                 0x000000002000002c                Display
  *fill*         0x000000002000002d        0x3 
- .bss           0x0000000020000030        0x4 /tmp/ccsyv05h.o
+ .bss           0x0000000020000030        0x4 /tmp/ccLYp57h.o
  .bss           0x0000000020000034        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .bss           0x0000000020000034        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
  .bss           0x0000000020000034        0x0 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
@@ -207,60 +207,60 @@ END GROUP
                 0x0000000020000034                BSS_END = .
 OUTPUT(main.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0xd3d4
- .debug_info    0x0000000000000000     0xad30 /tmp/ccVxYDUj.o
- .debug_info    0x000000000000ad30      0x3a6 /tmp/ccXHKrzk.o
- .debug_info    0x000000000000b0d6     0x1fab /tmp/cc9ugvsh.o
- .debug_info    0x000000000000d081      0x353 /tmp/ccsyv05h.o
+.debug_info     0x0000000000000000     0xd3c7
+ .debug_info    0x0000000000000000     0xad30 /tmp/ccecx4Cg.o
+ .debug_info    0x000000000000ad30      0x3a6 /tmp/ccuiC20h.o
+ .debug_info    0x000000000000b0d6     0x1f9e /tmp/ccgkk17e.o
+ .debug_info    0x000000000000d074      0x353 /tmp/ccLYp57h.o
 
-.debug_abbrev   0x0000000000000000      0xc93
- .debug_abbrev  0x0000000000000000      0x4e7 /tmp/ccVxYDUj.o
- .debug_abbrev  0x00000000000004e7      0x16a /tmp/ccXHKrzk.o
- .debug_abbrev  0x0000000000000651      0x469 /tmp/cc9ugvsh.o
- .debug_abbrev  0x0000000000000aba      0x1d9 /tmp/ccsyv05h.o
+.debug_abbrev   0x0000000000000000      0xc84
+ .debug_abbrev  0x0000000000000000      0x4e7 /tmp/ccecx4Cg.o
+ .debug_abbrev  0x00000000000004e7      0x16a /tmp/ccuiC20h.o
+ .debug_abbrev  0x0000000000000651      0x45a /tmp/ccgkk17e.o
+ .debug_abbrev  0x0000000000000aab      0x1d9 /tmp/ccLYp57h.o
 
 .debug_loc      0x0000000000000000     0xb068
- .debug_loc     0x0000000000000000     0x924d /tmp/ccVxYDUj.o
- .debug_loc     0x000000000000924d      0x1f6 /tmp/ccXHKrzk.o
- .debug_loc     0x0000000000009443     0x195e /tmp/cc9ugvsh.o
- .debug_loc     0x000000000000ada1      0x2c7 /tmp/ccsyv05h.o
+ .debug_loc     0x0000000000000000     0x924d /tmp/ccecx4Cg.o
+ .debug_loc     0x000000000000924d      0x1f6 /tmp/ccuiC20h.o
+ .debug_loc     0x0000000000009443     0x195e /tmp/ccgkk17e.o
+ .debug_loc     0x000000000000ada1      0x2c7 /tmp/ccLYp57h.o
 
 .debug_aranges  0x0000000000000000       0x88
  .debug_aranges
-                0x0000000000000000       0x20 /tmp/ccVxYDUj.o
+                0x0000000000000000       0x20 /tmp/ccecx4Cg.o
  .debug_aranges
-                0x0000000000000020       0x20 /tmp/ccXHKrzk.o
+                0x0000000000000020       0x20 /tmp/ccuiC20h.o
  .debug_aranges
-                0x0000000000000040       0x28 /tmp/cc9ugvsh.o
+                0x0000000000000040       0x28 /tmp/ccgkk17e.o
  .debug_aranges
-                0x0000000000000068       0x20 /tmp/ccsyv05h.o
+                0x0000000000000068       0x20 /tmp/ccLYp57h.o
 
 .debug_ranges   0x0000000000000000     0x6cd0
- .debug_ranges  0x0000000000000000     0x69b8 /tmp/ccVxYDUj.o
- .debug_ranges  0x00000000000069b8      0x2d0 /tmp/cc9ugvsh.o
- .debug_ranges  0x0000000000006c88       0x48 /tmp/ccsyv05h.o
+ .debug_ranges  0x0000000000000000     0x69b8 /tmp/ccecx4Cg.o
+ .debug_ranges  0x00000000000069b8      0x2d0 /tmp/ccgkk17e.o
+ .debug_ranges  0x0000000000006c88       0x48 /tmp/ccLYp57h.o
 
-.debug_line     0x0000000000000000     0x7133
- .debug_line    0x0000000000000000     0x5b3a /tmp/ccVxYDUj.o
- .debug_line    0x0000000000005b3a      0x285 /tmp/ccXHKrzk.o
- .debug_line    0x0000000000005dbf     0x10d0 /tmp/cc9ugvsh.o
- .debug_line    0x0000000000006e8f      0x2a4 /tmp/ccsyv05h.o
+.debug_line     0x0000000000000000     0x7136
+ .debug_line    0x0000000000000000     0x5b3a /tmp/ccecx4Cg.o
+ .debug_line    0x0000000000005b3a      0x285 /tmp/ccuiC20h.o
+ .debug_line    0x0000000000005dbf     0x10d3 /tmp/ccgkk17e.o
+ .debug_line    0x0000000000006e92      0x2a4 /tmp/ccLYp57h.o
 
-.debug_str      0x0000000000000000      0xcd4
- .debug_str     0x0000000000000000      0x956 /tmp/ccVxYDUj.o
-                                        0x9fa (size before relaxing)
- .debug_str     0x0000000000000956      0x130 /tmp/ccXHKrzk.o
-                                        0x320 (size before relaxing)
- .debug_str     0x0000000000000a86      0x1f7 /tmp/cc9ugvsh.o
-                                        0xb15 (size before relaxing)
- .debug_str     0x0000000000000c7d       0x57 /tmp/ccsyv05h.o
-                                        0x284 (size before relaxing)
+.debug_str      0x0000000000000000      0xce3
+ .debug_str     0x0000000000000000      0x965 /tmp/ccecx4Cg.o
+                                        0xa09 (size before relaxing)
+ .debug_str     0x0000000000000965      0x130 /tmp/ccuiC20h.o
+                                        0x32f (size before relaxing)
+ .debug_str     0x0000000000000a95      0x1f7 /tmp/ccgkk17e.o
+                                        0xb1e (size before relaxing)
+ .debug_str     0x0000000000000c8c       0x57 /tmp/ccLYp57h.o
+                                        0x293 (size before relaxing)
 
 .debug_frame    0x0000000000000000      0x644
- .debug_frame   0x0000000000000000      0x3ac /tmp/ccVxYDUj.o
- .debug_frame   0x00000000000003ac       0x88 /tmp/ccXHKrzk.o
- .debug_frame   0x0000000000000434      0x12c /tmp/cc9ugvsh.o
- .debug_frame   0x0000000000000560       0x74 /tmp/ccsyv05h.o
+ .debug_frame   0x0000000000000000      0x3ac /tmp/ccecx4Cg.o
+ .debug_frame   0x00000000000003ac       0x88 /tmp/ccuiC20h.o
+ .debug_frame   0x0000000000000434      0x12c /tmp/ccgkk17e.o
+ .debug_frame   0x0000000000000560       0x74 /tmp/ccLYp57h.o
  .debug_frame   0x00000000000005d4       0x20 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .debug_frame   0x00000000000005f4       0x20 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
  .debug_frame   0x0000000000000614       0x30 /usr/local/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memset.o)
